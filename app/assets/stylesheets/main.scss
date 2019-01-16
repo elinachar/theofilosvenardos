@@ -1,0 +1,87 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+}
+
+html, body {
+  height: 100%; /* for the sticky footer */
+  font-family: 'Raleway', sans-serif;
+}
+
+
+// Navbar
+.navbar-nav {
+  height: 100px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  font-size: 15px;
+  font-weight: 300;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.navbar-light .nav-item.active .nav-link,
+.navbar-light .nav-item:focus .nav-link,
+.navbar-light .nav-item:hover .nav-link {
+  color: black;
+}
+
+.navbar-light .navbar-nav .dropdown-menu {
+  background-color: #f8f9fa;
+  border: none;
+  font-size: 15px;
+  font-weight: 300;
+
+  .dropdown-item {
+    color: rgba(0,0,0,.5);
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+
+  .dropdown-item:hover {
+    color: black;
+  }
+}
+
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) { ... }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  //Navbar
+  .navbar-light .navbar-nav .nav-link {
+    margin-top: 30px;
+  }
+  //Hide arrow on dropdown menu
+  .dropdown-toggle::after {
+      display:none;
+  }
+
+  //Show dropdown when hovering
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
+  .navbar-light .navbar-nav .dropdown-menu {
+    margin-top: -30px;
+  }
+
+  //Links hovering effect
+  .navbar-light .nav-item.active .nav-link,
+  .navbar-light .nav-item:focus .nav-link,
+  .navbar-light .nav-item:hover .nav-link {
+    border-bottom: 1px solid black;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+// @media (min-width: 992px) { ... }
+
+// Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) { ... }
