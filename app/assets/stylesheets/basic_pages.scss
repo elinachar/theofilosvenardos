@@ -88,7 +88,7 @@
   .faq-intro {
     padding-left: 0px;
   }
-  
+
   .card-header {
     height: 90px;
 
@@ -96,18 +96,10 @@
       font-size: 1rem;
       padding-right: 0;
     }
-  } }
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-
-  .contact h1 {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, 20%);
-  }
+  } 
 }
+
+
 
 // Extra small devices (portrait phones, less than 576px)
 // @media (max-width: 575px) { ... }

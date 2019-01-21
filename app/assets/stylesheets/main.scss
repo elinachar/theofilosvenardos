@@ -69,6 +69,41 @@ html, body {
   margin-top: 20px;
 }
 
+.anchor {
+  min-height: 100%; /* for the sticky footer */
+  margin-bottom: -3em; /* for the sticky footer */
+ }
+
+.anchor:after {
+ content: ""; /* for the sticky footer */
+ display: block; /* for the sticky footer */
+}
+
+
+/* Footer **/
+
+footer, .anchor:after {
+ height: 60px;
+ padding-top: 20px;
+}
+
+footer {
+  background-color: #f8f9fa;;
+  color: #777;
+  font-size: 14px;
+  font-weight: 300;
+  border-top: 1px solid rgba(153,149,127,0.3);
+}
+
+footer .social-media a {
+  color:  #777;
+  margin: 0 8px;
+}
+
+footer .copyright p {
+  text-align: right;
+}
+
 // Extra small devices (portrait phones, less than 576px)
 // No media query since this is the default in Bootstrap
 
@@ -103,8 +138,41 @@ html, body {
   }
 }
 
-// Large devices (desktops, 992px and up)
-// @media (min-width: 992px) { ... }
+// Media Queries
 
-// Extra large devices (large desktops, 1200px and up)
-// @media (min-width: 1200px) { ... }
+// Extra small devices (portrait phones, less than 576px)
+// @media (max-width: 575px) { ... }
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767px) {
+  footer, .anchor:after {
+   height: 130px;
+   padding-top: 20px;
+  }
+
+  footer .social-media {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  footer .copyright p {
+    text-align: center;
+  }
+}
+
+
+
+// Extra small devices (portrait phones, less than 576px)
+// @media (max-width: 575px) { ... }
+
+// Small devices (landscape phones, less than 768px)
+// @media (max-width: 767px) { ... }
+
+// Medium devices (tablets, less than 992px)
+// @media (max-width: 991px) { ... }
+
+// Large devices (desktops, less than 1200px)
+// @media (max-width: 1199px) { ... }
+
+// Extra large devices (large desktops)
+// No media query since the extra-large breakpoint has no upper bound on its width

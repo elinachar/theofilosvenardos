@@ -53,10 +53,30 @@
     <!-- navbar ends here -->
 
     <!-- main body starts here -->
-    <%= yield %>
+    <div class="anchor">
+      <%= yield %>
+    </div>
     <!-- main body ends here -->
 
     <!-- footer starts here -->
+    <footer>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4 social-media">
+            <%= link_to "<i class='fab fa-facebook-f fa-sm'></i>".html_safe, "http://www.facebook.com",  target: "_blank" %>
+            <%= link_to "<i class='fab fa-instagram fa-sm'></i>".html_safe, "http://www.instagram.com",  target: "_blank" %>
+            <%= link_to "<i class='fas fa-envelope fa-sm'></i>".html_safe, basic_pages_contact_path %>
+          </div>
+          <div class="col-md-4 logo text-center">
+            <p>Theofilos Venardos</p>
+          </div>
+          <div class="col-md-4 copyright text-center">
+            <p>&copy; <%= Date.today.year %> Theofilos Venardos</p>
+          </div>
+        </div>
+
+      </div> <!-- end container-fluid -->
+    </footer>
     <!-- footer ends here -->
   </body>
 </html>
