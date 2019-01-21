@@ -1,3 +1,125 @@
 // Place all the styles related to the basic_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// About Page
+.about-img {
+  width: 80%;
+  opacity: 0.9;
+}
+
+.about-info p:first-of-type {
+  font-style: italic;
+  margin-bottom: 25px;
+}
+
+// FAQ Page
+.faq,
+.card,
+.card-header,
+.card-body {
+  background-color: rgba(237,232,228, 1);
+}
+
+.faq h1 {
+  font-size: 1.6rem;
+  padding: 20px 0;
+}
+
+.faq-intro {
+  padding-left: 20px;
+}
+
+.card {
+  border: none;
+  border-top: 1px solid rgba(153,149,127,0.3);
+
+  .btn {
+    white-space: normal;
+  }
+}
+
+.card-header {
+  cursor: pointer;
+  height: 70px;
+  border-color: rgba(132,132,132, 0);
+  text-align: left;
+
+  h5 {
+    font-size: 1.1rem;
+    padding-top: 4px;
+    font-weight: 600;
+  }
+}
+
+#camera .fa-camera {
+  color: #99957f;
+}
+
+#flash {
+  color: #d1b419;
+  font-size:13px;
+  display: none;
+}
+
+.card-body {
+  border-top: 1px solid rgba(153,149,127,0.3);
+}
+
+
+// Contact Page
+.contact-img {
+  opacity: 0.9;
+  filter: alpha(opacity=90); /* For IE8 and earlier */
+}
+
+.contact h1 {
+  text-align: center;
+}
+
+
+// Media Queries
+
+// Extra small devices (portrait phones, less than 576px)
+// @media (max-width: 575px) { ... }
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767px) {
+  .faq-intro {
+    padding-left: 0px;
+  }
+  
+  .card-header {
+    height: 90px;
+
+    h5 {
+      font-size: 1rem;
+      padding-right: 0;
+    }
+  } }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+
+  .contact h1 {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+  }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+// @media (max-width: 575px) { ... }
+
+// Small devices (landscape phones, less than 768px)
+// @media (max-width: 767px) { ... }
+
+// Medium devices (tablets, less than 992px)
+// @media (max-width: 991px) { ... }
+
+// Large devices (desktops, less than 1200px)
+// @media (max-width: 1199px) { ... }
+
+// Extra large devices (large desktops)
+// No media query since the extra-large breakpoint has no upper bound on its width

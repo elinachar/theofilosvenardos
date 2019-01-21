@@ -9,6 +9,25 @@ html, body {
   font-family: 'Raleway', sans-serif;
 }
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/** Bootstrap  buttons **/
+
+/* no border is shown when focus or active */
+.btn:focus,
+.btn:focus:active {
+  outline: none;
+  box-shadow: none;
+}
+
 
 // Navbar
 .navbar-nav {
@@ -45,6 +64,10 @@ html, body {
   }
 }
 
+// Main main
+.container {
+  margin-top: 20px;
+}
 
 // Extra small devices (portrait phones, less than 576px)
 // No media query since this is the default in Bootstrap
