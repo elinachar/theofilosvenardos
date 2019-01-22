@@ -1,4 +1,16 @@
 $(document).on('turbolinks:load', function() {
+  //Navbar
+  //Toggle dropdown arrow when navbar collapsed
+  $("#navbarDropdown").click(function(){
+    var collapsedNavbar = $(".navbar-toggler").is(":visible");
+    if (collapsedNavbar) {
+      if (  $( "#navbarDropdown i" ).css( "transform" ) == 'none' ){
+        $("#navbarDropdown i").css("transform","rotate(-180deg)");
+      } else {
+        $("#navbarDropdown i").css("transform","" );
+      };
+    };
+  });
 
   // FAQ Page
   // Create the faq cards based on faq.js

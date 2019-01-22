@@ -30,10 +30,6 @@ html, body {
 
 
 // Navbar
-.navbar-nav {
-  height: 100px;
-}
-
 .navbar-light .navbar-nav .nav-link {
   font-size: 15px;
   font-weight: 300;
@@ -62,6 +58,19 @@ html, body {
   .dropdown-item:hover {
     color: black;
   }
+}
+
+#navbarDropdown i {
+  display: none;
+  float: right;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  transition-property: transform;
 }
 
 // Main main
@@ -113,16 +122,28 @@ footer .copyright p {
 
 // Small devices (landscape phones, 576px and up)
 // @media (min-width: 576px) { ... }
+// Small devices (landscape phones, 767px and down)
+@media (max-width: 767px) {
+  //Navbar
+  #navbarDropdown i {
+    display: inline-block;
+  }
+  
+  .dropdown-item {
+    padding-left: 32px;
+  }
+
+ }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   //Navbar
-  .navbar-light .navbar-nav .nav-link {
-    margin-top: 30px;
+  .navbar-nav {
+    height: 80px;
   }
-  //Hide arrow on dropdown menu
-  .dropdown-toggle::after {
-      display:none;
+
+  .navbar-light .navbar-nav .nav-link {
+    margin-top: 20px;
   }
 
   //Show dropdown when hovering
@@ -135,11 +156,30 @@ footer .copyright p {
   }
 
   //Links hovering effect
-  .navbar-light .nav-item.active .nav-link,
-  .navbar-light .nav-item:focus .nav-link,
-  .navbar-light .nav-item:hover .nav-link {
-    border-bottom: 1px solid black;
+  .navbar-light .nav-item .nav-link:after {
+      content: ""; /* This is necessary for the pseudo element to work. */
+      display: block; /* This will put the pseudo element on its own line. */
+      margin: 0 auto; /* This will center the border. */
+      width: 0%; /* Change this to whatever width you want. */
+      padding-top: 7px; /* This creates some space between the element and the border. */
+      border-bottom: 1px solid black; /* This creates the border. Replace black with whatever color you want. */
+      -webkit-transition: width 1s; /* For Safari 3.1 to 6.0 */
+      transition: width 1s;
   }
+
+  .navbar-light .nav-item .navbar-brand:after {
+    display: none;
+  }
+
+  .navbar-light .nav-item:hover .nav-link:after {
+    width: 100%;
+  }
+
+  .navbar-light .nav-item.active .nav-link:after {
+    width: 100%;
+  }
+
+
 }
 
 // Media Queries
