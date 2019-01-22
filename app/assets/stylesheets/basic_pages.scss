@@ -1,6 +1,10 @@
 // Place all the styles related to the basic_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.faq h1,
+.contact h1 {
+  font-size: 1.6rem;
+}
 
 // About Page
 .about-img {
@@ -14,16 +18,17 @@
 }
 
 // FAQ Page
+.faq h1 {
+  padding: 20px 0;
+}
+
 .faq,
 .card,
 .card-header,
 .card-body {
   background-color: rgba(237,232,228, 1);
-}
-
-.faq h1 {
-  font-size: 1.6rem;
-  padding: 20px 0;
+  background-color: rgba(244,241,238, 1);
+  background-color: #eae9e5;;
 }
 
 .faq-intro {
@@ -48,7 +53,7 @@
   h5 {
     font-size: 1.1rem;
     padding-top: 4px;
-    font-weight: 600;
+    font-weight: 500;
   }
 }
 
@@ -73,10 +78,56 @@
   filter: alpha(opacity=90); /* For IE8 and earlier */
 }
 
-.contact h1 {
-  text-align: center;
+.contact-text p:first-child {
+  margin-bottom: 10px;
+  margin-top: 20px;
 }
 
+address {
+  margin: 40px 0;
+
+ h2 {
+  font-size: 20px;
+  margin-bottom: 16px;
+  }
+
+  i {
+  color: #99957f;
+  padding-right: 10px;
+  }
+}
+
+.form-contact {
+  max-width: 720px;
+  margin: auto;
+  padding-top: 10px;
+  margin-bottom: 20px;
+}
+
+.form-contact,
+.form-control {
+  background-color: rgba(237,232,228, 1);
+  background-color: #e0dfd8;
+  background-color: #eae9e5;
+}
+.form-control  {
+  border-style: none;
+  border-bottom: 1px solid #ced4da;
+  border-radius: 0px;
+}
+
+.form-control:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: #99957f;
+  background-color: rgba(237,232,228, 1);
+}
+
+.btn-submit .btn {
+  // background-color: #99957f;
+  background-color: rgba(153,149,127, 0.8);
+  margin-bottom: 15px;
+}
 
 // Media Queries
 
@@ -85,6 +136,11 @@
 
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767px) {
+  .about img {
+    width: 50%;
+    margin-bottom: 20px;
+  }
+
   .faq-intro {
     padding-left: 0px;
   }
@@ -96,9 +152,17 @@
       font-size: 1rem;
       padding-right: 0;
     }
-  } 
+  }
 }
 
+// Medium devices (tablets, less than 992px) and Large devices (desktops, less than 1200px)
+// @media (max-width: 991px) { ... }
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .about img {
+    margin-top: 15px;
+  }
+}
 
 
 // Extra small devices (portrait phones, less than 576px)

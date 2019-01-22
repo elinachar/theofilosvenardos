@@ -1,4 +1,45 @@
-<div class="contact container-fluid">
+<div class="container contact text-center">
+  <h1>Get in touch</h1>
   <%= image_tag( "site0003.JPG" , class: "img-fluid contact-img", alt: "index image") %>
-   <h1>Get in touch</dh1>
-</div>
+  <div class="contact-text">
+    <p>For bookings and any inquiries please contact me.</p>
+    <p>I would be glad to here from you.</p>
+  </div>
+  <address>
+    <h2>Theofilos Venardos</h2>
+    <p><i class="fa fa-mobile-phone fa-lg"></i>+30 697 6769195</p>
+    <p><i class="fa fa-envelope fa-sm"></i><a href="mailto:elinachar@gmail.com">info@theofilosvenardos.com</a></p>
+    <p><i class="fa fa-map-marker fa-lg"></i>Athens, Greece</p>
+  </address>
+
+  <!-- <p>Or please fill out this quick form.<p> -->
+
+  <%= form_with(url:"/basic_pages/thank_you", method: "post", local: true) do |form| %>
+    <div class="row form-contact">
+      <div class="form-group col-md-6">
+        <%= form.label :name, class: "sr-only" %>
+        <%= form.text_field :name, class: "form-control text-center", placeholder: "Your name", required: true %>
+      </div>
+
+      <div class="form-group col-md-6">
+        <%= form.label :email, class: "sr-only" %>
+        <%= form.text_field :email, class: "form-control text-center", placeholder: "Your e-mail", required: true %>
+      </div>
+
+      <!-- <div class="form-group">
+        <%= form.label :phone, class: "sr-only" %>
+        <%= form.telephone_field :phone, class: "form-control", placeholder: "Phone" %>
+      </div> -->
+
+      <div class="form-group col-12">
+        <%= form.label :message, class: "sr-only"  %>
+        <%= form.text_area :message, class: "form-control text-center", placeholder: "Your message", rows: 5, required: true %>
+      </div>
+
+      <div class="btn-submit col-12">
+        <%= form.submit "Submit", class: "btn btn-default" %>
+      </div>
+    </div>
+  <% end %>
+
+</div> <!-- end container -->
