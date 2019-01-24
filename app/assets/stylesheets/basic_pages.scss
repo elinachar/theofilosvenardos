@@ -106,18 +106,18 @@ address {
 }
 
 .form-contact,
-.form-control {
+.form-contact .form-control {
   background-color: rgba(237,232,228, 1);
   background-color: #e0dfd8;
   background-color: #eae9e5;
 }
-.form-control  {
+.form-contact .form-control  {
   border-style: none;
   border-bottom: 1px solid #ced4da;
   border-radius: 0px;
 }
 
-.form-control:focus {
+.form-contact .form-control:focus {
   outline: none;
   box-shadow: none;
   border-color: #99957f;

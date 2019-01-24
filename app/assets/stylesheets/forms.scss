@@ -1,0 +1,30 @@
+// Place all the styles related to the basic_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container.form {
+  background-color: rgba(237,232,228, 1);
+  padding-top: 20px;
+  margin-bottom: 20px;
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .field {
+    margin: 20px 0;
+  }
+}
+
+.wedding-album-translations .nested-fields {
+  border: 1px dashed grey;
+  border-width: 0.5px;
+  padding: 10px;
+  margin: 20px 0;
+
+  .flag {
+    width: 20px;
+    opacity: 0.8;
+    float: right;
+  }
+}

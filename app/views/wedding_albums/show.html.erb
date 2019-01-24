@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Photo url:</strong>
+  <%= @wedding_album.photo_url %>
+</p>
+
+<p>
+  <strong>Wedding on:</strong>
+  <%= @wedding_album.wedding_on %>
+</p>
+
+<%= link_to 'Edit', edit_wedding_album_path(@wedding_album) %> |
+<%= link_to 'Back', wedding_albums_path %>

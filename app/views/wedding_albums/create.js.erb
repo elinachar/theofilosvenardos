@@ -1,0 +1,8 @@
+$(function() {
+  var mediaDropzone;
+  photoDropzone = new Dropzone("#photo-dropzone");
+  return photoDropzone.on("success", function(file, responseText) {
+    var photoUrl;
+    photoUrl = responseText.photo_url.url;
+  });
+});

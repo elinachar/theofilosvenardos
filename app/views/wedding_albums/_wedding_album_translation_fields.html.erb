@@ -1,0 +1,22 @@
+<div class="nested-fields">
+
+  <%= f.hidden_field :language_id %>
+
+    <% if f.object.language_id == 1 %>
+      <%= f.label :title , "Album title" %>
+      <%= image_tag( "en.png" , class: "img-fluid flag", alt: "american flag") %>
+    <% else %>
+      <%= f.label :title, "Τίτλος άλμπουμ"  %>
+      <%= image_tag( "gr.png" , class: "img-fluid flag", alt: "greek flag") %>
+    <% end %>
+    <%= f.text_field :title,  class: 'form-control' %><br \>
+
+    <% if f.object.language_id == 1 %>
+      <%= f.label :description %>
+    <% else %>
+      <%= f.label :description, "Περιγραφή"  %>
+    <% end %>
+    <%= f.text_area :description,  class: 'form-control' %>
+
+
+</div>

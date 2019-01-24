@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :wedding_albums
+  resources :photo_contents, only: [:create]
   root 'basic_pages#index'
   get 'basic_pages/index'
   get 'basic_pages/about'

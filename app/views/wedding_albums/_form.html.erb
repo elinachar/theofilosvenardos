@@ -1,0 +1,44 @@
+<%= form_for @wedding_album do |f| %>
+  <% if wedding_album.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(wedding_album.errors.count, "error") %> prohibited this wedding_album from being saved:</h2>
+
+      <ul>
+      <% wedding_album.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="wedding-album-translations">
+    <%= f.fields_for :wedding_album_translations do |wedding_album_translation| %>
+      <%= render 'wedding_album_translation_fields', f: wedding_album_translation %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :photo_url, "Cover photo" %>
+    <%= f.text_field :photo_url, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :wedding_on %>
+    <%= f.date_select :wedding_on,  class: 'form-control' %>
+  </div>
+
+  <div class="wedding-photos">
+    <p>Wedding Photos</p>
+    <%= f.fields_for :wedding_photos do |wedding_photo| %>
+      <%= render 'wedding_photo_fields', f: wedding_photo %>
+    <% end %>
+  </div>
+
+  <div class="links">
+    <%= link_to_add_association 'Add Photo', f, :wedding_photos, class: "btn btn-default", data: { association_insertion_node: ".wedding-photos", association_insertion_method: :append } %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module WeddingAlbumsHelper
+end

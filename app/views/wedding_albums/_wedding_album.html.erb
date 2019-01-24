@@ -1,0 +1,18 @@
+<%# if wedding_album.weddinname and recipe.image_url %>
+  <div class="col-xs-12 col-sm-6">
+    <%= link_to wedding_album, :action => 'go' do %>
+      <div class="wedding-album-card">
+        <div class="wedding-album-img">
+          <%= image_tag( wedding_album.photo_url , class: "img-fluid", alt: wedding_album.wedding_album_translations.title) %>
+        </div>
+        <p><%= wedding_album.wedding_album_translations.title %></p>
+        <%# if signed_in? && (current_user.admin? || current_user.author?) %>
+          <div class ="wedding-album-links-index">
+            <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_wedding_album_path(wedding_album) %>
+            <%= link_to '<i class="fa fa-trash-o" ></i>'.html_safe, wedding_album, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div> <!-- end wedding-album-links-index -->
+        <%# end %>
+      </div> <!-- end wedding-album-card -->
+    <% end %>
+  </div>
+<%# end %>

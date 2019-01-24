@@ -1,0 +1,17 @@
+<div class="nested-fields">
+
+  <%= form_tag '/photo_contents', method: :post, class: "dropzone", id: "photo-dropzone" do %>
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+    <div class="fallback">
+      <%= file_field_tag "photo", multiple: true%>
+    </div>
+  <% end %>
+
+
+  <%= f.label :photo_url %>
+  <%= f.text_field :photo_url %>
+
+  <%= f.check_box :_destroy %>
+
+  <%= link_to_remove_association "remove photo", f, class: "btn btn-default" %>
+</div>
