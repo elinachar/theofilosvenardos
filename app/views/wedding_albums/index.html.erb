@@ -1,36 +1,13 @@
 <p id="notice"><%= notice %></p>
-<div class="container">
-  <h1>Wedding Albums</h1>
+<div class="container wedding-albums">
+  <h1 class="text-center">WEDDING PORTFOLIO</h1>
 
-  <%= render @wedding_albums %>
+  <div class="row">
+    <%= render @wedding_albums %>
+  </div>
 
+  <div class="row">
+    <%= link_to 'New Wedding Album', new_wedding_album_path, class: "btn col-12" %>
+  </div>
 
-
-
-  <table>
-    <thead>
-      <tr>
-        <th>Photo url</th>
-        <th>Wedding on</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @wedding_albums.each do |wedding_album| %>
-        <tr>
-          <td><%= wedding_album.photo_url %></td>
-          <td><%= wedding_album.wedding_on %></td>
-          <td><%= link_to 'Show', wedding_album %></td>
-          <td><%= link_to 'Edit', edit_wedding_album_path(wedding_album) %></td>
-          <td><%= link_to 'Destroy', wedding_album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <br>
-  <%# if signed_in? && (current_user.admin? || current_user.author?) %>
-  <%= link_to 'New Wedding Album', new_wedding_album_path, class: "btn btn-default" %>
-  <%# end %>
 </div>

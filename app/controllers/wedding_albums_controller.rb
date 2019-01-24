@@ -4,12 +4,9 @@ class WeddingAlbumsController < ApplicationController
   # GET /wedding_albums
   # GET /wedding_albums.json
   def index
-    # @wedding_albums = WeddingAlbum.all
     language_id = 1
-    wedding_album_ids =  WeddingAlbumTranslation.where(language_id: 1).pluck(:wedding_album_id)
-    @wedding_albums = WeddingAlbum.find(wedding_album_ids)
-    byebug
-    
+    @wedding_albums =  WeddingAlbum.includes(:wedding_album_translations).where(wedding_album_translations: { language_id: language_id })
+    # byebug
   end
 
   # GET /wedding_albums/1
@@ -22,6 +19,7 @@ class WeddingAlbumsController < ApplicationController
     @wedding_album = WeddingAlbum.new
     @en = @wedding_album.wedding_album_translations.build(language_id: 1)
     @gr = @wedding_album.wedding_album_translations.build(language_id: 2)
+    3.times { @wedding_album.wedding_photos.build}
   end
 
   # GET /wedding_albums/1/edit
@@ -37,7 +35,7 @@ class WeddingAlbumsController < ApplicationController
       if @wedding_album.save
         format.html { redirect_to @wedding_album, notice: 'Wedding album was successfully created.' }
         # format.json { render :show, status: :created, location: @wedding_album }
-        format.json{ render :json => @photo }
+        format.json{ render :json => @wedding_album }
         format.js
       else
         format.html { render :new }
@@ -78,8 +76,8 @@ class WeddingAlbumsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wedding_album_params
-      params.require(:wedding_album).permit(:photo_url, :wedding_on,
+      params.require(:wedding_album).permit(:photo, :wedding_on,
         wedding_album_translations_attributes: [:id, :language_id, :title, :description, :_destroy],
-        wedding_photos_attributes: [:id, :photo_url, :_destroy])
+        wedding_photos_attributes: [:id, :photo, :_destroy])
     end
 end

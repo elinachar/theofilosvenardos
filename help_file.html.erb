@@ -1,0 +1,36 @@
+
+  <table>
+    <thead>
+      <tr>
+        <th>Photo url</th>
+        <th>Wedding on</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @wedding_albums.each do |wedding_album| %>
+        <tr>
+          <td><%= wedding_album.photo_url %></td>
+          <td><%= wedding_album.wedding_on %></td>
+          <td><%= link_to 'Show', wedding_album %></td>
+          <td><%= link_to 'Edit', edit_wedding_album_path(wedding_album) %></td>
+          <td><%= link_to 'Destroy', wedding_album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+  <%# if signed_in? && (current_user.admin? || current_user.author?) %>
+  <%= link_to 'New Wedding Album', new_wedding_album_path, class: "btn btn-default" %>
+  <%# end %>
+</div>
+
+
+<!-- <%= form_for @wedding_album, html: {multipart: true, class: "dropzone", id: "mydropzone"} do |f| %>
+  <div class="fallback">
+    <%= f.file_field :photo %>
+    <%= f.submit "Upload the Image" %>
+  </div>
+<% end %> -->

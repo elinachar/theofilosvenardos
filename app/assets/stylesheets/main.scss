@@ -1,5 +1,11 @@
 * { box-sizing: border-box; }
 
+/** Define colors of the page **/
+:root {
+  --grey: #495057;
+  --somon:rgba(237,232,228, 1);
+}
+
 body {
   margin: 0;
 }
@@ -7,6 +13,11 @@ body {
 html, body {
   height: 100%; /* for the sticky footer */
   font-family: 'Raleway', sans-serif;
+}
+
+.font-gr {
+  font-family: 'Open Sans', sans-serif;
+  // font-family: 'Didact Gothic', sans-serif;
 }
 
 .center {

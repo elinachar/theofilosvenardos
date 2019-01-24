@@ -1,14 +1,20 @@
 <p id="notice"><%= notice %></p>
+<div class="container wedding-album">
+  <%= link_to 'Edit album', edit_wedding_album_path(@wedding_album), class: "btn" %>
 
-<p>
-  <strong>Photo url:</strong>
-  <%= @wedding_album.photo_url %>
-</p>
+  <div class="header">
+    <%= image_tag( @wedding_album.photo.url.to_s , class: "img-fluid", alt: "wedding_album.wedding_album_translations.first.title") %>
+  </div>
+  <p>
+    <strong>Photo url:</strong>
+    <%= @wedding_album.photo_url %>
+  </p>
 
-<p>
-  <strong>Wedding on:</strong>
-  <%= @wedding_album.wedding_on %>
-</p>
+  <p>
+    <strong>Wedding on:</strong>
+    <%= @wedding_album.wedding_on %>
+  </p>
 
-<%= link_to 'Edit', edit_wedding_album_path(@wedding_album) %> |
-<%= link_to 'Back', wedding_albums_path %>
+
+  <!-- <%= link_to 'Back', wedding_albums_path %> -->
+</div>

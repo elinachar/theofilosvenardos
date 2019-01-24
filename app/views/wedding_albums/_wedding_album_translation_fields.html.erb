@@ -5,18 +5,19 @@
     <% if f.object.language_id == 1 %>
       <%= f.label :title , "Album title" %>
       <%= image_tag( "en.png" , class: "img-fluid flag", alt: "american flag") %>
+      <%= f.text_field :title,  class: 'form-control' %><br \>
     <% else %>
-      <%= f.label :title, "Τίτλος άλμπουμ"  %>
+      <%= f.label :title, "Τίτλος άλμπουμ", class: "font-gr"  %>
       <%= image_tag( "gr.png" , class: "img-fluid flag", alt: "greek flag") %>
+      <%= f.text_field :title,  class: 'form-control font-gr' %><br \>
     <% end %>
-    <%= f.text_field :title,  class: 'form-control' %><br \>
 
     <% if f.object.language_id == 1 %>
       <%= f.label :description %>
+      <%= f.text_area :description,  class: 'form-control' %>
     <% else %>
-      <%= f.label :description, "Περιγραφή"  %>
+      <%= f.label :description, "Περιγραφή", class: "font-gr"  %>
+      <%= f.text_area :description,  class: 'form-control font-gr' %>
     <% end %>
-    <%= f.text_area :description,  class: 'form-control' %>
-
 
 </div>

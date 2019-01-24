@@ -14,17 +14,51 @@
   .field {
     margin: 20px 0;
   }
+
+  .cover-photo-edit {
+    // height: 100px;
+  }
+
+  .btn {
+    background-color: white;
+    margin: 10px 0;
+  }
+  .btn:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+  }
 }
 
-.wedding-album-translations .nested-fields {
+.container.form .field,
+.wedding-album-translations .nested-fields,
+.wedding-photos {
   border: 1px dashed grey;
   border-width: 0.5px;
   padding: 10px;
   margin: 20px 0;
+}
 
-  .flag {
-    width: 20px;
-    opacity: 0.8;
-    float: right;
+.wedding-album-translations .nested-fields .flag {
+  width: 20px;
+  opacity: 0.8;
+  float: right;
+}
+
+.uploaded-cover-photo p {
+  word-wrap: break-word;
+}
+
+.wedding-photos {
+  .wedding-photo-label {
+    padding-right: 10px;
+  }
+
+  .delete-x {
+    color: red;
   }
 }
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767px) {
+  .uploaded-cover-photo div:first-child {
+    padding-right: 0;
+  }
+ }
