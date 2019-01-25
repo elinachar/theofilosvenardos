@@ -34,3 +34,164 @@
     <%= f.submit "Upload the Image" %>
   </div>
 <% end %> -->
+
+<div class="row">
+  <div class="column col-sm-6 col-md-3">
+    <% @wedding_album.wedding_photos.each do |wedding_photo| %>
+      <%= image_tag( wedding_photo.photo.url.to_s , class: "img-fluid", alt: wedding_photo.photo_identifier) %>
+    <% end %>
+  </div>
+</div>
+
+
+
+  <div id="myModal" class="modal">
+    <span class="close cursor" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+
+      <div class="mySlides">
+        <%= image_tag( @wedding_album.wedding_photos.find(5).photo.url.to_s , class: "img-fluid", alt: "") %>
+      </div>
+
+      <div class="mySlides">
+        <%= image_tag( @wedding_album.wedding_photos.find(6).photo.url.to_s , class: "img-fluid", alt: "") %>
+      </div>
+
+      <div class="mySlides">
+        <%= image_tag( @wedding_album.wedding_photos.find(7).photo.url.to_s , class: "img-fluid", alt: "") %>
+      </div>
+
+      <div class="mySlides">
+        <%= image_tag( @wedding_album.wedding_photos.find(8).photo.url.to_s , class: "img-fluid", alt: "") %>
+      </div>
+
+
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    </div>
+  </div>
+
+  <% str += '<%= image_tag( wedding_photo.photo.url.to_s , class: "img-fluid", alt: wedding_photo.photo_identifier %>' %>
+  <% str += "<%= image_tag( #{wedding_photo.photo.url.to_s} %>" %>
+  <div class="column">
+    <%= image_tag( @wedding_album.wedding_photos.find(5).photo.url.to_s , class: "img-fluid", alt: "", onclick: "openModal();currentSlide(1)") %>
+    <%= image_tag( @wedding_album.wedding_photos.find(6).photo.url.to_s , class: "img-fluid", alt: "", onclick: "openModal();currentSlide(2)") %>
+    <%= image_tag( @wedding_album.wedding_photos.find(7).photo.url.to_s , class: "img-fluid", alt: "", onclick: "openModal();currentSlide(3)") %>
+    <%= image_tag( @wedding_album.wedding_photos.find(8).photo.url.to_s , class: "img-fluid", alt: "", onclick: "openModal();currentSlide(4)") %>
+    <%= image_tag( @wedding_album.wedding_photos.find(9).photo.url.to_s , class: "img-fluid", alt: "") %>
+    <%= image_tag( @wedding_album.wedding_photos.find(10).photo.url.to_s , class: "img-fluid", alt: "") %>
+  </div>
+  <div class="column">
+    <%= image_tag( @wedding_album.wedding_photos.find(11).photo.url.to_s , class: "img-fluid", alt: "") %>
+    <%= image_tag( @wedding_album.wedding_photos.find(12).photo.url.to_s , class: "img-fluid", alt: "") %>
+    <%= image_tag( @wedding_album.wedding_photos.find(13).photo.url.to_s , class: "img-fluid", alt: "") %>
+    <%= image_tag( @wedding_album.wedding_photos.find(14).photo.url.to_s , class: "img-fluid", alt: "") %>
+    <%= image_tag( @wedding_album.wedding_photos.find(15).photo.url.to_s , class: "img-fluid", alt: "") %>
+    <%= image_tag( @wedding_album.wedding_photos.find(16).photo.url.to_s , class: "img-fluid", alt: "") %>
+  </div>
+  <div class="column">
+    <%= image_tag( @wedding_album.wedding_photos.find(17).photo.url.to_s , class: "img-fluid", alt: "") %>
+    <%= image_tag( @wedding_album.wedding_photos.find(18).photo.url.to_s , class: "img-fluid", alt: "") %>
+    <%= image_tag( @wedding_album.wedding_photos.find(19).photo.url.to_s , class: "img-fluid", alt: "") %>
+    <%= image_tag( @wedding_album.wedding_photos.find(20).photo.url.to_s , class: "img-fluid", alt: "") %>
+    <%= image_tag( @wedding_album.wedding_photos.find(21).photo.url.to_s , class: "img-fluid", alt: "") %>
+  </div>
+</div>
+
+<div class="row">
+  <% @wedding_album.wedding_photos.each_with_index do |wedding_photo, i|  %>
+    <div class="column column-first">
+      <% if i+1 % 2 != 0 %>
+        <%= image_tag(wedding_photo.photo.url.to_s , class: "img-fluid", alt: wedding_photo.photo_identifier) %>
+      <% end %>
+    </div>
+    <div class="column column-second">
+      <% if i+1 % 2 == 0 %>
+        <%= image_tag(wedding_photo.photo.url.to_s , class: "img-fluid", alt: wedding_photo.photo_identifier) %>
+      <% end %>
+    </div>
+
+
+  <% end %>
+</div>
+
+
+<% if i % 3 == 0 %>
+  <% column1 += "#{i}" %>
+<% elsif (i+1) % 3 == 0 %>
+  <% column3 += "#{i}" %>
+<% else %>
+  <% column2 += "#{i}" %>
+<% end %>
+
+<% column1 = "" %>
+<% column2 = "" %>
+<% column3 = "" %>
+<% @wedding_album.wedding_photos.each_with_index do |wedding_photo, i|  %>
+  <% if i % 3 == 0 %>
+    <% column1 += i.to_s %>
+  <% elsif (i+1) % 3 == 0 %>
+    <% column3 += i.to_s %>
+  <% else %>
+    <% column2 += i.to_s %>
+  <% end %>
+<% end %>
+
+<p>Column1 <%= column1 %></p>
+<p>Column2 <%= column2 %></p>
+<p>Column3 <%= column3 %></p>
+</div>
+
+<!-- <%=# image_tag( @wedding_album.photo_square.url.to_s , class: "img-fluid", alt: @wedding_album.photo_square_identifier) %> -->
+
+
+<% if f? %>
+  <div class="row">
+    <%= f.label :photo, "Photo #{f.index.to_i + 1 }", class: "wedding-photo-label" %>
+    <%= f_identifier.to_s %>
+  </div>
+
+  <%= f.file_field :photo %>
+  <%= link_to_remove_association '<i class="fas fa-times fa-lg"></i>'.html_safe, f, class: "delete-x" %>
+<% else %>
+  <%= f.label :photo, "Photo #{f.index.to_i + 1 }", class: "wedding-photo-label" %>
+  <%= f.file_field :photo %>
+  <%= link_to_remove_association '<i class="fas fa-times fa-lg"></i>'.html_safe, f, class: "delete-x" %>
+<% end %>
+
+<div class="row uploaded-wedding-photo">
+  <%= f.label :photo, "Photo #{f.index.to_i + 1 }", class: "col-3 col-sm-2" %>
+  <div class="col-2">
+    <%= image_tag( @wedding_album.wedding_photos[f.index.to_i].photo.url.to_s , class: "img-fluid", alt: @wedding_album.photo_square.url.to_s) %>
+  </div>
+  <p class="col-3"><%= @wedding_album.wedding_photos[f.index.to_i].photo_identifier %></p>
+  <%= link_to_remove_association '<i class="fas fa-times fa-lg"></i>'.html_safe, f, class: "delete-x col-1", data: { confirm: 'Are you sure?' } %>
+  <div class="col-4">
+    <%= f.file_field :photo %>
+  </div>
+</div>
+
+
+
+<div class="nested-fields">
+  <%= wedding_album.wedding_photos[f.index.to_i] %>
+  <% if @wedding_album.wedding_photos[f.index.to_i].photo? %>
+    <div class="row uploaded-wedding-photo">
+      <%= f.label :photo, " #{f.index.to_i + 1 }", class: "col-1" %>
+      <div class="col-2">
+        <%= image_tag( @wedding_album.wedding_photos[f.index.to_i].photo.url.to_s , class: "img-fluid", alt: @wedding_album.photo_square.url.to_s) %>
+      </div>
+      <p class="col-3 display-md"><%= @wedding_album.wedding_photos[f.index.to_i].photo_identifier %></p>
+      <div class="col-7 col-md-4">
+        <%= f.file_field :photo %>
+      </div>
+      <%= link_to_remove_association '<i class="fas fa-times fa-lg"></i>'.html_safe, f, class: "delete-x col-1 col-md-2", data: { confirm: 'Are you sure?' } %>
+    </div>
+
+  <% else %>
+    <%= f.label :photo, "Photo #{f.index.to_i + 1 }", class: "wedding-photo-label" %>
+    <%= f.file_field :photo %>
+    <%= link_to_remove_association '<i class="fas fa-times fa-lg"></i>'.html_safe, f, class: "delete-x" %>
+  <% end %>
+</div>

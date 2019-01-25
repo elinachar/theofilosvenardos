@@ -24,9 +24,9 @@
 }
 
 .faq,
-.card,
-.card-header,
-.card-body {
+#accordion .card,
+#accordion .card-header,
+#accordion .card-body {
   background-color: rgba(237,232,228, 1);
   background-color: rgba(244,241,238, 1);
   background-color: #eae9e5;;
@@ -36,25 +36,35 @@
   padding-left: 20px;
 }
 
-.card {
-  border: none;
-  border-top: 1px solid rgba(153,149,127,0.3);
+#accordion {
+  .card {
+    border: none;
+    border-top: 1px solid rgba(153,149,127,0.3);
+  }
 
   .btn {
     white-space: normal;
   }
-}
 
-.card-header {
-  cursor: pointer;
-  height: 70px;
-  border-color: rgba(132,132,132, 0);
-  text-align: left;
+  .btn:hover {
+    box-shadow: none;
+  }
 
-  h5 {
-    font-size: 1.1rem;
-    padding-top: 4px;
-    font-weight: 500;
+  .card-header {
+    cursor: pointer;
+    height: 70px;
+    border-color: rgba(132,132,132, 0);
+    text-align: left;
+
+    h5 {
+      font-size: 1.1rem;
+      padding-top: 4px;
+      font-weight: 500;
+      }
+    }
+
+  .card-body {
+    border-top: 1px solid rgba(153,149,127,0.3);
   }
 }
 
@@ -67,11 +77,6 @@
   font-size:13px;
   display: none;
 }
-
-.card-body {
-  border-top: 1px solid rgba(153,149,127,0.3);
-}
-
 
 // Contact Page
 .contact-img {

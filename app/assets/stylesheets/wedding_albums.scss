@@ -77,8 +77,65 @@
 }
 
 // Show Page
-.wedding-album .header img {
-  height: 300px;
-  width: 300px;
-  // border-radius: 50%;
+.wedding-album .header {
+  margin-bottom: 20px;
+
+  img {
+    height: 300px;
+    border-radius: 50%;
+  }
+
+  h3, h4 {
+    font-weight: 300;
+  }
+}
+
+.wedding-album {
+
+  .display-md {
+    display: flex;
+  }
+
+  .display-xs,
+  .display-sm {
+    display: none;
+  }
+
+  .column {
+    padding: 0 3px;
+
+    img {
+      padding-bottom: 6px;
+    }
+  }
+
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575px) {
+  .wedding-album {
+    .display-xs {
+      display: flex !important;
+    }
+
+    .display-sm,
+    .display-md {
+      display: none;
+    }
+  }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (min-width: 576px)  and (max-width: 767px) {
+  .wedding-album {
+    .display-sm {
+      display: flex !important;
+    }
+
+    .display-xs,
+    .display-md {
+      display: none;
+    }
+
+  }
 }

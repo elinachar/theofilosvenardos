@@ -12,6 +12,29 @@ class WeddingAlbumsController < ApplicationController
   # GET /wedding_albums/1
   # GET /wedding_albums/1.json
   def show
+    @wedding_photos_1_2 = Array.new
+    @wedding_photos_2_2 = Array.new
+
+    @wedding_photos_1_3 = Array.new
+    @wedding_photos_2_3 = Array.new
+    @wedding_photos_3_3 = Array.new
+
+    @wedding_album.wedding_photos.each_with_index do |wedding_photo, i|
+      if i % 2 == 0
+        @wedding_photos_1_2.push(wedding_photo)
+      else
+        @wedding_photos_2_2.push(wedding_photo)
+      end
+
+      if i % 3 == 0
+        @wedding_photos_1_3.push(wedding_photo)
+      elsif (i+1) % 3 == 0
+        @wedding_photos_3_3.push(wedding_photo)
+      else
+        @wedding_photos_2_3.push(wedding_photo)
+      end
+
+    end
   end
 
   # GET /wedding_albums/new
@@ -76,7 +99,7 @@ class WeddingAlbumsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wedding_album_params
-      params.require(:wedding_album).permit(:photo, :wedding_on,
+      params.require(:wedding_album).permit(:photo, :wedding_on, :photo_square, :remove_photo, :remove_photo_square,
         wedding_album_translations_attributes: [:id, :language_id, :title, :description, :_destroy],
         wedding_photos_attributes: [:id, :photo, :_destroy])
     end

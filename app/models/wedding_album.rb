@@ -6,5 +6,6 @@ class WeddingAlbum < ApplicationRecord
   accepts_nested_attributes_for :wedding_photos, allow_destroy: true, reject_if: :all_blank
 
   mount_uploader :photo, PhotoUploader
+  mount_uploader :photo_square, PhotoUploader
 
 end

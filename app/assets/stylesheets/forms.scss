@@ -48,6 +48,18 @@
 }
 
 .wedding-photos {
+  .uploaded-wedding-photo {
+    margin-bottom: 5px;
+  }
+
+  .display-md {
+    display: block;
+  }
+
+  .upload-wedding-photo {
+    margin-bottom: 10px;
+  }
+
   .wedding-photo-label {
     padding-right: 10px;
   }
@@ -55,10 +67,19 @@
   .delete-x {
     color: red;
   }
+
+  .delete-x:hover{
+    color: #b20000;
+  }
+
 }
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767px) {
   .uploaded-cover-photo div:first-child {
     padding-right: 0;
+  }
+
+  .wedding-photos .display-md {
+    display: none !important;
   }
  }

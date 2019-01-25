@@ -3,7 +3,7 @@
     <%= link_to wedding_album, :action => 'go' do %>
       <div class="wedding-album-card">
         <div class="wedding-album-img">
-          <%= image_tag( wedding_album.photo.url.to_s , class: "img-fluid", alt: "wedding_album.wedding_album_translations.first.title") %>
+          <%= image_tag( wedding_album.photo.url.to_s , class: "img-fluid", alt: wedding_album.wedding_album_translations.first.title) %>
           <div class="hover-text text-center">
             <p><%= wedding_album.wedding_album_translations.first.title %></p>
             <p><%= wedding_album.wedding_album_translations.first.description %></p>
