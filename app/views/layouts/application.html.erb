@@ -39,8 +39,8 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
              <%= link_to "Weddings", wedding_albums_path, class: "dropdown-item" %>
-             <%= link_to "Baptism", basic_pages_faq_path, class: "dropdown-item" %>
-             <%= link_to "Interior Design", basic_pages_faq_path, class: "dropdown-item" %>
+             <%= link_to "Baptism", basic_pages_index_path, class: "dropdown-item" %>
+             <%= link_to "Interior Design", interior_designs_path, class: "dropdown-item" %>
             </div>
           </li>
           <li class="nav-item <%= 'active' if current_page?(basic_pages_about_path) %>"><%= link_to "ABOUT", basic_pages_about_path, class: "nav-link" %></li>
@@ -49,6 +49,9 @@
           </li>
           <li class="nav-item <%= 'active' if current_page?(basic_pages_faq_path) %>"><%= link_to "FAQ", basic_pages_faq_path, class: "nav-link" %></li>
           <li class="nav-item <%= 'active' if current_page?(basic_pages_contact_path) %>"><%= link_to "CONTACT", basic_pages_contact_path, class: "nav-link" %></li>
+          <% if user_signed_in? %>
+            <li class="nav-item"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+          <% end %>
         </ul>
       </div>
     </nav>
@@ -56,7 +59,19 @@
 
     <!-- main body starts here -->
     <div class="anchor">
-      <%= yield %>
+      <!-- flash messages -->
+      <div class="container flash-messages">
+        <% if notice %>
+          <p id="notice" class="alert alert-info", role="alert"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p id="alert" class="alert alert-danger", role="alert"><%= alert %></p>
+        <% end %>
+      </div>
+
+      <div class="main-body">
+        <%= yield %>
+      </div>
     </div>
     <!-- main body ends here -->
 

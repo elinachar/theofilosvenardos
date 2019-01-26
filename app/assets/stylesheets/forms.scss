@@ -28,7 +28,7 @@
   }
 }
 
-.container.form .field,
+.container.form .field.with-border,
 .wedding-album-translations .nested-fields,
 .wedding-photos {
   border: 1px dashed grey;
@@ -72,6 +72,11 @@
     color: #b20000;
   }
 
+}
+
+// Devise forms
+.container.devise {
+  padding-bottom: 20px;
 }
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767px) {

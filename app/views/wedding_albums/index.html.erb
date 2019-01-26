@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <div class="container wedding-albums">
   <h1 class="text-center">WEDDING PORTFOLIO</h1>
 
@@ -6,8 +5,10 @@
     <%= render @wedding_albums %>
   </div>
 
-  <div class="row">
-    <%= link_to 'New Wedding Album', new_wedding_album_path, class: "btn col-12" %>
-  </div>
+  <% if user_signed_in? %>
+    <div class="row">
+      <%= link_to 'New Wedding Album', new_wedding_album_path, class: "btn col-12" %>
+    </div>
+  <% end %>
 
 </div>

@@ -17,12 +17,12 @@
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="field with-border">
     <%= f.label :wedding_on %>
     <%= f.date_select :wedding_on,  class: 'form-control' %>
   </div>
 
-  <div class="field cover-photo">
+  <div class="field cover-photo with-border">
     <% if @wedding_album.photo? %>
       <p>Cover photo</p>
       <div class="row uploaded-cover-photo">
@@ -45,7 +45,7 @@
 
   </div>
 
-  <div class="field">
+  <div class="field with-border">
     <% if @wedding_album.photo_square? %>
       <p>Header (square) photo</p>
       <div class="row uploaded-cover-photo">

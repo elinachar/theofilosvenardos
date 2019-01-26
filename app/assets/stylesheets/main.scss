@@ -75,6 +75,10 @@ html, body {
   .dropdown-item:hover {
     color: black;
   }
+
+  .dropdown-item:focus {
+    background-color: #f8f9fa;
+  }
 }
 
 #navbarDropdown i {
@@ -90,7 +94,16 @@ html, body {
   transition-property: transform;
 }
 
-// Main main
+// Main body
+
+.container.flash-messages {
+  margin-top: 0;
+
+  .alert {
+    margin-top: 20px;
+  }
+}
+
 .container {
   margin-top: 20px;
 }

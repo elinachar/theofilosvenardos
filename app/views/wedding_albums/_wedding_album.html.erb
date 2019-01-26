@@ -2,7 +2,7 @@
 <% if wedding_album_counter == 0 %>
   <div class="col-sm-12 col-md-8 offset-md-2">
 <% else %>
-  <div class="col-sm-12 col-md-6">
+  <div class="col-sm-12 col-md-6 grid-wedding-album">
 <% end %>
     <%= link_to wedding_album, :action => 'go' do %>
       <div class="wedding-album-card">
@@ -14,12 +14,12 @@
           </div>
         </div>
 
-        <%# if signed_in? && (current_user.admin? || current_user.author?) %>
+        <% if user_signed_in? %>
           <div class="wedding-album-links-index">
             <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_wedding_album_path(wedding_album) %>
             <%= link_to '<i class="fa fa-trash-o" ></i>'.html_safe, wedding_album, method: :delete, data: { confirm: 'Are you sure?' } %>
           </div> <!-- end wedding-album-links-index -->
-        <%# end %>
+        <% end %>
       </div> <!-- end wedding-album-card -->
     <% end %>
   </div>

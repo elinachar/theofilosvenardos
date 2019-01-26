@@ -1,5 +1,7 @@
 class WeddingAlbumsController < ApplicationController
   before_action :set_wedding_album, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  load_and_authorize_resource
 
   # GET /wedding_albums
   # GET /wedding_albums.json

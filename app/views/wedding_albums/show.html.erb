@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 <div class="container wedding-album text-center">
 
   <div class="header">
@@ -67,8 +66,10 @@
     </div>
   </div>
 
-  <div class="row">
-    <%= link_to 'Edit album', edit_wedding_album_path(@wedding_album), class: "col-10 offset-1 col-sm-12 offset-sm-0 btn" %>
-  </div>
+  <% if user_signed_in? %>
+    <div class="row">
+      <%= link_to 'Edit album', edit_wedding_album_path(@wedding_album), class: "col-10 offset-1 col-sm-12 offset-sm-0 btn" %>
+    </div>
+  <% end %>
   <!-- <%= link_to 'Back', wedding_albums_path %> -->
 </div>
