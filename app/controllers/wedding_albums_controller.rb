@@ -5,7 +5,7 @@ class WeddingAlbumsController < ApplicationController
   # GET /wedding_albums.json
   def index
     language_id = 1
-    @wedding_albums =  WeddingAlbum.includes(:wedding_album_translations).where(wedding_album_translations: { language_id: 1 })
+    @wedding_albums =  WeddingAlbum.includes(:wedding_album_translations).where(wedding_album_translations: { language_id: language_id })
     # byebug
   end
 
