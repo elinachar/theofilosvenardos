@@ -1,5 +1,5 @@
 <div class="nested-fields">
-  <% if @wedding_album.wedding_photos.count > 0 %>
+  <% if @wedding_album.wedding_photos.count > 0 && (f.index.is_a? Numeric) %>
     <div class="row uploaded-wedding-photo">
       <%= f.label :photo, " #{f.index.to_i + 1 }", class: "col-1 sr-only" %>
       <div class="col-2">
