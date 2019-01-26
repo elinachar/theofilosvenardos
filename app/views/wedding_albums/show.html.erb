@@ -10,43 +10,62 @@
 
   <div class="row display-xs" style= "display: none">
     <div class="col-10 offset-1 column">
-      <% @wedding_album.wedding_photos.each do |wedding_photo| %>
-        <%= image_tag(wedding_photo.photo.url.to_s , class: "img-fluid", alt: wedding_photo.photo_identifier) %>
+      <% @wedding_album.wedding_photos.each_with_index do |wedding_photo, index| %>
+        <%= image_tag(wedding_photo.photo.url.to_s , class: "img-fluid open-modal-image hover-shadow", alt: wedding_photo.photo_identifier, data: {slide: index}) %>
       <% end %>
     </div>
   </div>
 
   <div class="row display-sm" style= "display: none">
     <div class="col-6 column">
-      <% @wedding_photos_1_2.each do |wedding_photo| %>
-        <%= image_tag(wedding_photo.photo.url.to_s , class: "img-fluid", alt: wedding_photo.photo_identifier) %>
+      <% @wedding_photos_1_2.each_with_index do |wedding_photo, index| %>
+        <%= image_tag(wedding_photo.photo.url.to_s , class: "img-fluid open-modal-image hover-shadow", alt: wedding_photo.photo_identifier, data: {slide: 2*index}) %>
       <% end %>
     </div>
     <div class="col-6 column">
-      <% @wedding_photos_2_2.each do |wedding_photo| %>
-        <%= image_tag(wedding_photo.photo.url.to_s , class: "img-fluid", alt: wedding_photo.photo_identifier) %>
+      <% @wedding_photos_2_2.each_with_index do |wedding_photo, index| %>
+        <%= image_tag(wedding_photo.photo.url.to_s , class: "img-fluid open-modal-image hover-shadow", alt: wedding_photo.photo_identifier, data: {slide: 2*index+1}) %>
       <% end %>
     </div>
   </div>
 
   <div class="row display-md">
     <div class="col-4 column">
-      <% @wedding_photos_1_3.each do |wedding_photo| %>
-        <%= image_tag(wedding_photo.photo.url.to_s , class: "img-fluid", alt: wedding_photo.photo_identifier) %>
+      <% @wedding_photos_1_3.each_with_index do |wedding_photo, index| %>
+
+        <%= image_tag( wedding_photo.photo.url.to_s , class: "img-fluid open-modal-image hover-shadow", alt: wedding_photo.photo_identifier, data: {slide: index+index*2}) %>
+
+      <% end %>
+
+    </div>
+    <div class="col-4 column">
+      <% @wedding_photos_2_3.each_with_index do |wedding_photo, index| %>
+        <%= image_tag(wedding_photo.photo.url.to_s , class: "img-fluid open-modal-image hover-shadow", alt: wedding_photo.photo_identifier, data: {slide: 3*index+1} ) %>
       <% end %>
     </div>
     <div class="col-4 column">
-      <% @wedding_photos_2_3.each do |wedding_photo| %>
-        <%= image_tag(wedding_photo.photo.url.to_s , class: "img-fluid", alt: wedding_photo.photo_identifier) %>
-      <% end %>
-    </div>
-    <div class="col-4 column">
-      <% @wedding_photos_3_3.each do |wedding_photo| %>
-        <%= image_tag(wedding_photo.photo.url.to_s , class: "img-fluid", alt: wedding_photo.photo_identifier) %>
+      <% @wedding_photos_3_3.each_with_index do |wedding_photo, index| %>
+        <%= image_tag(wedding_photo.photo.url.to_s , class: "img-fluid open-modal-image hover-shadow", alt: wedding_photo.photo_identifier, data: {slide: 3*index+2} ) %>
       <% end %>
     </div>
   </div>
 
+
+  <!-- The Modal/Lightbox -->
+  <div id="modal" class="mdl row h-100 w-100">
+    <span class="close cursor">&times;</span>
+    <div class="mdl-content my-auto">
+      <% @wedding_album.wedding_photos.each_with_index do |wedding_photo, index| %>
+        <div class="slides mx-auto">
+          <%= image_tag(wedding_photo.photo.url.to_s , class: "img-fluid", alt: wedding_photo.photo_identifier)%>
+        </div>
+      <% end %>
+
+      <!-- Next/previous controls -->
+      <a class="prev">&#10094;</a>
+      <a class="next">&#10095;</a>
+    </div>
+  </div>
 
   <div class="row">
     <%= link_to 'Edit album', edit_wedding_album_path(@wedding_album), class: "col-10 offset-1 col-sm-12 offset-sm-0 btn" %>

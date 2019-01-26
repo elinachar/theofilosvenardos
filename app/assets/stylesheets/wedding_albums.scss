@@ -1,6 +1,7 @@
 // Place all the styles related to the wedding_albums controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .btn {
   border-color: rgba(33,33,33,.2)
 }
@@ -105,11 +106,102 @@
     padding: 0 3px;
 
     img {
-      padding-bottom: 6px;
+      margin-bottom: 6px;
+      cursor: pointer;
+    }
+
+    img.hover-shadow {
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .hover-shadow:hover {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+  }
+}
+
+// /* The Modal (background) */
+.mdl {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: rgba(255,255,255,0.9);
+  margin: auto; //to center to the .container.wedding-album (effect visible in small screens)
+
+
+  /* Modal Content */
+  .mdl-content {
+    margin: auto;
+
+    img {
+      max-height: 450px;
     }
   }
 
+  /* The Close Button */
+  .close {
+    color: var(--grey);
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    opacity: 0.9;
+    text-shadow: none; //Overide default 
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #999;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* Hide the slides by default */
+  .slides {
+    display: none;
+  }
+
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 3px 3px 3px 3px;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    margin-right: 50px;
+  }
+
+  .prev {
+    left: 0;
+    margin-left: 50px;
+  }
+
+  /* On hover, change background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: #cccccc;
+    background-color: rgba(204, 204, 204, 0.5)
+  }
 }
+
 
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) {
@@ -123,9 +215,10 @@
       display: none;
     }
   }
+
 }
 
-// Small devices (landscape phones, less than 768px)
+// Small devices (landscape phones, more than 576px and  less than 768px)
 @media (min-width: 576px)  and (max-width: 767px) {
   .wedding-album {
     .display-sm {
@@ -136,6 +229,18 @@
     .display-md {
       display: none;
     }
+  }
+}
 
+// XS and small devices (less than 768px)
+@media (max-width: 767px) {
+  .mdl {
+    .next {
+      margin-right: 0;
+    }
+
+    .prev {
+      margin-left: 0;
+    }
   }
 }
