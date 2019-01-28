@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Baptisms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Photo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @baptisms.each do |baptism| %>
+      <tr>
+        <td><%= baptism.photo %></td>
+        <td><%= link_to 'Show', baptism %></td>
+        <td><%= link_to 'Edit', edit_baptism_path(baptism) %></td>
+        <td><%= link_to 'Destroy', baptism, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Baptism', new_baptism_path %>

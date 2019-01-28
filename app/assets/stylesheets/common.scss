@@ -1,0 +1,32 @@
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.hover-text {
+  opacity: 0;
+  font-size: 20px;
+  font-weight: 300;
+  color: rgba(73, 80, 87, .7);
+}
+
+.index-portfolio .card img,
+.wedding-album-img img,
+.hover-text {
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -ms-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+
+
+.index-portfolio .card img:hover,
+.wedding-album-card:hover .wedding-album-img img {
+  filter: alpha(opacity=30);
+  opacity: 0.2;
+}
+
+.index-portfolio .card img:hover + .hover-text,
+.wedding-album-card:hover .hover-text {
+  opacity: 0.9;
+}

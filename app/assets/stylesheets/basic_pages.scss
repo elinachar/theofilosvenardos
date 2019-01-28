@@ -2,9 +2,97 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.index h1,
 .faq h1,
 .contact h1 {
   font-size: 1.6rem;
+}
+
+// Index Page
+.index {
+  width: 85%;
+}
+
+.carousel {
+  margin-top: 110px;
+}
+
+.index h1 {
+  border-bottom: 1px solid rgba(153, 149, 127, 0.3);
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  color: rgba(0,0,0,.5);
+  font-weight: 300;
+}
+
+.index-portfolio,
+.index-about,
+.index-testimonials {
+  margin: 30px 0;
+}
+
+.index-portfolio {
+  .card {
+    border: none;
+    padding: 0 5px;
+    margin-bottom: 10px;
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      cursor: default;
+    }
+
+    img:hover {
+      cursor: pointer;
+    }
+  }
+
+  .card.wedding {
+    img {
+      height: 500px;
+    }
+
+    .link-wedding {
+      float: right;
+    }
+
+    .hover-text {
+      margin-top: -265px;
+      margin-bottom: 235px;
+    }
+
+  }
+
+  .card.baptism,
+  .card.interior-design {
+
+    img {
+      height: 245px;
+    }
+
+    .hover-text {
+      margin-top: -140px;
+      margin-bottom: 110px;
+    }
+  }
+
+  .card.baptism .link-baptism,
+  .card.interior-design .link-interior-design {
+    float: left;
+  }
+}
+
+.index-about {
+  .row:first-child {
+    margin-bottom: 16px;
+  }
+
+  img {
+    margin-bottom: 16px;
+  }
 }
 
 // About Page
@@ -147,6 +235,24 @@ address {
 
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767px) {
+  .index {
+    width: 100%;
+  }
+  .carousel {
+    margin-top: 70px;
+  }
+
+  .card.wedding .link-wedding,
+  .card.baptism .link-baptism,
+  .card.interior-design .link-interior-design  {
+    float: none !important;
+  }
+
+  .index-about img {
+    margin-bottom: 16px;
+  }
+
+
   .about img {
     width: 50%;
     margin-bottom: 20px;
@@ -181,7 +287,7 @@ address {
   #accordion .card-header {
     height: 100px;
   }
- }
+}
 
 // Small devices (landscape phones, less than 768px)
 // @media (max-width: 767px) { ... }

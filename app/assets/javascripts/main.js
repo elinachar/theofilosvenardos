@@ -1,5 +1,12 @@
 $(document).on('turbolinks:load', function() {
   //Navbar
+  // Fixed on top Navbar only for Index Page
+  if ( location.href.search("index") != -1 ) {
+    $(".navbar").addClass("fixed-top")
+  } else {
+    $(".navbar").removeClass("fixed-top")
+  }
+
   //Toggle dropdown arrow when navbar collapsed
   $("#navbarDropdown").click(function(){
     var collapsedNavbar = $(".navbar-toggler").is(":visible");
