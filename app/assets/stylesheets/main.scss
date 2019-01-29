@@ -10,6 +10,10 @@ body {
   margin: 0;
 }
 
+body {
+  -webkit-touch-callout: none;
+}
+
 html, body {
   height: 100%; /* for the sticky footer */
   font-family: 'Raleway', sans-serif;
