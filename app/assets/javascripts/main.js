@@ -8,7 +8,7 @@ $(document).on('turbolinks:load', function() {
   }
 
   // Check if touch screen
-  // Modify links in index-portfolio
+  // Modify links in index for touch devices
   function is_touch_device() {
     try {
       document.createEvent("TouchEvent");
