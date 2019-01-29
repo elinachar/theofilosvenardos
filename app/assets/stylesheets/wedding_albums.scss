@@ -236,6 +236,10 @@
 
 // XS and small devices (less than 768px)
 @media (max-width: 767px) {
+  .grid-wedding-album {
+    padding: 0 15px;
+  }
+  
   .mdl {
     .next {
       margin-right: 0;

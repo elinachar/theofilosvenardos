@@ -7,6 +7,18 @@ $(document).on('turbolinks:load', function() {
     $(".navbar").removeClass("fixed-top");
   }
 
+  // Check if touch screen
+  // Modify links in index-portfolio
+  function is_touch_device() {
+    try {
+      document.createEvent("TouchEvent");
+      $(".index-portfolio").addClass("touch-screen");
+    } catch (e) {
+      $(".index-portfolio").removeClass("touch-screen");
+    }
+  }
+  is_touch_device();
+
   //Toggle dropdown arrow when navbar collapsed
   $("#navbarDropdown").click(function(){
     var collapsedNavbar = $(".navbar-toggler").is(":visible");
@@ -46,11 +58,3 @@ $(document).on('turbolinks:load', function() {
       $(icon).fadeToggle(1500);
   });
 });
-
-if ( location.href.search("index") != -1 ) {
-  console.log(location.origin==location.href, " index");
-  $(".navbar").addClass("fixed-top");
-} else {
-  console.log(location.origin, location.href, " not index index");
-  $(".navbar").removeClass("fixed-top");
-}

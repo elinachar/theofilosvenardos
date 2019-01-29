@@ -270,6 +270,32 @@ address {
       padding-right: 0;
     }
   }
+
+  .index-portfolio.touch-screen {
+     .card .hover-text {
+      opacity: 1;
+      margin-top: 0;
+      margin-bottom: 0;
+      margin: auto;
+      border-right-style: solid;
+      border-bottom-style: solid;
+      border-left-style: solid;
+      border-width: 1px;
+      border-color: #c8cacc;
+    }
+
+
+    .card.wedding .hover-text {
+      max-width: 334px;
+    }
+
+    .card.baptism,
+    .card.interior-design {
+      .hover-text {
+        max-width: 367.86px;
+      }
+    }
+  }
 }
 
 // Medium devices (tablets, less than 992px) and Large devices (desktops, less than 1200px)
