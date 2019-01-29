@@ -8,10 +8,11 @@
 
 body {
   margin: 0;
+  -webkit-touch-callout: none; // For not displaying context menu on long touch (right click) on touch devices
 }
 
 body {
-  // -webkit-touch-callout: none;
+  -webkit-touch-callout: none;
 }
 
 html, body {
