@@ -1,7 +1,7 @@
 <div class="container wedding-album text-center">
 
   <div class="header">
-    <% if @wedding_album.photo_square.url.to_s %>
+    <% if @wedding_album.photo_square? %>
       <%= image_tag( @wedding_album.photo_square.url.to_s , class: "img-fluid", alt: @wedding_album.photo_square_identifier) %>
     <% end %>
 

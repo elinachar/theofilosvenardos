@@ -95,6 +95,31 @@
   }
 }
 
+.index-testimonials {
+  .card {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin-top: 20px;
+  }
+
+  .card.last-card {
+    border-bottom: none;
+  }
+
+  img {
+    width: 150px;
+    border-radius: 50%;
+    margin: 5px auto;
+  }
+
+  .signature {
+    margin-bottom: 0;
+  }
+}
+
+
+
 // About Page
 .about-img {
   width: 80%;
@@ -301,7 +326,16 @@ address {
 // Medium devices (tablets, less than 992px) and Large devices (desktops, less than 1200px)
 // @media (max-width: 991px) { ... }
 
-@media (min-width: 768px) and (max-width: 1199px) {
+
+// Small devices and up
+@media (min-width: 576px) {
+  .testimonial {
+    text-align: left;
+  }
+}
+
+// Medium devices and up
+@media (min-width: 768px) {
   .about img {
     margin-top: 15px;
   }
@@ -313,6 +347,7 @@ address {
   #accordion .card-header {
     height: 100px;
   }
+
 }
 
 // Small devices (landscape phones, less than 768px)
