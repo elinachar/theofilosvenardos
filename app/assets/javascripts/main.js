@@ -1,10 +1,10 @@
 $(document).on('turbolinks:load', function() {
   //Navbar
   // Fixed on top Navbar only for Index Page
-  if ( location.href.search("index") != -1 ) {
-    $(".navbar").addClass("fixed-top")
+  if ( location.href.search("index") != -1 || location.origin + "/"== location.href || location.origin == location.href) {
+    $(".navbar").addClass("fixed-top");
   } else {
-    $(".navbar").removeClass("fixed-top")
+    $(".navbar").removeClass("fixed-top");
   }
 
   //Toggle dropdown arrow when navbar collapsed
@@ -46,3 +46,11 @@ $(document).on('turbolinks:load', function() {
       $(icon).fadeToggle(1500);
   });
 });
+
+if ( location.href.search("index") != -1 ) {
+  console.log(location.origin==location.href, " index");
+  $(".navbar").addClass("fixed-top");
+} else {
+  console.log(location.origin, location.href, " not index index");
+  $(".navbar").removeClass("fixed-top");
+}
