@@ -1,1 +1,1 @@
-json.partial! "baptisms/baptism", baptism: @baptism
+json.partial! "baptism_albums/baptism_album", baptism_album: @baptism_album

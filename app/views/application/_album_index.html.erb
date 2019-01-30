@@ -6,6 +6,9 @@
   <% elsif request.url.include? "baptism"  %>
     <% album_translations = album.baptism_album_translations %>
     <% album_kind = "baptism" %>
+  <% elsif request.url.include? "interior"  %>
+    <% album_translations = album.interior_album_translations %>
+    <% album_kind = "interior" %>
   <% end %>
 
   <% if index == 0 %>

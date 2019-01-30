@@ -1,0 +1,14 @@
+<div class="container albums interior">
+  <h1 class="text-center">INTERIOR DESIGN PORTFOLIO</h1>
+
+  <div class="row">
+    <%= render 'album_index', albums: @interior_albums %>
+  </div>
+
+  <% if user_signed_in? %>
+    <div class="row">
+      <%= link_to 'New Interior Design Album', new_interior_album_path, class: "btn col-12" %>
+    </div>
+  <% end %>
+
+</div>

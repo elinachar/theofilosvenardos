@@ -45,7 +45,7 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
              <%= link_to "Weddings", wedding_albums_path, class: "dropdown-item" %>
              <%= link_to "Baptism", BaptismAlbum.first, class: "dropdown-item" %>
-             <%= link_to "Interior Design", interior_designs_path, class: "dropdown-item" %>
+             <%= link_to "Interior Design", InteriorAlbum.first, class: "dropdown-item" %>
             </div>
           </li>
           <li class="nav-item <%= 'active' if current_page?(basic_pages_about_path) %>"><%= link_to "ABOUT", basic_pages_about_path, class: "nav-link" %></li>

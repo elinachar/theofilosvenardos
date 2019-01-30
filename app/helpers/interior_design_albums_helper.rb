@@ -1,0 +1,2 @@
+module InteriorDesignAlbumsHelper
+end

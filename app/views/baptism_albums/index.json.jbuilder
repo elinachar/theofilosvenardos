@@ -1,1 +1,1 @@
-json.array! @baptisms, partial: 'baptisms/baptism', as: :baptism
+json.array! @baptism_albums, partial: 'baptism_albums/baptism', as: :baptism_album

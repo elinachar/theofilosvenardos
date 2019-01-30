@@ -6,6 +6,10 @@
   <% album = @baptism_album %>
   <% album_photos = @baptism_album.baptism_photos %>
   <% album_kind = "baptism" %>
+<% elsif request.url.include? "interior"  %>
+  <% album = @interior_album %>
+  <% album_photos = @interior_album.interior_photos %>
+  <% album_kind = "interior" %>
 <% end %>
 
 <%= form_for album do |f| %>

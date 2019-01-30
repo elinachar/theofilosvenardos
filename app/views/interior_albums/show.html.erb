@@ -1,0 +1,12 @@
+<div class="container album baptism text-center">
+
+  <%= render 'album_show', album: @interior_album %>
+
+  <% if user_signed_in? %>
+    <div class="row">
+      <%= link_to 'Edit album', edit_interior_album_path(@interior_album), class: "col-10 offset-1 col-sm-12 offset-sm-0 btn" %>
+    </div>
+  <% end %>
+
+  <!-- <%= link_to 'Back', baptism_albums_path %> -->
+</div>
