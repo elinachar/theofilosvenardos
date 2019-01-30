@@ -241,4 +241,110 @@
           </p>
         </div> <!-- end card -->
       </div>
-    </div> 
+    </div>
+
+
+
+    // errors for batism/_form.html.erb at the very top after form_with
+    <!-- <%=# form_with(model: baptism, local: true) do |form| %> -->
+    <% if baptism.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(baptism.errors.count, "error") %> prohibited this baptism from being saved:</h2>
+
+        <ul>
+        <% baptism.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+    // Form for baptism_albums<%= form_with(model: baptism, local: true) do |form| %>
+      <% if baptism.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(interior_design.errors.count, "error") %> prohibited this interior_design from being saved:</h2>
+
+          <ul>
+          <% baptism.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= form.label :photo %>
+        <%= form.file_field :photo %>
+      </div>
+
+
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
+
+
+    <!--  Form-->
+    <div class="album-photos with-border">
+      <div class="photos-show">
+        <p><%= album_kind.humanize %> Photos </p>
+          <% if album.persisted? and album_photos.count > 0 %>
+            <div class="row">
+              <p class="col-2"><strong>Preview</strong></p>
+              <p class="col-3 display-md"><strong>Photo name</strong></p>
+              <p class="col-7 col-md-5"><strong>Replace photo</strong></p>
+              <p class="col-1 col-md-2" style><strong>Delete photo</strong></p>
+            </div>
+          <% end %>
+          <%= f.fields_for :wedding_photos do |photo| %>
+            <%= render 'photo_fields', f: photo %>
+          <% end %>
+      </div>
+
+      <div class="links">
+        <%= link_to_add_association 'Add Photo', f, :wedding_photos, partial: "photo_fields.html.erb", class: "btn", data: { association_insertion_node: ".photos-show", association_insertion_method: :append } %>
+      </div>
+    </div>
+
+
+    <%= link_to_remove_association '<i class="fas fa-times fa-lg"></i>'.html_safe, f, class: "delete-x" %>
+
+        <%= render @wedding_albums %>
+
+        <% album_photos = wedding_album.wedding_photos %>
+        <% album_translations = wedding_album.wedding_album_translations %>
+        <% album_kind = "wedding" %>
+      <% elsif request.url.include? "baptism"  %>
+        <% album = baptism_album %>
+        <% album_photos = baptism_album.baptism_photos %>
+        <% album_translations = baptism_album.baptism_album_translations %>
+        <% album_kind = "baptism" %>
+
+
+        <%# if wedding_album.weddinname and recipe.image_url %>
+        <% if album_counter == 0 %>
+          <div class="col-sm-12 col-md-8 offset-md-2">
+        <% else %>
+          <div class="col-sm-12 col-md-6 grid-album">
+        <% end %>
+            <%= link_to album, :action => 'go' do %>
+              <div class="album-card hover-shadow">
+                <div class="album-img">
+                  <%= image_tag( album.photo.url.to_s , class: "img-fluid", alt: album_translations.first.title) %>
+                  <div class="hover-text text-center">
+                    <p><%= album_translations.first.title %></p>
+                    <p><%= album_translations.first.description %></p>
+                  </div>
+                </div>
+
+                <% if user_signed_in? %>
+                  <div class="album-links-index">
+                    <%= link_to '<i class="fa fa-edit"></i>'.html_safe, "edit_#{album_kind}_album_path(#{album_kind}_album)" %>
+                    <%= link_to '<i class="fa fa-trash-o" ></i>'.html_safe, "#{album_kind}_album", method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </div> <!-- end album-links-index -->
+                <% end %>
+              </div> <!-- end album-card -->
+            <% end %>
+          </div>
+        <%# end %>

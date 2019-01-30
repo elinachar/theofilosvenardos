@@ -1,0 +1,14 @@
+<div class="container albums baptism">
+  <h1 class="text-center">BAPTISM PORTFOLIO</h1>
+
+  <div class="row">
+    <%= render 'album_index', albums: @baptism_albums %>
+  </div>
+
+  <% if user_signed_in? %>
+    <div class="row">
+      <%= link_to 'New Baptism Album', new_baptism_album_path, class: "btn col-12" %>
+    </div>
+  <% end %>
+
+</div>

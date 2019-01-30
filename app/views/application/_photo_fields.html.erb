@@ -1,0 +1,27 @@
+<div class="nested-fields">
+  <% if request.url.include? "wedding" %>
+    <% photos = @wedding_album.wedding_photos %>
+  <% elsif request.url.include? "baptism"  %>
+    <% photos = @baptism_album.baptism_photos %>
+  <% end %>
+
+  <% if photos.count > 0 && (f.index.is_a? Numeric) %>
+    <div class="row uploaded-photo">
+      <%= f.label :photo, " #{f.index.to_i + 1 }", class: "col-1 sr-only" %>
+      <div class="col-2">
+        <%= image_tag( photos[f.index.to_i].photo.url.to_s , class: "img-fluid", alt: photos[f.index.to_i].photo_identifier.to_s) %>
+      </div>
+      <p class="col-3 display-md"><%= photos[f.index.to_i].photo_identifier.to_s %></p>
+      <div class="col-7 col-md-5">
+        <%= f.file_field :photo %>
+      </div>
+      <%= link_to_remove_association '<i class="fas fa-times fa-lg"></i>'.html_safe, f, class: "delete-x col-1 col-md-2 text-center", data: { confirm: 'Are you sure?' } %>
+    </div>
+  <% else %>
+    <div class="upload-photo">
+      <%= f.label :photo, "Photo #{f.index.to_i + 1 }", class: "photo-label sr-only" %>
+      <%= f.file_field :photo %>
+      <%= link_to_remove_association '<i class="fas fa-times fa-lg"></i>'.html_safe, f, class: "delete-x" %>
+    </div>
+  <% end %>
+</div>

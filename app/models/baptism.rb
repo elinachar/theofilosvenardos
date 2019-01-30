@@ -1,2 +1,0 @@
-class Baptism < ApplicationRecord
-end

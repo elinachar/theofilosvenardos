@@ -1,0 +1,110 @@
+<% if request.url.include? "wedding" %>
+  <% album = @wedding_album %>
+  <% album_photos = @wedding_album.wedding_photos %>
+  <% album_kind = "wedding" %>
+<% elsif request.url.include? "baptism"  %>
+  <% album = @baptism_album %>
+  <% album_photos = @baptism_album.baptism_photos %>
+  <% album_kind = "baptism" %>
+<% end %>
+
+<%= form_for album do |f| %>
+  <% if album.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(album.errors.count, "error") %> prohibited this <%= album_kind %>_album from being saved:</h2>
+
+      <ul>
+      <% album.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="album-translations">
+    <%= f.fields_for "#{album_kind}_album_translations".parameterize.underscore.to_sym do |album_translation| %>
+      <%= render 'album_translation_fields', f: album_translation %>
+    <% end %>
+  </div>
+
+  <div class="field with-border">
+    <%= f.label "#{album_kind}_on".parameterize.underscore.to_sym  %>
+    <%= f.date_select "#{album_kind}_on".parameterize.underscore.to_sym,  class: 'form-control' %>
+  </div>
+
+  <div class="field cover-photo with-border">
+    <% if album.photo? %>
+      <p>Cover photo</p>
+      <div class="row uploaded-cover-photo">
+        <div class="col-3 col-md-2">
+          <%= image_tag( album.photo.url.to_s , class: "img-fluid", alt: album.photo_identifier.to_s) %>
+        </div>
+        <div class="col-7 col-md-10">
+          <p><b>Uploaded photo:</b> <%= album.photo %></p>
+          <label>
+            <%= f.check_box :remove_photo %>
+            Delete uploaded cover photo
+          </label>
+        </div>
+      </div><br/>
+      <%= f.label :photo, "<span><b>Replace</b> cover photo</span>".html_safe %>
+    <% else %>
+      <%= f.label :photo, "Cover photo" %>
+    <% end %>
+    <%= f.file_field :photo %>
+  </div>
+
+  <div class="field with-border">
+    <% if album.photo_square? %>
+      <p>Header (square) photo</p>
+      <div class="row uploaded-cover-photo">
+        <div class="col-3 col-md-2">
+          <%= image_tag( album.photo_square.url.to_s , class: "img-fluid", alt: album.photo_square.url.to_s) %>
+        </div>
+        <div class="col-7 col-md-10">
+          <p><b>Uploaded photo:</b> <%= album.photo_square %></p>
+          <label>
+            <%= f.check_box :remove_photo_square %>
+            Delete uploaded header photo
+          </label>
+        </div>
+      </div><br/>
+      <%= f.label :photo_square, "<span><b>Replace</b> header (square) photo</span>".html_safe %>
+    <% else %>
+      <%= f.label :photo_square, "Header (square) photo" %>
+    <% end %>
+    <%= f.file_field :photo_square %>
+  </div>
+
+  <div class="album-photos with-border">
+    <div class="photos-show">
+      <p><%= album_kind.humanize %> Photos </p>
+        <% if album.persisted? and album_photos.count > 0 %>
+          <div class="row">
+            <p class="col-2"><strong>Preview</strong></p>
+            <p class="col-3 display-md"><strong>Photo name</strong></p>
+            <p class="col-7 col-md-5"><strong>Replace photo</strong></p>
+            <p class="col-1 col-md-2" style><strong>Delete photo</strong></p>
+          </div>
+        <% end %>
+        <%= f.fields_for "#{album_kind}_photos".parameterize.underscore.to_sym  do |photo| %>
+          <%= render 'photo_fields', f: photo %>
+        <% end %>
+    </div>
+
+    <div class="links">
+      <%= link_to_add_association 'Add Photo', f, "#{album_kind}_photos".parameterize.underscore.to_sym, partial: "photo_fields.html.erb", class: "btn", data: { association_insertion_node: ".photos-show", association_insertion_method: :append } %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <% if album.persisted? %>
+      <%= f.submit "Update #{album_kind} album", class: "btn" %>
+      <%= link_to "Cancel editing", album, class: "btn", data: { confirm: "Editing will be canceled. No changes will be saved. Are you sure?"} %>
+
+    <% else %>
+      <%= f.submit "Create #{album_kind} album", class: "btn" %>
+      <%= link_to "Cancel", "#{album_kind}_albums_path", class: "btn", data: { confirm: "Editing will be canceled. No changes will be saved. Are you sure?"} %>
+    <% end %>
+  </div>
+<% end %>

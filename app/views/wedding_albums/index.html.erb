@@ -1,8 +1,8 @@
-<div class="container wedding-albums">
+<div class="container albums wedding">
   <h1 class="text-center">WEDDING PORTFOLIO</h1>
 
   <div class="row">
-    <%= render @wedding_albums %>
+    <%= render 'album_index', albums: @wedding_albums %>
   </div>
 
   <% if user_signed_in? %>

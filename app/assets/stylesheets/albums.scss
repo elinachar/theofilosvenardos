@@ -1,4 +1,4 @@
-// Place all the styles related to the wedding_albums controller here.
+// Place all the styles related to the albums controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
@@ -10,94 +10,77 @@
   box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
 
-.container.wedding-albums,
-.container.wedding-album {
+.container.albums,
+.container.album {
   margin-bottom: 20px;
 }
 
 // Index Page
-.wedding-albums h1 {
-  color: var(--grey);
-  font-size: 1.2rem;
-  font-weight: 300;
-  margin-bottom: 12px;
-}
+.albums {
 
-.grid-wedding-album {
-  padding: 0 6px;
-}
-
-.wedding-album-card {
-  margin-bottom: 10px;
-}
-
-// .wedding-album-card:hover {
-//   box-shadow: 0 0 10px rgba(33,33,33,.2);
-//
-//   .wedding-album-img img {
-//     filter: alpha(opacity=30);
-//     opacity: 0.2;
-//   }
-//   .hover-text {
-//     opacity: 0.9;
-//   }
-// }
-
-// .wedding-album-img img,
-// .hover-text {
-//   -webkit-transition: opacity 1s ease-in-out;
-//   -moz-transition: opacity 1s ease-in-out;
-//   -ms-transition: opacity 1s ease-in-out;
-//   -o-transition: opacity 1s ease-in-out;
-//   transition: opacity 1s ease-in-out;
-// }
-
-.wedding-album-img  {
-  background-color: var(--somon);
-}
-
-.wedding-album-card .hover-text {
-  // opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  // font-size: 20px;
-  // font-weight: 300;
-  // color: var(--grey);
-}
-
-.wedding-album-links-index {
-  border-right-style: solid;
-  border-bottom-style: solid;
-  border-left-style: solid;
-  border-width: 1px;
-  border-color: #c8cacc;
-  padding: 8px;
-  text-align: right;
-
-  i {
+  h1 {
     color: var(--grey);
-    font-size: 20px;
-    padding: 0 5px;
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 12px;
   }
+
+  .grid-album {
+    padding: 0 6px;
+  }
+
+  .album-card {
+    margin-bottom: 10px;
+  }
+
+  .album-header  {
+    background-color: var(--somon);
+  }
+
+  .album-card .hover-text {
+    // opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // font-size: 20px;
+    // font-weight: 300;
+    // color: var(--grey);
+  }
+
+  .album-links-index {
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-width: 1px;
+    border-color: #c8cacc;
+    padding: 8px;
+    text-align: right;
+
+    i {
+      color: var(--grey);
+      font-size: 20px;
+      padding: 0 5px;
+    }
+  }
+
 }
+
 
 // Show Page
-.wedding-album .header {
-  margin-bottom: 20px;
+.album {
+  .header {
+    margin-bottom: 20px;
 
-  img {
-    height: 300px;
-    border-radius: 50%;
+    img {
+      height: 300px;
+      border-radius: 50%;
+    }
+
+    h3, h4 {
+      font-weight: 300;
+    }
   }
-
-  h3, h4 {
-    font-weight: 300;
-  }
-}
-
-.wedding-album {
 
   .display-md {
     display: flex;
@@ -207,7 +190,7 @@
 
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) {
-  .wedding-album {
+  .album {
     .display-xs {
       display: flex !important;
     }
@@ -222,7 +205,7 @@
 
 // Small devices (landscape phones, more than 576px and  less than 768px)
 @media (min-width: 576px)  and (max-width: 767px) {
-  .wedding-album {
+  .album {
     .display-sm {
       display: flex !important;
     }
@@ -236,10 +219,10 @@
 
 // XS and small devices (less than 768px)
 @media (max-width: 767px) {
-  .grid-wedding-album {
+  .grid-album {
     padding: 0 15px;
   }
-  
+
   .mdl {
     .next {
       margin-right: 0;

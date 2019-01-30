@@ -10,12 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_27_084152) do
+ActiveRecord::Schema.define(version: 2019_01_30_172037) do
 
-  create_table "baptisms", force: :cascade do |t|
+  create_table "baptism_album_translations", force: :cascade do |t|
+    t.integer "baptism_album_id"
+    t.integer "language_id"
+    t.string "title"
+    t.text "description"
+    t.index ["baptism_album_id"], name: "index_baptism_album_translations_on_baptism_album_id"
+    t.index ["language_id"], name: "index_baptism_album_translations_on_language_id"
+  end
+
+  create_table "baptism_albums", force: :cascade do |t|
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo_square"
+    t.date "baptism_on"
+  end
+
+  create_table "baptism_photos", force: :cascade do |t|
+    t.string "photo"
+    t.integer "baptism_album_id"
+    t.index ["baptism_album_id"], name: "index_baptism_photos_on_baptism_album_id"
   end
 
   create_table "interior_designs", force: :cascade do |t|

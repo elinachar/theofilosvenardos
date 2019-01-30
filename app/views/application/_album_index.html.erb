@@ -1,0 +1,38 @@
+<%# if wedding_album.weddinname and recipe.image_url %>
+<% albums.each_with_index do |album, index| %>
+  <% if request.url.include? "wedding" %>
+    <% album_translations = album.wedding_album_translations %>
+    <% album_kind = "wedding" %>
+  <% elsif request.url.include? "baptism"  %>
+    <% album_translations = album.baptism_album_translations %>
+    <% album_kind = "baptism" %>
+  <% end %>
+
+  <% if index == 0 %>
+    <div class="col-sm-12 col-md-8 offset-md-2">
+  <% else %>
+    <div class="col-sm-12 col-md-6 grid-album">
+  <% end %>
+      <%= link_to album, :action => 'go' do %>
+        <div class="album-card hover-shadow">
+          <div class="album-header">
+            <% if album.photo? %>
+              <%= image_tag( album.photo.url.to_s , class: "img-fluid", alt: album_translations.first.title) %>
+            <% end %>
+            <div class="hover-text text-center">
+              <p><%= album_translations.first.title %></p>
+              <p><%= album_translations.first.description %></p>
+            </div>
+          </div>
+
+          <% if user_signed_in? %>
+            <div class="album-links-index">
+              <%= link_to '<i class="fa fa-edit"></i>'.html_safe, controller: "#{album_kind}_albums", action: "edit", id: album %>
+              <%= link_to '<i class="fa fa-trash-o" ></i>'.html_safe, album, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div> <!-- end album-links-index -->
+          <% end %>
+        </div> <!-- end album-card -->
+      <% end %>
+    </div>
+<% end %>
+<%# end %>

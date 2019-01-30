@@ -14,26 +14,26 @@ class WeddingAlbumsController < ApplicationController
   # GET /wedding_albums/1
   # GET /wedding_albums/1.json
   def show
-    @wedding_photos_1_2 = Array.new
-    @wedding_photos_2_2 = Array.new
+    @photos_1_2 = Array.new
+    @photos_2_2 = Array.new
 
-    @wedding_photos_1_3 = Array.new
-    @wedding_photos_2_3 = Array.new
-    @wedding_photos_3_3 = Array.new
+    @photos_1_3 = Array.new
+    @photos_2_3 = Array.new
+    @photos_3_3 = Array.new
 
     @wedding_album.wedding_photos.each_with_index do |wedding_photo, i|
       if i % 2 == 0
-        @wedding_photos_1_2.push(wedding_photo)
+        @photos_1_2.push(wedding_photo)
       else
-        @wedding_photos_2_2.push(wedding_photo)
+        @photos_2_2.push(wedding_photo)
       end
 
       if i % 3 == 0
-        @wedding_photos_1_3.push(wedding_photo)
+        @photos_1_3.push(wedding_photo)
       elsif (i+1) % 3 == 0
-        @wedding_photos_3_3.push(wedding_photo)
+        @photos_3_3.push(wedding_photo)
       else
-        @wedding_photos_2_3.push(wedding_photo)
+        @photos_2_3.push(wedding_photo)
       end
 
     end
