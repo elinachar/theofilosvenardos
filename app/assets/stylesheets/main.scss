@@ -86,7 +86,7 @@ html, body {
   }
 }
 
-#navbarDropdown i {
+.navbarDropdown i {
   display: none;
   float: right;
   -webkit-transition-duration: 1s;
@@ -160,7 +160,7 @@ footer .copyright p {
 // Small devices (landscape phones, 767px and down)
 @media (max-width: 767px) {
   //Navbar
-  #navbarDropdown i {
+  .navbarDropdown i {
     display: inline-block;
   }
 
@@ -188,6 +188,10 @@ footer .copyright p {
 
   .navbar-light .navbar-nav .dropdown-menu {
     margin-top: -30px;
+  }
+
+  .user-link .dropdown-menu {
+    margin-left: -160px;
   }
 
   //Links hovering effect

@@ -3,8 +3,10 @@ $(document).on('turbolinks:load', function() {
   // Fixed on top Navbar only for Index Page
   if ( location.href.search("index") != -1 || location.origin + "/"== location.href || location.origin == location.href) {
     $(".navbar").addClass("fixed-top");
+    $(".alert").css("margin-top", "110px");
   } else {
     $(".navbar").removeClass("fixed-top");
+    $(".alert").css("margin-top", "20px");
   }
 
   // Check if touch screen
@@ -20,13 +22,14 @@ $(document).on('turbolinks:load', function() {
   is_touch_device();
 
   //Toggle dropdown arrow when navbar collapsed
-  $("#navbarDropdown").click(function(){
+  $(".navbarDropdown").click(function(){
     var collapsedNavbar = $(".navbar-toggler").is(":visible");
+    var icon = $(this).find("i");
     if (collapsedNavbar) {
-      if (  $( "#navbarDropdown i" ).css( "transform" ) == 'none' ){
-        $("#navbarDropdown i").css("transform","rotate(-180deg)");
+      if (  $(icon).css( "transform" ) == 'none' ){
+        $(icon).css("transform","rotate(-180deg)");
       } else {
-        $("#navbarDropdown i").css("transform","" );
+        $(icon).css("transform","" );
       };
     };
   });

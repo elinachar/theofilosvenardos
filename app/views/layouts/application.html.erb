@@ -39,7 +39,7 @@
       <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar">
         <ul class="navbar-nav mx-auto text-md-center text-left">
           <li class="nav-item dropdown">
-            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link navbarDropdown" href="#" id="navbarDropdown-portfolio" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               PORTFOLIO <i class='fas fa-angle-down fa-lg'></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -54,8 +54,29 @@
           </li>
           <li class="nav-item <%= 'active' if current_page?(basic_pages_faq_path) %>"><%= link_to "FAQ", basic_pages_faq_path, class: "nav-link" %></li>
           <li class="nav-item <%= 'active' if current_page?(basic_pages_contact_path) %>"><%= link_to "CONTACT", basic_pages_contact_path, class: "nav-link" %></li>
+        </ul>
+        <ul class="navbar-nav flex-row justify-content-md-center justify-content-start user-link">
           <% if user_signed_in? %>
-            <li class="nav-item"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+            <% user_name = "Admin" %>
+            <% if current_user.name? %>
+              <% user_name = current_user.name %>
+            <% end %>
+            <li class="nav-item dropdown w-100">
+              <a class="nav-link navbarDropdown" href="#" id="navbarDropdown-user" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Hi <%= user_name %> <i class='fas fa-angle-down fa-lg'></i>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <!-- <div class="dropdown-divider"></div> -->
+                <%= link_to "Manage Weddings Portfolio", wedding_albums_path, class: "dropdown-item" %>
+                <%= link_to "Manage Baptism Portfolio", baptism_albums_path, class: "dropdown-item" %>
+                <%= link_to "Manage Interior Design Portfolio", interior_albums_path, class: "dropdown-item" %>
+                <div class="dropdown-divider"></div>
+                <%= link_to "My Account", current_user, method: :get, class: "dropdown-item" %>
+                <%= link_to "Manage Users", users_path, method: :get, class: "dropdown-item" %>
+                <div class="dropdown-divider"></div>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </div>
+            </li>
           <% end %>
         </ul>
       </div>
