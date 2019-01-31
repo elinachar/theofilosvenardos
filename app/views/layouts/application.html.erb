@@ -67,9 +67,9 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <!-- <div class="dropdown-divider"></div> -->
-                <%= link_to "Manage Weddings Portfolio", wedding_albums_path, class: "dropdown-item" %>
-                <%= link_to "Manage Baptism Portfolio", baptism_albums_path, class: "dropdown-item" %>
-                <%= link_to "Manage Interior Design Portfolio", interior_albums_path, class: "dropdown-item" %>
+                <%= link_to "Manage Weddings", wedding_albums_path, class: "dropdown-item" %>
+                <%= link_to "Manage Baptisms", baptism_albums_path, class: "dropdown-item" %>
+                <%= link_to "Manage Interior Design", interior_albums_path, class: "dropdown-item" %>
                 <div class="dropdown-divider"></div>
                 <%= link_to "My Account", current_user, method: :get, class: "dropdown-item" %>
                 <% if current_user.admin? %>

@@ -2,13 +2,13 @@
 <% albums.each_with_index do |album, index| %>
   <% if request.url.include? "wedding" %>
     <% album_translations = album.wedding_album_translations %>
-    <% album_kind = "wedding" %>
+    <% album_kind_db = "wedding" %>
   <% elsif request.url.include? "baptism"  %>
     <% album_translations = album.baptism_album_translations %>
-    <% album_kind = "baptism" %>
+    <% album_kind_db = "baptism" %>
   <% elsif request.url.include? "interior"  %>
     <% album_translations = album.interior_album_translations %>
-    <% album_kind = "interior" %>
+    <% album_kind_db = "interior" %>
   <% end %>
 
   <% if index == 0 %>
@@ -30,7 +30,7 @@
 
           <% if user_signed_in? %>
             <div class="album-links-index">
-              <%= link_to '<i class="fa fa-edit"></i>'.html_safe, controller: "#{album_kind}_albums", action: "edit", id: album %>
+              <%= link_to '<i class="fa fa-edit"></i>'.html_safe, controller: "#{album_kind_db}_albums", action: "edit", id: album %>
               <%= link_to '<i class="fa fa-trash-o" ></i>'.html_safe, album, method: :delete, data: { confirm: 'Are you sure?' } %>
             </div> <!-- end album-links-index -->
           <% end %>

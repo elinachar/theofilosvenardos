@@ -2,17 +2,20 @@
   <% album = @wedding_album %>
   <% album_photos = @wedding_album.wedding_photos %>
   <% album_translations = @wedding_album.wedding_album_translations %>
-  <% album_kind = "wedding" %>
+  <% album_kind_db = "wedding" %>
+  <% album_kind_html = "wedding" %>
 <% elsif request.url.include? "baptism"  %>
   <% album = @baptism_album %>
   <% album_photos = @baptism_album.baptism_photos %>
   <% album_translations = @baptism_album.baptism_album_translations %>
-  <% album_kind = "baptism" %>
+  <% album_kind_db = "baptism" %>
+  <% album_kind_html = "baptism" %>
 <% elsif request.url.include? "interior"  %>
   <% album = @interior_album %>
   <% album_photos = @interior_album.interior_photos %>
   <% album_translations = @interior_album.interior_album_translations %>
-  <% album_kind = "interior" %>
+  <% album_kind_db = "interior" %>
+  <% album_kind_html = "interior design" %>
 <% end %>
 
 
@@ -83,3 +86,19 @@
     <a class="next">&#10095;</a>
   </div>
 </div>
+
+<% if user_signed_in? %>
+  <div class="links">
+    <div class="row">
+      <div class="col col-10 offset-1 col-md-5 offset-md-0">
+        <%= link_to 'Edit album', {controller: "#{album_kind_db}_albums", action: "edit", id: album}, class: "btn" %>
+      </div>
+      <div class="col col-10 offset-1 col-md-3 offset-md-0">
+        <%= link_to 'Delete album'.html_safe, album, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-red" %>
+      </div>
+      <div class="col col-10 offset-1 col-md-4 offset-md-0">
+        <%= link_to "Show all #{album_kind_html} albums", eval("#{album_kind_db}_albums_path"), class: "btn" %>
+      </div>
+    </div>
+  </div>
+<% end %>
