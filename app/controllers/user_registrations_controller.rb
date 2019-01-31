@@ -1,12 +1,9 @@
 class UserRegistrationsController < Devise::RegistrationsController
 
-  private
 
-  def sign_up_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :subscribed)
-  end
+  protected
 
-  def account_update_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :current_password, :subscribed)
-  end
+    def after_update_path_for(resource)
+      user_path(resource)
+    end
 end

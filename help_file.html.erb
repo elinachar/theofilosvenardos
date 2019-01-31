@@ -348,3 +348,20 @@
             <% end %>
           </div>
         <%# end %>
+
+
+<!- users/new.html -->
+<div class="container form devise text-center">
+  <h1>New User</h1>
+
+  # users/new.html.erb
+# notice the url argument
+  <%= form_for User.new, url: create_user_path do |f| %>
+    <%= render 'form', user: @user %>
+
+  <% end %>
+
+  <%= render 'form', user: @user %>
+
+  <%= link_to 'Back', users_path %>
+</div>

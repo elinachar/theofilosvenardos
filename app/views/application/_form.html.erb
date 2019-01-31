@@ -1,21 +1,24 @@
 <% if request.url.include? "wedding" %>
   <% album = @wedding_album %>
   <% album_photos = @wedding_album.wedding_photos %>
-  <% album_kind = "wedding" %>
+  <% album_kind_db = "wedding" %>
+  <% album_kind_html = "wedding" %>
 <% elsif request.url.include? "baptism"  %>
   <% album = @baptism_album %>
   <% album_photos = @baptism_album.baptism_photos %>
-  <% album_kind = "baptism" %>
+  <% album_kind_db = "baptism" %>
+  <% album_kind_html = "baptism" %>
 <% elsif request.url.include? "interior"  %>
   <% album = @interior_album %>
   <% album_photos = @interior_album.interior_photos %>
-  <% album_kind = "interior" %>
+  <% album_kind_db = "interior" %>
+  <% album_kind_html = "interior design" %>
 <% end %>
 
 <%= form_for album do |f| %>
   <% if album.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(album.errors.count, "error") %> prohibited this <%= album_kind %>_album from being saved:</h2>
+      <h2><%= pluralize(album.errors.count, "error") %> prohibited this <%= album_kind_db %>_album from being saved:</h2>
 
       <ul>
       <% album.errors.full_messages.each do |message| %>
@@ -26,14 +29,14 @@
   <% end %>
 
   <div class="album-translations">
-    <%= f.fields_for "#{album_kind}_album_translations".parameterize.underscore.to_sym do |album_translation| %>
+    <%= f.fields_for "#{album_kind_db}_album_translations".parameterize.underscore.to_sym do |album_translation| %>
       <%= render 'album_translation_fields', f: album_translation %>
     <% end %>
   </div>
 
   <div class="field with-border">
-    <%= f.label "#{album_kind}_on".parameterize.underscore.to_sym  %>
-    <%= f.date_select "#{album_kind}_on".parameterize.underscore.to_sym,  class: 'form-control' %>
+    <%= f.label "#{album_kind_db}_on".parameterize.underscore.to_sym  %>
+    <%= f.date_select "#{album_kind_db}_on".parameterize.underscore.to_sym,  class: 'form-control' %>
   </div>
 
   <div class="field cover-photo with-border">
@@ -82,7 +85,7 @@
 
   <div class="album-photos with-border">
     <div class="photos-show">
-      <p><%= album_kind.humanize %> Photos </p>
+      <p><%= album_kind_html.humanize %> Photos </p>
         <% if album.persisted? and album_photos.count > 0 %>
           <div class="row">
             <p class="col-2"><strong>Preview</strong></p>
@@ -91,24 +94,24 @@
             <p class="col-1 col-md-2" style><strong>Delete photo</strong></p>
           </div>
         <% end %>
-        <%= f.fields_for "#{album_kind}_photos".parameterize.underscore.to_sym  do |photo| %>
+        <%= f.fields_for "#{album_kind_db}_photos".parameterize.underscore.to_sym  do |photo| %>
           <%= render 'photo_fields', f: photo %>
         <% end %>
     </div>
 
     <div class="links">
-      <%= link_to_add_association 'Add Photo', f, "#{album_kind}_photos".parameterize.underscore.to_sym, partial: "photo_fields.html.erb", class: "btn", data: { association_insertion_node: ".photos-show", association_insertion_method: :append } %>
+      <%= link_to_add_association 'Add Photo', f, "#{album_kind_db}_photos".parameterize.underscore.to_sym, partial: "photo_fields.html.erb", class: "btn", data: { association_insertion_node: ".photos-show", association_insertion_method: :append } %>
     </div>
   </div>
 
   <div class="actions">
     <% if album.persisted? %>
-      <%= f.submit "Update #{album_kind} album", class: "btn" %>
+      <%= f.submit "Update #{album_kind_html} album", class: "btn" %>
       <%= link_to "Cancel editing", album, class: "btn", data: { confirm: "Editing will be canceled. No changes will be saved. Are you sure?"} %>
 
     <% else %>
-      <%= f.submit "Create #{album_kind} album", class: "btn" %>
-      <%= link_to "Cancel", "#{album_kind}_albums_path", class: "btn", data: { confirm: "Editing will be canceled. No changes will be saved. Are you sure?"} %>
+      <%= f.submit "Create #{album_kind_html} album", class: "btn" %>
+      <%= link_to "Cancel", eval("#{album_kind_db}_albums_path"), class: "btn", data: { confirm: "Editing will be canceled. No changes will be saved. Are you sure?"} %>
     <% end %>
   </div>
 <% end %>

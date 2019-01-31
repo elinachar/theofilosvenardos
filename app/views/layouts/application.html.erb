@@ -57,7 +57,7 @@
         </ul>
         <ul class="navbar-nav flex-row justify-content-md-center justify-content-start user-link">
           <% if user_signed_in? %>
-            <% user_name = "Admin" %>
+            <% user_name = "User" %>
             <% if current_user.name? %>
               <% user_name = current_user.name %>
             <% end %>
@@ -72,7 +72,9 @@
                 <%= link_to "Manage Interior Design Portfolio", interior_albums_path, class: "dropdown-item" %>
                 <div class="dropdown-divider"></div>
                 <%= link_to "My Account", current_user, method: :get, class: "dropdown-item" %>
-                <%= link_to "Manage Users", users_path, method: :get, class: "dropdown-item" %>
+                <% if current_user.admin? %>
+                  <%= link_to "Manage Users", users_path, method: :get, class: "dropdown-item" %>
+                <% end %>
                 <div class="dropdown-divider"></div>
                 <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
               </div>

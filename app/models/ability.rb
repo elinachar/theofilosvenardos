@@ -3,9 +3,11 @@ class Ability
 
   def initialize(user)
     user ||= User.new
-    can :read, :all # permissions for every user, even if not logged in
     if user.present?
-      can :manage, :all
+      can [:show, :update, :destroy], User, id: user.id
+      if user.admin?
+        can :manage, :all
+      end
     end
   end
 

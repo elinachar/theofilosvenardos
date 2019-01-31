@@ -4,6 +4,12 @@
     <%= @user.name %>
   </p>
 
-  <%= link_to 'Edit', edit_user_path(@user), class: "btn" %>
-  <%= link_to 'Back', users_path, class: "btn" %>
+  <% if signed_in? && current_user.admin? %>
+    <%= link_to 'Edit account', edit_user_path(@user), class: 'btn' %>
+    <%= link_to 'Delete account', @user, method: :delete, data: { confirm: 'Are you sure that you want to delele your account?' }, class: 'btn btn-red' %>
+    <%= link_to 'Show all users', users_path, class: 'btn' %>
+  <% else %>
+    <%= link_to 'Edit your account', edit_user_path(@user), class: 'btn' %>
+    <%= link_to 'Delete your account', @user, method: :delete, data: { confirm: 'Are you sure that you want to delele your account?' }, class: 'btn btn-red' %>
+  <% end %>
 </div>
