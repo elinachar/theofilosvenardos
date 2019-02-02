@@ -36,7 +36,7 @@
 
   <div class="field with-border">
     <%= f.label "#{album_kind_db}_on".parameterize.underscore.to_sym  %>
-    <%= f.date_select "#{album_kind_db}_on".parameterize.underscore.to_sym,  class: 'form-control' %>
+    <%= f.date_select "#{album_kind_db}_on".parameterize.underscore.to_sym,  start_year: 2000, class: 'form-control' %>
   </div>
 
   <div class="field cover-photo with-border">

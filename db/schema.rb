@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_31_170824) do
+ActiveRecord::Schema.define(version: 2019_02_01_100813) do
 
   create_table "baptism_album_translations", force: :cascade do |t|
     t.integer "baptism_album_id"
@@ -60,6 +60,15 @@ ActiveRecord::Schema.define(version: 2019_01_31_170824) do
 
   create_table "languages", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "testimonials", force: :cascade do |t|
+    t.string "signature"
+    t.date "testimonial_on"
+    t.text "description"
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

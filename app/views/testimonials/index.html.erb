@@ -1,0 +1,15 @@
+<div class="container testimonials text-center">
+
+  <h1>Testimonials</h1>
+
+  <% @testimonials.each do |testimonial| %>
+    <%= link_to testimonial, :action => 'go' do %>
+      <%= render testimonial %>
+    <% end %>
+  <% end %>
+
+  <div class="row">
+    <%= link_to 'New Testimonial', new_testimonial_path, class: "btn col-12" %>
+  </div>
+
+</div>

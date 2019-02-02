@@ -15,8 +15,10 @@ $(document).on('turbolinks:load', function() {
     try {
       document.createEvent("TouchEvent");
       $(".index-portfolio").addClass("touch-screen");
+      $(".albums.wedding").addClass("touch-screen");
     } catch (e) {
       $(".index-portfolio").removeClass("touch-screen");
+      $(".albums.wedding").removeClass("touch-screen");
     }
   }
   is_touch_device();
@@ -33,6 +35,13 @@ $(document).on('turbolinks:load', function() {
       };
     };
   });
+
+  // Shift user dropdown based on length of user link
+  function shift_user_dropdown() {
+    var shift = 195 - $(".user-link .dropdown").width();
+    $(".user-link .dropdown-menu").css("margin-left", "-" + shift.toString() + "px");
+  }
+  shift_user_dropdown();
 
   // FAQ Page
   // Create the faq cards based on faq.js

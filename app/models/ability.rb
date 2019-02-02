@@ -8,6 +8,7 @@ class Ability
       can :manage, WeddingAlbum
       can :manage, BaptismAlbum
       can :manage, InteriorAlbum
+      can :manage, Testimonial
       if user.admin?
         can :manage, :all
       end

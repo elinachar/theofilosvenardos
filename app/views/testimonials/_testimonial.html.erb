@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="row">
+    <div class="col-md-3">
+      <%= image_tag(testimonial.photo.url.to_s , class: "img-fluid", alt: testimonial.signature) %>
+      <p class="signature"><%= testimonial.signature %></p>
+      <p class="date"><%= testimonial.testimonial_on.strftime("%d/%m/%Y")  %></p>
+    </div>
+    <div class="col-md-9 testimonial">
+      <p class="font-gr"><%= testimonial.description %></p>
+    </div>
+  </div> <!-- end row -->
+
+  <% if not (current_page?(root_url)) || (request.url.include? "index") %>
+    <div class="links-index col-12">
+      <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_testimonial_path(testimonial) %>
+      <%= link_to '<i class="fa fa-trash-o" ></i>'.html_safe, testimonial, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div> <!-- end links-index -->
+   <% end %>
+</div> <!-- end card -->

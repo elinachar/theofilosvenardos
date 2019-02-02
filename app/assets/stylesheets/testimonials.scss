@@ -1,0 +1,55 @@
+// Place all the styles related to the testimonials controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Index
+.testimonials {
+  h1 {
+    color: var(--grey);
+    font-size: 1.75rem;
+    font-weight: 300;
+    margin-bottom: 12px;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .card {
+    margin-bottom: 20px;
+    padding: 20px 20px 0 20px;
+
+    img {
+      width: 150px;
+      border-radius: 50%;
+      margin: 5px auto;
+    }
+
+    .signature {
+      margin-bottom: 0;
+    }
+  }
+
+  .btn {
+    margin-bottom: 20px;
+  }
+}
+
+.container.testimonials {
+  .card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
+// Show
+.container.testimonial img {
+  border-radius: 50%;
+}
+
+// Small devices and up
+@media (min-width: 576px) {
+  .testimonial {
+    text-align: left;
+  }
+}

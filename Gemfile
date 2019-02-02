@@ -45,6 +45,8 @@ gem 'carrierwave'
 # Gem for AWS S3
 gem 'fog-aws'
 
+# Gemfile for Rails 3+, Sinatra, and Merb
+gem 'will_paginate', '~> 3.1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -194,10 +194,6 @@ footer .copyright p {
     margin-top: -30px;
   }
 
-  .user-link .dropdown-menu {
-    margin-left: -160px;
-  }
-
   //Links hovering effect
   .navbar-light .nav-item .nav-link:after {
       content: ""; /* This is necessary for the pseudo element to work. */
@@ -232,6 +228,10 @@ footer .copyright p {
 
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767px) {
+  .user-link .dropdown-menu {
+    margin-left: 0 !important;
+  }
+
   footer {
    height: 130px;
   }

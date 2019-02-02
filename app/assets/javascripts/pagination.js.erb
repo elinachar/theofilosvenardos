@@ -1,0 +1,15 @@
+$(document).on('turbolinks:load', function() {
+  // In order the click event to be called not only on the first click but also
+  // for future clicks without the page to be reloaded I should call it with
+  // $(document).on('click', selector, function(){}) and not
+  // $(selector).on('click', function(){}) nor $(selector).click(function() {})
+  $(document).on('click', '.pagination a', function () {
+    $.get(this.href, null, null, "script");
+    return false;
+  });
+
+  // $(".pagination a.previous_page").html("<img src='../assets/images/arrow_previous.png'>");
+  // $(".pagination a.previous_page").html("<img src='arrow_next.png'>");
+
+
+});

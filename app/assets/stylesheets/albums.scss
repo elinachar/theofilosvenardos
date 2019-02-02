@@ -25,10 +25,10 @@
     margin-bottom: 12px;
   }
 
-  .grid-album {
-    padding: 0 6px;
+  a {
+    text-decoration: none;
   }
-
+  //
   .album-card {
     margin-bottom: 10px;
   }
@@ -48,24 +48,45 @@
     // color: var(--grey);
   }
 
-  .album-links-index {
+  .links-index {
     border-right-style: solid;
     border-bottom-style: solid;
     border-left-style: solid;
     border-width: 1px;
     border-color: #c8cacc;
-    padding: 8px;
-    text-align: right;
-
-    i {
-      color: var(--grey);
-      font-size: 20px;
-      padding: 0 5px;
-    }
   }
 
 }
 
+.albums.wedding.touch-screen {
+
+  .album-header  {
+    background-color: white;
+  }
+
+   .album-card .hover-text {
+    position: static;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    opacity: 1;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-width: 1px;
+    border-color: #c8cacc;
+    font-size: 1.1rem;
+
+    p:first-child {
+      padding-top: 8px;
+      margin-bottom: 5px;
+    }
+
+    p:last-child {
+      margin-bottom: 8px;
+    }
+  }
+}
 
 // Show Page
 .album {
@@ -104,19 +125,19 @@
       cursor: pointer;
     }
   }
+}
 
-  .links {
-    border-top: 1px solid rgba(153, 149, 127, 0.3);
-    padding-top: 20px;
-    margin-top: 10px;
+.links {
+  border-top: 1px solid rgba(153, 149, 127, 0.3);
+  padding-top: 20px;
+  margin-top: 10px;
 
-    .col {
-      padding: 0 4px;
-    }
-     a {
-      width: 100%;
-      margin-bottom: 10px;
-    }
+  .col {
+    padding: 0 4px;
+  }
+   a {
+    width: 100%;
+    margin-bottom: 10px;
   }
 }
 
@@ -233,9 +254,6 @@
 
 // XS and small devices (less than 768px)
 @media (max-width: 767px) {
-  .grid-album {
-    padding: 0 15px;
-  }
 
   .mdl {
     .next {
@@ -244,6 +262,15 @@
 
     .prev {
       margin-left: 0;
+    }
+  }
+}
+
+// Medium and Large devices (more than 767px)
+@media (min-width: 768px) {
+  .albums {
+    .grid-album {
+      padding: 0 6px;
     }
   }
 }

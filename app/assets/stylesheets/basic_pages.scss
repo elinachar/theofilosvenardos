@@ -100,25 +100,48 @@
     border-top: none;
     border-left: none;
     border-right: none;
-    margin-top: 20px;
+    border-radius: 0;
   }
 
-  .card.last-card {
-    border-bottom: none;
-  }
-
-  img {
-    width: 150px;
-    border-radius: 50%;
-    margin: 5px auto;
-  }
-
-  .signature {
-    margin-bottom: 0;
-  }
+.pagination {
+  width: 100%;
+  margin-top: -20px;
+  margin-bottom: 15px;
 }
 
+  .pagination {
+    a,
+    em.current {
+      display: none;
+    }
 
+    a.previous_page,
+    a.next_page {
+      display: block;
+      margin: auto;
+      opacity: 0.8;
+    }
+
+    span.previous_page.disabled,
+    span.next_page.disabled {
+      color: grey;
+      margin: auto;
+      opacity: 0.3;
+    }
+
+    a.previous_page,
+    span.previous_page.disabled {
+      margin-right: 5px;
+    }
+
+    a.next_page,
+    span.next_page.disabled {
+      margin-left: 5px;
+    }
+
+
+  }
+}
 
 // About Page
 .about-img {
@@ -309,7 +332,6 @@ address {
       border-color: #c8cacc;
     }
 
-
     .card.wedding .hover-text {
       max-width: 334px;
     }
@@ -326,13 +348,6 @@ address {
 // Medium devices (tablets, less than 992px) and Large devices (desktops, less than 1200px)
 // @media (max-width: 991px) { ... }
 
-
-// Small devices and up
-@media (min-width: 576px) {
-  .testimonial {
-    text-align: left;
-  }
-}
 
 // Medium devices and up
 @media (min-width: 768px) {
