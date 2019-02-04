@@ -6,7 +6,11 @@
       <p class="date"><%= @testimonial.testimonial_on.strftime("%d/%m/%Y")  %></p>
     </div>
   </div>
-  <p class="font-gr"><%= @testimonial.description %></p>
+  <% if @testimonial.language_id == 1 %>
+    <p><%= @testimonial.description %></p>
+  <% else %>
+    <p class="font-gr"><%= @testimonial.description %></p>
+  <% end %>
 
   <div class="links">
     <div class="row">

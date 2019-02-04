@@ -12,6 +12,15 @@
   <% end %>
 
   <div class="with-border">
+    <div class="field">
+      <%= f.label :language_id, "Select language:" %>
+      <% if testimonial.persisted? %>
+        <%= f.select :language_id, options_for_select([['English', 1], ['Greek', 2]], testimonial.language_id) %>
+      <% else %>
+        <%= f.select :language_id, options_for_select([['English', 1], ['Greek', 2]]) %>
+      <% end %>
+    </div>
+
     <div class="field testimonial-signature">
       <%= f.label :signature, "Signature" %>
       <%= f.text_field :signature, class: 'form-control'  %>
