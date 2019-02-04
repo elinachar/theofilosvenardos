@@ -5,27 +5,16 @@
     <p> If you still have further queries do not hesitate to <%= link_to "contact ", basic_pages_contact_path %> me.</p>
   </div>
 
-
   <div id="accordion">
-    <!-- <div class="card">
-      <button class="btn card-header collapsed" id="heading1" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
-          <div class="row">
-            <span class="col-1 fa-stack p-0" id="camera">
-              <i class="fas fa-camera fa-stack-1x fa-lg"></i>
-              <i class="fas fa-haykal fa-stack-2x" id="flash"></i>
-            </span>
-            <h5 class="col-11 mb-0">
-              What does your photo coverage includes?
-            </h5>
-          </div>
-      </button>
-
-      <div id="collapse1" class="collapse" aria-labelledby="heading1">
-        <div class="col-md-11 offset-md-1 card-body">
-          I’ll be with you by the time you are getting ready, and we will
-          continue to the ceremony and the reception/party.
-        </div>
-      </div>
-    </div> -->
+    <%= render @faqs %>
   </div> <!-- end accordion -->
+
+</div> <!-- end container -->
+
+<div class="container">
+  <% if user_signed_in? %>
+    <div class="row new-faq">
+      <%= link_to 'Edit FAQs', faqs_path, class: "btn col-10 offset-1" %>
+    </div>
+  <% end %>
 </div> <!-- end container -->

@@ -9,8 +9,6 @@
     <!-- <meta name="description" content="Το PILATESstudio Άσκηση είναι ένα σύγχρονο studio προσωπικής εκγύμνασης και Pilates στο Ηράκλειο Κρήτης. Personal training και εκγύμναση μικρών όμάδων για όλους, από αρχάριους μέχρι επαγγελματίες αθλητές. Ειδικά μαθήματα για εγκύους, ηλικιωμένους, θεραπεία μυοσκελετικών παθήσεων και αποκατάσταση."> -->
     <meta name="keywords" content="Photography, photographer, Greece, Wedding, Baptism, Interior Design">
 
-
-
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -71,6 +69,7 @@
                 <%= link_to "Manage Baptisms", baptism_albums_path, class: "dropdown-item" %>
                 <%= link_to "Manage Interior Design", interior_albums_path, class: "dropdown-item" %>
                 <%= link_to "Manage Testimonials", testimonials_path, class: "dropdown-item" %>
+                <%= link_to "Manage FAQs", faqs_path, class: "dropdown-item" %>
                 <div class="dropdown-divider"></div>
                 <%= link_to "My Account", current_user, method: :get, class: "dropdown-item" %>
                 <% if current_user.admin? %>

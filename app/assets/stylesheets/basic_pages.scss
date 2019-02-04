@@ -154,66 +154,6 @@
   margin-bottom: 25px;
 }
 
-// FAQ Page
-.faq h1 {
-  padding: 20px 0;
-}
-
-.faq,
-#accordion .card,
-#accordion .card-header,
-#accordion .card-body {
-  background-color: rgba(237,232,228, 1);
-  background-color: rgba(244,241,238, 1);
-  background-color: #eae9e5;;
-}
-
-.faq-intro {
-  padding-left: 20px;
-}
-
-#accordion {
-  .card {
-    border: none;
-    border-top: 1px solid rgba(153,149,127,0.3);
-  }
-
-  .btn {
-    white-space: normal;
-  }
-
-  .btn:hover {
-    box-shadow: none;
-  }
-
-  .card-header {
-    cursor: pointer;
-    height: 70px;
-    border-color: rgba(132,132,132, 0);
-    text-align: left;
-
-    h5 {
-      font-size: 1.1rem;
-      padding-top: 4px;
-      font-weight: 500;
-      }
-    }
-
-  .card-body {
-    border-top: 1px solid rgba(153,149,127,0.3);
-  }
-}
-
-#camera .fa-camera {
-  color: #99957f;
-}
-
-#flash {
-  color: #d1b419;
-  font-size:13px;
-  display: none;
-}
-
 // Contact Page
 .contact-img {
   opacity: 0.9;
@@ -306,19 +246,6 @@ address {
     margin-bottom: 20px;
   }
 
-  .faq-intro {
-    padding-left: 0px;
-  }
-
-  .card-header {
-    height: 90px;
-
-    h5 {
-      font-size: 1rem;
-      padding-right: 0;
-    }
-  }
-
   .index-portfolio.touch-screen {
      .card .hover-text {
       opacity: 1;
@@ -357,13 +284,7 @@ address {
 }
 
 
-// Extra small devices (portrait phones, less than 576px)
-@media (max-width: 575px) {
-  #accordion .card-header {
-    height: 100px;
-  }
 
-}
 
 // Small devices (landscape phones, less than 768px)
 // @media (max-width: 767px) { ... }

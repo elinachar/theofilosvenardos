@@ -1,0 +1,16 @@
+<div class="container-fluid faq">
+  <h1 class="text-center">Frequently Asked Questions</h1>
+
+  <div id="accordion">
+    <%= render @faqs %>
+  </div> <!-- end accordion -->
+
+</div> <!-- end container -->
+
+<div class="container">
+  <% if user_signed_in? %>
+    <div class="row new-faq">
+      <%= link_to 'New Question', new_faq_path, class: "btn col-10 offset-1" %>
+    </div>
+  <% end %>
+</div>

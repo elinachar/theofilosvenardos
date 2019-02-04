@@ -1,0 +1,25 @@
+<div class="card">
+  <% if user_signed_in? %>
+    <button class="btn card-header editable collapsed" id="heading<%= faq.id %>" data-toggle="collapse" data-target="#collapse<%= faq.id %>" aria-expanded="false" aria-controls="collapse<%= faq.id %>">
+  <% else %>
+    <button class="btn card-header collapsed" id="heading<%= faq.id %>" data-toggle="collapse" data-target="#collapse<%= faq.id %>" aria-expanded="false" aria-controls="collapse<%= faq.id %>">
+  <% end %>
+      <div class="row">
+        <span class="col-1 fa-stack p-0" id="camera">
+          <i class="fas fa-camera fa-stack-1x fa-lg"></i>
+          <i class="fas fa-haykal fa-stack-2x" id="flash"></i>
+        </span>
+        <h5 class="col-11 mb-0"><%=faq.question %></h5>
+        <% if not (request.url.include? "basic_pages") %>
+          <div class="links-index col-12">
+            <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_faq_path(faq) %>
+            <%= link_to '<i class="fa fa-trash-o" ></i>'.html_safe, faq, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div> <!-- end links-index -->
+         <% end %>
+      </div>
+  </button>
+
+  <div id="collapse<%= faq.id %>" class="collapse" aria-labelledby="heading<%= faq.id %>">
+    <div class="col-md-11 offset-md-1 card-body"><%= faq.answer %></div>
+  </div>
+</div>

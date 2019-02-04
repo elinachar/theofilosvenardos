@@ -1,0 +1,27 @@
+<div class="container">
+
+  <p>
+    <strong>Question:</strong>
+    <%= @faq.question %>
+  </p>
+
+  <p>
+    <strong>Answer:</strong>
+    <%= @faq.answer %>
+  </p>
+
+  <div class="links">
+    <div class="row">
+      <div class="col col-10 offset-1 col-md-5 offset-md-0">
+        <%= link_to 'Edit qestion',edit_faq_path(@faq), class: "btn" %>
+      </div>
+      <div class="col col-10 offset-1 col-md-3 offset-md-0">
+        <%= link_to 'Delete question'.html_safe, @faq, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-red" %>
+      </div>
+      <div class="col col-10 offset-1 col-md-4 offset-md-0">
+        <%= link_to "Show all FAQs", faqs_path, class: "btn" %>
+      </div>
+    </div>
+  </div>
+
+</div>

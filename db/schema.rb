@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_02_175336) do
+ActiveRecord::Schema.define(version: 2019_02_04_153342) do
 
   create_table "baptism_album_translations", force: :cascade do |t|
     t.integer "baptism_album_id"
@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(version: 2019_02_02_175336) do
     t.string "photo"
     t.integer "baptism_album_id"
     t.index ["baptism_album_id"], name: "index_baptism_photos_on_baptism_album_id"
+  end
+
+  create_table "faqs", force: :cascade do |t|
+    t.text "question"
+    t.text "answer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "interior_album_translations", force: :cascade do |t|
