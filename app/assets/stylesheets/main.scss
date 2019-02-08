@@ -163,10 +163,17 @@ footer {
   }
 
   .instagram-photos {
+    width: 80%;
     margin: 10px auto;
+
+    .instagram-photo {
+      padding: 0 5px;
+    }
 
     img {
       margin: 2px auto;
+      height: auto;
+      width: auto;
     }
   }
 }
@@ -194,18 +201,7 @@ footer {
 
 // Small devices (landscape phones, 576px and up)
 // @media (min-width: 576px) { ... }
-// Small devices (landscape phones, 767px and down)
-@media (max-width: 767px) {
-  //Navbar
-  .navbarDropdown i {
-    display: inline-block;
-  }
 
-  .dropdown-item {
-    padding-left: 32px;
-  }
-
- }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
@@ -251,7 +247,6 @@ footer {
     width: 100%;
   }
 
-
 }
 
 // Media Queries
@@ -261,6 +256,16 @@ footer {
 
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767px) {
+  //Navbar
+  .navbarDropdown i {
+    display: inline-block;
+  }
+
+  .dropdown-item {
+    padding-left: 32px;
+  }
+
+
   .user-link .dropdown-menu {
     margin-left: 0 !important;
   }
@@ -275,14 +280,18 @@ footer {
   }
 
   footer .copyright p {
-    text-align: center;
+    text-align: center !important;
   }
 }
 
 
 
 // Extra small devices (portrait phones, less than 576px)
-// @media (max-width: 575px) { ... }
+@media (max-width: 575px) {
+  .instagram-photos {
+    width: 100%;
+  }
+}
 
 // Small devices (landscape phones, less than 768px)
 // @media (max-width: 767px) { ... }

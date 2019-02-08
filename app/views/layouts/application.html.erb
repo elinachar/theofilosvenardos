@@ -110,9 +110,17 @@
         <h2>FOLLOW ME ON INSTAGRAM</h2>
         <%= link_to "#theofilosvenardosphotography", "https://www.instagram.com/theofilos_venardos/",  target: "_blank" %>
         <div class="instagram-photos">
-          <% @instagram_photos.each do |photo| %>
-              <%= image_tag(photo, class: "img-fluid", alt: "#theofilosvenardosphotography") %>
-          <% end %>
+          <div class="row">
+            <% @instagram_photos.each_with_index do |photo, index| %>
+              <% if index.even? %>
+                <div class="col-4 offset-2 col-sm-3 offset-sm-3 col-md-2 offset-md-0 instagram-photo">
+              <% else %>
+                <div class="col-4 col-sm-3 col-md-2 instagram-photo">
+              <% end %>
+                  <%= image_tag(photo, class: "img-fluid", alt: "#theofilosvenardosphotography") %>
+                </div>
+            <% end %>
+          </div> <!-- end row -->
         </div>
       </div> <!-- end instagram -->
 
