@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_04_153342) do
+ActiveRecord::Schema.define(version: 2019_02_08_105252) do
 
   create_table "baptism_album_translations", force: :cascade do |t|
     t.integer "baptism_album_id"

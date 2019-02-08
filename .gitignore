@@ -32,3 +32,9 @@
 
 # Ignore uploaded photos
 /public/uploads
+
+# Ignore /config/secrets.yml
+/config/secrets.yml
+
+# Ignore help file
+help_file.html.erb
