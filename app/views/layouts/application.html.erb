@@ -113,9 +113,9 @@
           <div class="row">
             <% @instagram_photos.each_with_index do |photo, index| %>
               <% if index.even? %>
-                <div class="col-4 offset-2 col-sm-3 offset-sm-3 col-md-2 offset-md-0 instagram-photo">
+                <div class="col-4 offset-2 col-sm-2 offset-sm-0 instagram-photo">
               <% else %>
-                <div class="col-4 col-sm-3 col-md-2 instagram-photo">
+                <div class="col-4 col-sm-2 instagram-photo">
               <% end %>
                   <%= image_tag(photo, class: "img-fluid", alt: "#theofilosvenardosphotography") %>
                 </div>
