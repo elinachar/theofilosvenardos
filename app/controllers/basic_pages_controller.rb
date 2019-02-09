@@ -8,6 +8,12 @@ class BasicPagesController < ApplicationController
     @faqs = Faq.all
   end
 
+  def about
+  end
+
+  def contact
+  end
+
   def thank_you
     @name = params[:name]
     @email = params[:email]

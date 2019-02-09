@@ -30,7 +30,7 @@
   <body>
     <!--navbar starts here-->
     <nav class="navbar navbar-light navbar-expand-md bg-light justify-content-md-center fixed-top">
-      <%= link_to "Theofilos Venardos", basic_pages_index_path, class: "navbar-brand d-md-none" %>
+      <%= link_to "Theofilos Venardos", root_url, class: "navbar-brand d-md-none" %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
           <span class="navbar-toggler-icon"></span>
       </button>
@@ -46,12 +46,12 @@
              <%= link_to "Interior Design", InteriorAlbum.first, class: "dropdown-item" %>
             </div>
           </li>
-          <li class="nav-item <%= 'active' if current_page?(basic_pages_about_path) %>"><%= link_to "ABOUT", basic_pages_about_path, class: "nav-link" %></li>
+          <li class="nav-item <%= 'active' if current_page?(about_path) %>"><%= link_to "ABOUT", about_path, class: "nav-link" %></li>
           <li class="nav-item my-auto">
-            <%= link_to "Theofilos Venardos", basic_pages_index_path, class: "nav-link navbar-brand mx-0 d-none d-md-inline" %>
+            <%= link_to "Theofilos Venardos", root_url, class: "nav-link navbar-brand mx-0 d-none d-md-inline" %>
           </li>
-          <li class="nav-item <%= 'active' if current_page?(basic_pages_faq_path) %>"><%= link_to "FAQ", basic_pages_faq_path, class: "nav-link" %></li>
-          <li class="nav-item <%= 'active' if current_page?(basic_pages_contact_path) %>"><%= link_to "CONTACT", basic_pages_contact_path, class: "nav-link" %></li>
+          <li class="nav-item <%= 'active' if current_page?(frequently_asked_questions_path) %>"><%= link_to "FAQ", frequently_asked_questions_path, class: "nav-link" %></li>
+          <li class="nav-item <%= 'active' if current_page?(contact_path) %>"><%= link_to "CONTACT", contact_path, class: "nav-link" %></li>
         </ul>
         <ul class="navbar-nav flex-row justify-content-md-center justify-content-start user-link">
           <% if user_signed_in? %>
@@ -129,7 +129,7 @@
           <div class="col-md-4 social-media">
             <%= link_to "<i class='fab fa-facebook-f fa-sm'></i>".html_safe, "https://www.facebook.com/VenardosPhotography",  target: "_blank" %>
             <%= link_to "<i class='fab fa-instagram fa-sm'></i>".html_safe, "https://www.instagram.com/theofilos_venardos/",  target: "_blank" %>
-            <%= link_to "<i class='fas fa-envelope fa-sm'></i>".html_safe, basic_pages_contact_path %>
+            <%= link_to "<i class='fas fa-envelope fa-sm'></i>".html_safe, contact_path %>
           </div>
           <div class="col-md-4 logo text-center">
             <p>Theofilos Venardos</p>
