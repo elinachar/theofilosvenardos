@@ -85,6 +85,31 @@
   }
 }
 
+.index-portfolio.touch-screen {
+   .card .hover-text {
+    opacity: 1;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin: auto;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-width: 1px;
+    border-color: #c8cacc;
+  }
+
+  .card.wedding .hover-text {
+    max-width: 334px;
+  }
+
+  .card.baptism,
+  .card.interior-design {
+    .hover-text {
+      max-width: 367.86px;
+    }
+  }
+}
+
 .index-about {
   .row:first-child {
     margin-bottom: 16px;
@@ -247,31 +272,6 @@ address {
     margin-bottom: 20px;
   }
 
-  .index-portfolio.touch-screen {
-     .card .hover-text {
-      opacity: 1;
-      margin-top: 0;
-      margin-bottom: 0;
-      margin: auto;
-      border-right-style: solid;
-      border-bottom-style: solid;
-      border-left-style: solid;
-      border-width: 1px;
-      border-color: #c8cacc;
-    }
-
-    .card.wedding .hover-text {
-      max-width: 334px;
-    }
-
-    .card.baptism,
-    .card.interior-design {
-      .hover-text {
-        max-width: 367.86px;
-      }
-    }
-  }
-
   .about-info {
     text-align: center;
   }
@@ -285,6 +285,22 @@ address {
 @media (min-width: 768px) {
   .about img {
     margin-top: 15px;
+  }
+
+  .index-portfolio.touch-screen {
+    .card.wedding {
+      img {
+        height: 501px;
+      }
+    }
+    
+    .card.baptism,
+    .card.interior-design {
+
+      img {
+        height: 230px;
+      }
+    }
   }
 }
 

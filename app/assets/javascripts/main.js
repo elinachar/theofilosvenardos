@@ -16,9 +16,11 @@ $(document).on('turbolinks:load', function() {
       document.createEvent("TouchEvent");
       $(".index-portfolio").addClass("touch-screen");
       $(".albums.wedding").addClass("touch-screen");
+      console.log("touch screen");
     } catch (e) {
       $(".index-portfolio").removeClass("touch-screen");
       $(".albums.wedding").removeClass("touch-screen");
+      console.log("not touch screen");
     }
   }
   is_touch_device();
