@@ -31,7 +31,7 @@
 <div class="row display-xs" style= "display: none">
   <div class="col-10 offset-1 column">
     <% album_photos.each_with_index do |photo, index| %>
-      <%= image_tag(photo.photo.url.to_s , class: "img-fluid open-modal-image hover-shadow", alt: "#{album_translations.first.title} photo", data: {slide: index}) %>
+      <%= image_tag(photo.photo_url(:grid_thumb) , class: "img-fluid open-modal-image hover-shadow", alt: "#{album_translations.first.title} photo", data: {slide: index}) %>
     <% end %>
   </div>
 </div>
@@ -39,12 +39,12 @@
 <div class="row display-sm" style= "display: none">
   <div class="col-6 column">
     <% @photos_1_2.each_with_index do |photo, index| %>
-      <%= image_tag(photo.photo.url.to_s , class: "img-fluid open-modal-image hover-shadow", alt:  "#{album_translations.first.title} photo", data: {slide: 2*index}) %>
+      <%= image_tag(photo.photo_url(:grid_thumb) , class: "img-fluid open-modal-image hover-shadow", alt:  "#{album_translations.first.title} photo", data: {slide: 2*index}) %>
     <% end %>
   </div>
   <div class="col-6 column">
     <% @photos_2_2.each_with_index do |photo, index| %>
-      <%= image_tag(photo.photo.url.to_s , class: "img-fluid open-modal-image hover-shadow", alt:  "#{album_translations.first.title} photo", data: {slide: 2*index+1}) %>
+      <%= image_tag(photo.photo_url(:grid_thumb) , class: "img-fluid open-modal-image hover-shadow", alt:  "#{album_translations.first.title} photo", data: {slide: 2*index+1}) %>
     <% end %>
   </div>
 </div>
@@ -52,20 +52,18 @@
 <div class="row display-md">
   <div class="col-4 column">
     <% @photos_1_3.each_with_index do |photo, index| %>
-
-      <%= image_tag( photo.photo.url.to_s , class: "img-fluid open-modal-image hover-shadow", alt:  "#{album_translations.first.title} photo", data: {slide: index+index*2}) %>
-
+      <%= image_tag(photo.photo_url(:grid_thumb) , class: "img-fluid open-modal-image hover-shadow", alt: "#{album_translations.first.title} photo", data: {slide: index+index*2}) %>
     <% end %>
 
   </div>
   <div class="col-4 column">
     <% @photos_2_3.each_with_index do |photo, index| %>
-      <%= image_tag(photo.photo.url.to_s , class: "img-fluid open-modal-image hover-shadow", alt:  "#{album_translations.first.title} photo", data: {slide: 3*index+1} ) %>
+      <%= image_tag(photo.photo_url(:grid_thumb) , class: "img-fluid open-modal-image hover-shadow", alt: "#{album_translations.first.title} photo", data: {slide: 3*index +1}) %>
     <% end %>
   </div>
   <div class="col-4 column">
     <% @photos_3_3.each_with_index do |photo, index| %>
-      <%= image_tag(photo.photo.url.to_s , class: "img-fluid open-modal-image hover-shadow", alt:  "#{album_translations.first.title} photo", data: {slide: 3*index+2} ) %>
+    <%= image_tag(photo.photo_url(:grid_thumb) , class: "img-fluid open-modal-image hover-shadow", alt: "#{album_translations.first.title} photo", data: {slide: 3*index +2}) %>
     <% end %>
   </div>
 </div>

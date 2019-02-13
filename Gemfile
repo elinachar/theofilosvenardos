@@ -49,7 +49,14 @@ gem 'fog-aws'
 gem 'will_paginate', '~> 3.1.0'
 
 # Instagram
-gem 'instagram' 
+gem 'instagram'
+
+# Piet gem of image optimization
+gem 'piet'
+gem 'piet-binary'
+
+# MiniMagick
+gem "mini_magick"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

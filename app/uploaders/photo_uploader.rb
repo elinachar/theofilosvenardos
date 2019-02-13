@@ -1,7 +1,12 @@
 class PhotoUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
+
+  # Include Piet for image optimization
+  # include Piet::CarrierWaveExtension
+
+  # process optimize: [{ verbose: true, quality: 50, level: 7 }]
 
   # Choose what kind of storage to use for this uploader:
   # storage :file
@@ -36,15 +41,44 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process resize_to_fit: [50, 50]
-  # end
+  version :grid_thumb, if: :is_model_photo? do
+    process resize_to_limit: [450, nil]
+  end
+
+  version :edit_thumb do
+   process resize_to_limit: [200, nil]
+  end
+
+  # For *_album models
+  process resize_to_limit: [1920, nil], if: :is_model_album?
+  process resize_to_limit: [300, 300], if: :is_square?
+
+  # For *_photo models
+  # Upload photos with max_height = 450px
+  process resize_to_limit: [nil, 450], if: :is_model_photo?
+
+
+  def is_model_photo? picture
+    model.class.to_s.underscore.include? "photo"
+  end
+
+
+  def is_model_album? picture
+    model.class.to_s.underscore.include? "album"
+  end
+
+  def is_square? picture
+    mounted_as.to_s ==  "photo_square"
+  end
+
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  # def extension_whitelist
-  #   %w(jpg jpeg gif png)
-  # end
+  # Upload only images
+  def extension_whitelist
+    %w(jpg jpeg gif png)
+  end
+
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.

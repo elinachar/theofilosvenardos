@@ -1,7 +1,7 @@
 $(document).on('turbolinks:load', function() {
   //Navbar
   // Fixed on top Navbar only for Index Page
-  if ( location.href.search("index") != -1 || location.origin + "/"== location.href || location.origin == location.href) {
+  if (location.origin + "/"== location.href || location.origin == location.href) {
     $(".navbar").addClass("fixed-top");
     $(".alert").css("margin-top", "110px");
   } else {
@@ -16,11 +16,9 @@ $(document).on('turbolinks:load', function() {
       document.createEvent("TouchEvent");
       $(".index-portfolio").addClass("touch-screen");
       $(".albums.wedding").addClass("touch-screen");
-      console.log("touch screen");
     } catch (e) {
       $(".index-portfolio").removeClass("touch-screen");
       $(".albums.wedding").removeClass("touch-screen");
-      console.log("not touch screen");
     }
   }
   is_touch_device();

@@ -44,7 +44,7 @@
       <p>Cover photo</p>
       <div class="row uploaded-cover-photo">
         <div class="col-3 col-md-2">
-          <%= image_tag( album.photo.url.to_s , class: "img-fluid", alt: album.photo_identifier.to_s) %>
+          <%= image_tag( album.photo_url(:edit_thumb) , class: "img-fluid", alt: album.photo_identifier.to_s) %>
         </div>
         <div class="col-7 col-md-10">
           <p><b>Uploaded photo:</b> <%= album.photo %></p>
@@ -66,7 +66,7 @@
       <p>Header (square) photo</p>
       <div class="row uploaded-cover-photo">
         <div class="col-3 col-md-2">
-          <%= image_tag( album.photo_square.url.to_s , class: "img-fluid", alt: album.photo_square.url.to_s) %>
+          <%= image_tag( album.photo_square_url(:edit_thumb) , class: "img-fluid", alt: album.photo_square.url.to_s) %>
         </div>
         <div class="col-7 col-md-10">
           <p><b>Uploaded photo:</b> <%= album.photo_square %></p>

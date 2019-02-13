@@ -11,7 +11,7 @@
     <div class="row uploaded-photo">
       <%= f.label :photo, " #{f.index.to_i + 1 }", class: "col-1 sr-only" %>
       <div class="col-2">
-        <%= image_tag( photos[f.index.to_i].photo.url.to_s , class: "img-fluid", alt: photos[f.index.to_i].photo_identifier.to_s) %>
+        <%= image_tag( photos[f.index.to_i].photo_url(:edit_thumb) , class: "img-fluid", alt: photos[f.index.to_i].photo_identifier.to_s) %>
       </div>
       <p class="col-3 display-md"><%= photos[f.index.to_i].photo_identifier.to_s %></p>
       <div class="col-7 col-md-5">
