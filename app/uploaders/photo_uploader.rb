@@ -54,8 +54,8 @@ class PhotoUploader < CarrierWave::Uploader::Base
   process resize_to_limit: [300, 300], if: :is_square?
 
   # For *_photo models
-  # Upload photos with max_height = 450px
-  process resize_to_limit: [nil, 450], if: :is_model_photo?
+  # Upload photos with max_height = 600px
+  process resize_to_fit: [nil, 600], if: :is_model_photo?
 
 
   def is_model_photo? picture
