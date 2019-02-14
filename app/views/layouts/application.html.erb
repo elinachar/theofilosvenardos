@@ -117,7 +117,9 @@
               <% else %>
                 <div class="col-4 col-sm-2 instagram-photo">
               <% end %>
+                <%= link_to @instagram_links[index], :action => 'go', target: "_blank"  do %>
                   <%= image_tag(photo, class: "img-fluid", alt: "#theofilosvenardosphotography") %>
+                <% end %>
                 </div>
             <% end %>
           </div> <!-- end row -->
