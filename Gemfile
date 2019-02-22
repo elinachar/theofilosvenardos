@@ -51,10 +51,6 @@ gem 'will_paginate', '~> 3.1.0'
 # Instagram
 gem 'instagram'
 
-# Piet gem of image optimization
-gem 'piet'
-gem 'piet-binary'
-
 # MiniMagick
 gem "mini_magick"
 

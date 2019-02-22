@@ -2,7 +2,48 @@
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on('turbolinks:load', function() {
+  // Go to top btn
+  $(window).scroll(function(){
+    // Show the #go-top when scrolling from top is more than 100px
+    if ($(window).scrollTop() > 100) {
+      $("#go-top").show();
+    } else {
+      $("#go-top").hide();
+    }
 
+    // Limit the #go-top button till is is up to the "footer .content"
+    checkOffset();
+  });
+
+  var ta, ha, mba, tb, offset, diff
+
+  function checkOffset() {
+
+    ta = $("#go-top").offset().top;
+    ha = $("#go-top").outerHeight();
+    mba = parseInt($("#go-top").css("margin-bottom"));
+    tb = $("footer .content").offset().top;
+    offset = 5
+
+    diff = ta + ha + mba - tb + offset
+    if (diff >= 0) {
+
+      $("#go-top").css("margin-bottom", (diff).toString() + "px");
+
+    } else {
+      $("#go-top").css("margin-bottom", "0");
+    }
+
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  $("#go-top").on("click", function() {
+     $("html, body").animate({ scrollTop: 0 }, "slow");
+  });
+
+  // MODAL
+
+  // Open the Modal
   $(".open-modal-image").on("click", function(){
     $('#modal').css("display","flex").hide().fadeIn(1000);
     slideIndex = parseInt($(this).attr("data-slide"));

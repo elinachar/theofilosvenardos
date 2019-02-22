@@ -139,15 +139,7 @@ GEM
     nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
-    os (0.9.6)
     pg (0.21.0)
-    piet (0.2.6)
-      png_quantizator
-    piet-binary (0.2.0)
-      os (~> 0.9.6)
-      piet (>= 0.2.0)
-      png_quantizator
-    png_quantizator (0.2.1)
     puma (3.12.0)
     rack (2.0.6)
     rack-test (1.1.0)
@@ -248,8 +240,6 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   mini_magick
   pg (~> 0.20)
-  piet
-  piet-binary
   puma (~> 3.11)
   rails (~> 5.2.1)
   sass-rails (~> 5.0)

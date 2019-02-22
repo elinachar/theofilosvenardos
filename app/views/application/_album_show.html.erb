@@ -28,6 +28,7 @@
   <h4><%= album_translations.first.description %></h4>
 </div>
 
+
 <div class="row display-xs" style= "display: none">
   <div class="col-10 offset-1 column">
     <% album_photos.each_with_index do |photo, index| %>
@@ -84,6 +85,8 @@
     <a class="next">&#10095;</a>
   </div>
 </div>
+
+<div id="go-top" title="Go to top" class="btn"><i class='fas fa-angle-up fa-lg'></i></div>
 
 <% if user_signed_in? %>
   <div class="links">
