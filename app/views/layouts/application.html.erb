@@ -28,122 +28,127 @@
 
 
   <body>
-    <!--navbar starts here-->
-    <nav class="navbar navbar-light navbar-expand-md bg-light justify-content-md-center fixed-top">
-      <%= link_to "Theofilos Venardos", root_url, class: "navbar-brand d-md-none" %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar">
-        <ul class="navbar-nav mx-auto text-md-center text-left">
-          <li class="nav-item dropdown">
-            <a class="nav-link navbarDropdown" href="#" id="navbarDropdown-portfolio" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              PORTFOLIO <i class='fas fa-angle-down fa-lg'></i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-             <%= link_to "Weddings", wedding_albums_path, class: "dropdown-item" %>
-             <%= link_to "Baptism", BaptismAlbum.first, class: "dropdown-item" %>
-             <%= link_to "Interior Design", InteriorAlbum.first, class: "dropdown-item" %>
-            </div>
-          </li>
-          <li class="nav-item <%= 'active' if current_page?(about_path) %>"><%= link_to "ABOUT", about_path, class: "nav-link" %></li>
-          <li class="nav-item my-auto">
-            <%= link_to "Theofilos Venardos", root_url, class: "nav-link navbar-brand mx-0 d-none d-md-inline" %>
-          </li>
-          <li class="nav-item <%= 'active' if current_page?(frequently_asked_questions_path) %>"><%= link_to "FAQ", frequently_asked_questions_path, class: "nav-link" %></li>
-          <li class="nav-item <%= 'active' if current_page?(contact_path) %>"><%= link_to "CONTACT", contact_path, class: "nav-link" %></li>
-        </ul>
-        <ul class="navbar-nav flex-row justify-content-md-center justify-content-start user-link">
-          <% if user_signed_in? %>
-            <% user_name = "User" %>
-            <% if current_user.name? %>
-              <% user_name = current_user.name %>
-            <% end %>
-            <li class="nav-item dropdown w-100">
-              <a class="nav-link navbarDropdown" href="#" id="navbarDropdown-user" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Hi <%= user_name %> <i class='fas fa-angle-down fa-lg'></i>
+    <% construction = 0 %>
+    <% if construction == 1 %>
+      <%= render basic_pages_under_construction_path %>
+    <% else %>
+      <!--navbar starts here-->
+      <nav class="navbar navbar-light navbar-expand-md bg-light justify-content-md-center fixed-top">
+        <%= link_to "Theofilos Venardos", root_url, class: "navbar-brand d-md-none" %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar">
+          <ul class="navbar-nav mx-auto text-md-center text-left">
+            <li class="nav-item dropdown">
+              <a class="nav-link navbarDropdown" href="#" id="navbarDropdown-portfolio" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                PORTFOLIO <i class='fas fa-angle-down fa-lg'></i>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <!-- <div class="dropdown-divider"></div> -->
-                <%= link_to "Manage Weddings", wedding_albums_path, class: "dropdown-item" %>
-                <%= link_to "Manage Baptisms", baptism_albums_path, class: "dropdown-item" %>
-                <%= link_to "Manage Interior Design", interior_albums_path, class: "dropdown-item" %>
-                <%= link_to "Manage Testimonials", testimonials_path, class: "dropdown-item" %>
-                <%= link_to "Manage FAQs", faqs_path, class: "dropdown-item" %>
-                <div class="dropdown-divider"></div>
-                <%= link_to "My Account", current_user, method: :get, class: "dropdown-item" %>
-                <% if current_user.admin? %>
-                  <%= link_to "Manage Users", users_path, method: :get, class: "dropdown-item" %>
-                <% end %>
-                <div class="dropdown-divider"></div>
-                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+               <%= link_to "Weddings", wedding_albums_path, class: "dropdown-item" %>
+               <%= link_to "Baptism", BaptismAlbum.first, class: "dropdown-item" %>
+               <%= link_to "Interior Design", InteriorAlbum.first, class: "dropdown-item" %>
               </div>
             </li>
-          <% end %>
-        </ul>
-      </div>
-    </nav>
-    <!-- navbar ends here -->
-
-    <!-- main body starts here -->
-    <div class="anchor">
-      <!-- flash messages -->
-      <div class="container flash-messages">
-        <% if notice %>
-          <p id="notice" class="alert alert-info", role="alert"><%= notice %></p>
-        <% end %>
-        <% if alert %>
-          <p id="alert" class="alert alert-danger", role="alert"><%= alert %></p>
-        <% end %>
-      </div>
-
-      <div class="main-body">
-        <%= yield %>
-      </div>
-    </div>
-    <!-- main body ends here -->
-
-    <!-- footer starts here -->
-    <footer>
-      <div class="container-fluid" id="footer">
-        <div class="instagram text-center">
-        <h2>FOLLOW ME ON INSTAGRAM</h2>
-        <%= link_to "#theofilosvenardosphotography", "https://www.instagram.com/theofilos_venardos/",  target: "_blank" %>
-        <div class="instagram-photos">
-          <div class="row">
-            <% @instagram_photos.each_with_index do |photo, index| %>
-              <% if index.even? %>
-                <div class="col-4 offset-2 col-sm-2 offset-sm-0 instagram-photo">
-              <% else %>
-                <div class="col-4 col-sm-2 instagram-photo">
+            <li class="nav-item <%= 'active' if current_page?(about_path) %>"><%= link_to "ABOUT", about_path, class: "nav-link" %></li>
+            <li class="nav-item my-auto">
+              <%= link_to "Theofilos Venardos", root_url, class: "nav-link navbar-brand mx-0 d-none d-md-inline" %>
+            </li>
+            <li class="nav-item <%= 'active' if current_page?(frequently_asked_questions_path) %>"><%= link_to "FAQ", frequently_asked_questions_path, class: "nav-link" %></li>
+            <li class="nav-item <%= 'active' if current_page?(contact_path) %>"><%= link_to "CONTACT", contact_path, class: "nav-link" %></li>
+          </ul>
+          <ul class="navbar-nav flex-row justify-content-md-center justify-content-start user-link">
+            <% if user_signed_in? %>
+              <% user_name = "User" %>
+              <% if current_user.name? %>
+                <% user_name = current_user.name %>
               <% end %>
-                <%= link_to @instagram_links[index], :action => 'go', target: "_blank"  do %>
-                  <%= image_tag(photo, class: "img-fluid", alt: "#theofilosvenardosphotography") %>
-                <% end %>
+              <li class="nav-item dropdown w-100">
+                <a class="nav-link navbarDropdown" href="#" id="navbarDropdown-user" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Hi <%= user_name %> <i class='fas fa-angle-down fa-lg'></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <!-- <div class="dropdown-divider"></div> -->
+                  <%= link_to "Manage Weddings", wedding_albums_path, class: "dropdown-item" %>
+                  <%= link_to "Manage Baptisms", baptism_albums_path, class: "dropdown-item" %>
+                  <%= link_to "Manage Interior Design", interior_albums_path, class: "dropdown-item" %>
+                  <%= link_to "Manage Testimonials", testimonials_path, class: "dropdown-item" %>
+                  <%= link_to "Manage FAQs", faqs_path, class: "dropdown-item" %>
+                  <div class="dropdown-divider"></div>
+                  <%= link_to "My Account", current_user, method: :get, class: "dropdown-item" %>
+                  <% if current_user.admin? %>
+                    <%= link_to "Manage Users", users_path, method: :get, class: "dropdown-item" %>
+                  <% end %>
+                  <div class="dropdown-divider"></div>
+                  <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
                 </div>
+              </li>
             <% end %>
-          </div> <!-- end row -->
+          </ul>
         </div>
-      </div> <!-- end instagram -->
+      </nav>
+      <!-- navbar ends here -->
 
-      <div class="content">
-        <div class="row">
-          <div class="col-md-4 social-media">
-            <%= link_to "<i class='fab fa-facebook-f fa-sm'></i>".html_safe, "https://www.facebook.com/VenardosPhotography",  target: "_blank" %>
-            <%= link_to "<i class='fab fa-instagram fa-sm'></i>".html_safe, "https://www.instagram.com/theofilos_venardos/",  target: "_blank" %>
-            <%= link_to "<i class='fas fa-envelope fa-sm'></i>".html_safe, contact_path %>
-          </div>
-          <div class="col-md-4 logo text-center">
-            <p>Theofilos Venardos</p>
-          </div>
-          <div class="col-md-4 copyright text-center">
-            <p>&copy; <%= Date.today.year %> Theofilos Venardos</p>
-          </div>
-        </div> <!-- end row -->
-      </div> <!-- end content -->
+      <!-- main body starts here -->
+      <div class="anchor">
+        <!-- flash messages -->
+        <div class="container flash-messages">
+          <% if notice %>
+            <p id="notice" class="alert alert-info", role="alert"><%= notice %></p>
+          <% end %>
+          <% if alert %>
+            <p id="alert" class="alert alert-danger", role="alert"><%= alert %></p>
+          <% end %>
+        </div>
 
-      </div> <!-- end container-fluid -->
-    </footer>
-    <!-- footer ends here -->
+        <div class="main-body">
+          <%= yield %>
+        </div>
+      </div>
+      <!-- main body ends here -->
+
+      <!-- footer starts here -->
+      <footer>
+        <div class="container-fluid" id="footer">
+          <div class="instagram text-center">
+          <h2>FOLLOW ME ON INSTAGRAM</h2>
+          <%= link_to "#theofilosvenardosphotography", "https://www.instagram.com/theofilos_venardos/",  target: "_blank" %>
+          <div class="instagram-photos">
+            <div class="row">
+              <% @instagram_photos.each_with_index do |photo, index| %>
+                <% if index.even? %>
+                  <div class="col-4 offset-2 col-sm-2 offset-sm-0 instagram-photo">
+                <% else %>
+                  <div class="col-4 col-sm-2 instagram-photo">
+                <% end %>
+                  <%= link_to @instagram_links[index], :action => 'go', target: "_blank"  do %>
+                    <%= image_tag(photo, class: "img-fluid", alt: "#theofilosvenardosphotography") %>
+                  <% end %>
+                  </div>
+              <% end %>
+            </div> <!-- end row -->
+          </div>
+        </div> <!-- end instagram -->
+
+        <div class="content">
+          <div class="row">
+            <div class="col-md-4 social-media">
+              <%= link_to "<i class='fab fa-facebook-f fa-sm'></i>".html_safe, "https://www.facebook.com/VenardosPhotography",  target: "_blank" %>
+              <%= link_to "<i class='fab fa-instagram fa-sm'></i>".html_safe, "https://www.instagram.com/theofilos_venardos/",  target: "_blank" %>
+              <%= link_to "<i class='fas fa-envelope fa-sm'></i>".html_safe, contact_path %>
+            </div>
+            <div class="col-md-4 logo text-center">
+              <p>Theofilos Venardos</p>
+            </div>
+            <div class="col-md-4 copyright text-center">
+              <p>&copy; <%= Date.today.year %> Theofilos Venardos</p>
+            </div>
+          </div> <!-- end row -->
+        </div> <!-- end content -->
+
+        </div> <!-- end container-fluid -->
+      </footer>
+      <!-- footer ends here -->
+    <% end %>
   </body>
 </html>

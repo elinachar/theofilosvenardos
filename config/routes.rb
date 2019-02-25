@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'frequently_asked_questions', to: 'basic_pages#faq'
   get 'contact', to: 'basic_pages#contact'
   post 'thank_you', to: 'basic_pages#thank_you'
+  get 'basic_pages/under_construction'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
