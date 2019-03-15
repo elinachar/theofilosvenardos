@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/theofilo/ruby_app/theofilosvenardos/public
+    - export DEPLOYPATH=/home/theofilo/theofilosvenardos/public
     - /bin/cp -r * $DEPLOYPATH
