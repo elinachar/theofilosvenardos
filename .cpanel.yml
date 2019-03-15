@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/theofilo/theofilosvenardos/public
+    - export DEPLOYPATH=/home/theofilo/theofilosvenardos
     - /bin/cp -r * $DEPLOYPATH
