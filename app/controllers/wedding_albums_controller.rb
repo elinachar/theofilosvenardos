@@ -7,8 +7,7 @@ class WeddingAlbumsController < ApplicationController
   # GET /wedding_albums.json
   def index
     language_id = 1
-    @wedding_albums =  WeddingAlbum.includes(:wedding_album_translations).where(wedding_album_translations: { language_id: language_id })
-    # byebug
+    @wedding_albums =  WeddingAlbum.includes(:wedding_album_translations).where(wedding_album_translations: { language_id: language_id }).order('wedding_albums.id ASC')
   end
 
   # GET /wedding_albums/1
@@ -21,7 +20,7 @@ class WeddingAlbumsController < ApplicationController
     @photos_2_3 = Array.new
     @photos_3_3 = Array.new
 
-    @wedding_album.wedding_photos.each_with_index do |wedding_photo, i|
+    @wedding_album.wedding_photos.order('id ASC').each_with_index do |wedding_photo, i|
       if i % 2 == 0
         @photos_1_2.push(wedding_photo)
       else

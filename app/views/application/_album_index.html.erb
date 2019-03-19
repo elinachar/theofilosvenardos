@@ -1,4 +1,3 @@
-<%# if wedding_album.weddinname and recipe.image_url %>
 <% albums.each_with_index do |album, index| %>
   <% if request.url.include? "wedding" %>
     <% album_translations = album.wedding_album_translations %>
@@ -38,4 +37,3 @@
       <% end %>
     </div>
 <% end %>
-<%# end %>
