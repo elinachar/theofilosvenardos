@@ -75,7 +75,7 @@ group :production do
   gem 'pg', '~> 0.20'
 
   #Concurrent ruby (for cpanel)
-  gem 'concurrent-ruby', require: 'concurrent'
+  # gem 'concurrent-ruby', require: 'concurrent'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
