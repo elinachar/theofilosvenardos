@@ -18,67 +18,71 @@
     </div>
   </div>
 
-  <div class="index-portfolio">
-    <h1>Portfolio</h1>
-    <div class="row">
-      <div class="col-md-6 card wedding">
-        <%= link_to wedding_albums_path, :action => 'go' do %>
-          <div class="link-wedding">
-            <%= image_tag( "index_wedding_5.jpg" , class: "img-fluid hover-shadow", alt: "wedding") %>
-            <p class="hover-text">Wedding Portfolio</p>
-          </div>
-        <% end %>
-      </div>
+  <% if false %>
+    <div class="index-portfolio">
+      <h1>Portfolio</h1>
+      <div class="row">
+        <div class="col-md-6 card wedding">
+          <%= link_to wedding_albums_path, :action => 'go' do %>
+            <div class="link-wedding">
+              <%= image_tag( "index_wedding_5.jpg" , class: "img-fluid hover-shadow", alt: "wedding") %>
+              <p class="hover-text">Wedding Portfolio</p>
+            </div>
+          <% end %>
+        </div>
 
-      <div class="col-md-6">
-        <div class="row">
-          <div class="col-12 card baptism">
-            <%= link_to BaptismAlbum.first, :action => 'go' do %>
-              <div class="link-baptism">
-                <%= image_tag( "index_baptism_2.jpg" , class: "img-fluid hover-shadow", alt: "batism") %>
-                <p class="hover-text">Baptism Portfolio</p>
-              </div>
-            <% end %>
-          </div>
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-12 card baptism">
+              <%= link_to BaptismAlbum.first, :action => 'go' do %>
+                <div class="link-baptism">
+                  <%= image_tag( "index_baptism_2.jpg" , class: "img-fluid hover-shadow", alt: "batism") %>
+                  <p class="hover-text">Baptism Portfolio</p>
+                </div>
+              <% end %>
+            </div>
 
-          <div class="col-12 card interior-design">
-            <%= link_to InteriorAlbum.first, :action => 'go' do %>
-              <div class="link-interior-design">
-                <%= image_tag( "index_interior_design.jpg" , class: "img-fluid hover-shadow", alt: "interior design") %>
-                <p class="hover-text">Interior Design Portfolio</p>
-              </div>
-            <% end %>
-          </div>
-        </div> <!-- end row -->
-      </div>
-    </div> <!-- end row -->
-  </div> <!-- end index-portfolio -->
+            <div class="col-12 card interior-design">
+              <%= link_to InteriorAlbum.first, :action => 'go' do %>
+                <div class="link-interior-design">
+                  <%= image_tag( "index_interior_design.jpg" , class: "img-fluid hover-shadow", alt: "interior design") %>
+                  <p class="hover-text">Interior Design Portfolio</p>
+                </div>
+              <% end %>
+            </div>
+          </div> <!-- end row -->
+        </div>
+      </div> <!-- end row -->
+    </div> <!-- end index-portfolio -->
+  <% end %>
 
-  <div class="index-about">
-    <h1>Behind the lens</h1>
-    <div class="row">
-      <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-4 offset-md-0">
-        <%= image_tag( "theofilos_venardos_1.jpg" , class: "img-fluid", alt: "theofilos venardos") %>
+  <% if false %>
+    <div class="index-about">
+      <h1>Behind the lens</h1>
+      <div class="row">
+        <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-4 offset-md-0">
+          <%= image_tag( "theofilos_venardos_1.jpg" , class: "img-fluid", alt: "theofilos venardos") %>
+        </div>
+        <div class="col-12 col-md-8">
+          <div class="row">
+            <div class="col-12">
+              <p>Hi! I am Theophilos Venardos and I live in Athens. I work
+                 as a professional photographer since 2000. The happiness of a marriage,
+                 the thrill of a baptism, the festive atmosphere of an anniversary is
+                 for me an inspiration.
+               </p>
+             </div>
+             <div class="col-6 offset-3">
+              <%= link_to "More about me", about_path, class: "btn" %>
+            </div>
+          </div> <!-- end row -->
+        </div>
+      </div> <!-- end row -->
+      <div class="row">
+        <p class="col-12">For any queries you can take a look at the most <%= link_to "frequently asked questions", frequently_asked_questions_path %> or <%= link_to "contact me", contact_path %>.</p>
       </div>
-      <div class="col-12 col-md-8">
-        <div class="row">
-          <div class="col-12">
-            <p>Hi! I am Theophilos Venardos and I live in Athens. I work
-               as a professional photographer since 2000. The happiness of a marriage,
-               the thrill of a baptism, the festive atmosphere of an anniversary is
-               for me an inspiration.
-             </p>
-           </div>
-           <div class="col-6 offset-3">
-            <%= link_to "More about me", about_path, class: "btn" %>
-          </div>
-        </div> <!-- end row -->
-      </div>
-    </div> <!-- end row -->
-    <div class="row">
-      <p class="col-12">For any queries you can take a look at the most <%= link_to "frequently asked questions", frequently_asked_questions_path %> or <%= link_to "contact me", contact_path %>.</p>
-    </div>
-  </div> <!-- end index-about -->
+    </div> <!-- end index-about -->
+  <% end %>
 
   <div class="index-testimonials testimonials">
     <h1>Testimonials</h1>

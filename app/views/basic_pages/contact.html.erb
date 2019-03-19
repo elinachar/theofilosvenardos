@@ -14,32 +14,34 @@
 
   <!-- <p>Or please fill out this quick form.<p> -->
 
-  <%= form_with(url:"/thank_you", method: "post", local: true) do |form| %>
-    <div class="row form-contact">
-      <div class="form-group col-md-6">
-        <%= form.label :name, class: "sr-only" %>
-        <%= form.text_field :name, class: "form-control text-center", placeholder: "Your name", required: true %>
-      </div>
+  <% if false %>
+    <%= form_with(url:"/thank_you", method: "post", local: true) do |form| %>
+      <div class="row form-contact">
+        <div class="form-group col-md-6">
+          <%= form.label :name, class: "sr-only" %>
+          <%= form.text_field :name, class: "form-control text-center", placeholder: "Your name", required: true %>
+        </div>
 
-      <div class="form-group col-md-6">
-        <%= form.label :email, class: "sr-only" %>
-        <%= form.text_field :email, class: "form-control text-center", placeholder: "Your e-mail", required: true %>
-      </div>
+        <div class="form-group col-md-6">
+          <%= form.label :email, class: "sr-only" %>
+          <%= form.text_field :email, class: "form-control text-center", placeholder: "Your e-mail", required: true %>
+        </div>
 
-      <!-- <div class="form-group">
-        <%= form.label :phone, class: "sr-only" %>
-        <%= form.telephone_field :phone, class: "form-control", placeholder: "Phone" %>
-      </div> -->
+        <!-- <div class="form-group">
+          <%= form.label :phone, class: "sr-only" %>
+          <%= form.telephone_field :phone, class: "form-control", placeholder: "Phone" %>
+        </div> -->
 
-      <div class="form-group col-12">
-        <%= form.label :message, class: "sr-only"  %>
-        <%= form.text_area :message, class: "form-control text-center", placeholder: "Your message", rows: 5, required: true %>
-      </div>
+        <div class="form-group col-12">
+          <%= form.label :message, class: "sr-only"  %>
+          <%= form.text_area :message, class: "form-control text-center", placeholder: "Your message", rows: 5, required: true %>
+        </div>
 
-      <div class="btn-submit col-12">
-        <%= form.submit "Submit", class: "btn btn-default" %>
+        <div class="btn-submit col-12">
+          <%= form.submit "Submit", class: "btn btn-default" %>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 
 </div> <!-- end container -->
