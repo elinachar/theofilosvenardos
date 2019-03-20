@@ -4,7 +4,7 @@
       <td><p>You have received a new contact form message. The contents of the message are:</p></td>
     </tr>
     <tr>
-      <td><p style="font-style:italic"><%= @message %></p></td>
+      <td><p style="font-style:italic;" id="contact-message"><%= @message %></p></td>
     </tr>
   </tbody>
 </table>
@@ -21,8 +21,10 @@
     <td>E-mail:</td>
     <td><%= @email %></td>
   </tr>
-  <tr>
-    <td>Phone:</td>
-    <td><%= @phone %></td>
-  </tr>
+  <% if false %>
+    <tr>
+      <td>Phone:</td>
+      <td><%= @phone %></td>
+    </tr>
+  <% end %>
 </table>
