@@ -7,7 +7,7 @@ class UserMailer < ApplicationMailer
     @phone = phone
     @message = message
     mail( from: email,
-          to: "elinachar@gmail.com",
+          to: "thvenardos@gmail.com",
           subject: "A new contact from #{name}")
   end
 end
