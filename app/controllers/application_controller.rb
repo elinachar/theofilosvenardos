@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   end
 
   def get_instagram_photos
+    if true
     # Get first 20 instagram photos
     @instagram_photos = []
     @instagram_links = []
@@ -16,13 +17,16 @@ class ApplicationController < ActionController::Base
     total_photos = 6
     tag = "wedding"
     media.each_with_index do |m ,i|
-      if m.caption.text.include? tag
-        @instagram_photos.push(m.images.thumbnail.url)
-        @instagram_links.push(m.link)
-        index_array.delete(i)
+      unless m.caption.nil?
+        if m.caption.text.include? tag
+          @instagram_photos.push(m.images.thumbnail.url)
+          @instagram_links.push(m.link)
+          index_array.delete(i)
+        end
       end
       break if @instagram_photos.count == total_photos
     end
+
 
     # If #wedding photos are less than 6
 
@@ -47,4 +51,6 @@ class ApplicationController < ActionController::Base
 
 
   end
+
+end # end for if false
 end

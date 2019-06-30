@@ -28,7 +28,9 @@
 
     <div class="field">
       <%= f.label :testimonial_on %>
-      <%= f.date_select :testimonial_on, start_year: 2000, class: 'form-control'  %>
+      <%= f.date_select :testimonial_on, start_year: 2000, class: 'form-control date-box'%>
+      <%= f.check_box :date_exists, {id: "date-exists-cb"}, false, true %>
+      <%= f.label :date_exists, "Do not specify date" %>
     </div>
 
     <div class="field">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_08_105252) do
+ActiveRecord::Schema.define(version: 2019_03_25_074433) do
 
   create_table "baptism_album_translations", force: :cascade do |t|
     t.integer "baptism_album_id"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 2019_02_08_105252) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "language_id"
+    t.boolean "date_exists", default: true
     t.index ["language_id"], name: "index_testimonials_on_language_id"
   end
 
