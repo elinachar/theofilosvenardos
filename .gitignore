@@ -30,6 +30,8 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+# Ignore database.yml file because for Plesk I cannot make it work with enviroment variables.
+
 # Ignore uploaded photos
 /public/uploads
 
