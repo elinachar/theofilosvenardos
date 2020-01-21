@@ -31,6 +31,7 @@
 /config/master.key
 
 # Ignore database.yml file because for Plesk I cannot make it work with enviroment variables.
+/config/database.yml
 
 # Ignore uploaded photos
 /public/uploads
