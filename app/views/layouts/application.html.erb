@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Theofilos Venardos | Photography</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- <meta name="description" content="Το PILATESstudio Άσκηση είναι ένα σύγχρονο studio προσωπικής εκγύμνασης και Pilates στο Ηράκλειο Κρήτης. Personal training και εκγύμναση μικρών όμάδων για όλους, από αρχάριους μέχρι επαγγελματίες αθλητές. Ειδικά μαθήματα για εγκύους, ηλικιωμένους, θεραπεία μυοσκελετικών παθήσεων και αποκατάσταση."> -->
-    <meta name="keywords" content="Photography, photographer, Greece, Wedding, Baptism, Interior Design">
+    <title>Θεόφιλος Βενάρδος | Φωτογράφος Γάμου | Βάφτισης | Αθήνα, Ελλάδα</title>
+    <meta name="description" content="Φωτογράφος Γάμου, Βάφτισης και Εσωτερικού Χώρου. Καλλιτεχνικές φωτογραφίσεις στην Αθήνα, σε όλη την Ελλάδα και στο Εξωτερικό.">
+    <meta name="keywords" content="Φωτογράφος, φωτογράφος γάμου, φωτογράφος βάφτιστης, φωτογράφος εσωτερικού χώρου, ΑΘήνα, Ελλάδα, Νησιά, Εξωτερικό, Photography, photographer, Wedding, Baptism, Interior Design, Athens, Greece, greek islands">
+    <meta name="image" content='<%= image_tag( "site0001_1920_1106.jpg" , alt: "Theofilos Venardso Photography") %>'>
+
+    <!-- Facebook meta tags -->
+    <meta property="og:title" content="Theofilos Venardos Photography" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.theofilosvenardos.com" />
+    <meta property="og:image" content="https://bakeisyum-elina.s3.us-east-2.amazonaws.com/uploads/wedding_album/photo/6/site0054.JPG">
+    <meta property="og:image:alt" content="Theofilos Venardos wedding Photography" />
+    <meta property="og:description" content="Καλλιτεχνική φωτογραφία γάμου, βάφτισης και εσωτερικού χώρου." />
+
+    <!-- Favicon Tag -->
+    <%= favicon_link_tag asset_path('favicon.png') %>
+    <!-- Canonical Tag -->
+    <link rel=“canonical” href=“https://www.theofilosvenardos.com”>
+
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
@@ -24,6 +39,32 @@
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css' integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/' crossorigin='anonymous'>
     <!-- Font Awesome 4 Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Google Structed Data -->
+    <script type='application/ld+json'>
+      {
+        "@context": "http://www.schema.org",
+        "@type": "ProfessionalService",
+        "name": "Theofilos Venardos Photography",
+        "url": "https://www.theofilosvenardos.com",
+        "logo": "www.yourbusiness.com/logo.jpg",
+        "image":[
+          "https://bakeisyum-elina.s3.us-east-2.amazonaws.com/uploads/wedding_album/photo/6/site0054.JPG",
+          "https://bakeisyum-elina.s3.us-east-2.amazonaws.com/uploads/wedding_album/photo/43/ifigenia_kostas_cover.jpg",
+        ],
+          "description": "Φωτογράφος Γάμου, Βάφτισης και Εσωτερικού Χώρου. Καλλιτεχνικές φωτογραφίσεις στην Αθήνα, σε όλη την Ελλάδα και στο Εξωτερικό.",
+        "address": {
+           "@type": "PostalAddress",
+           "addressLocality": "Athens",
+           "addressCountry": "GR"
+        },
+        "telephone": "+30 697 6769195",
+        "sameAs": [
+              "https://www.facebook.com/VenardosPhotography",
+              "https://www.instagram.com/theofilos_venardos/"
+            ]
+      }
+    </script>
   </head>
 
 
