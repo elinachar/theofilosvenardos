@@ -119,8 +119,12 @@
     margin-bottom: 16px;
   }
 
-  .about-btn a {
-    padding: 12px;
+  .about-btn {
+    margin-bottom: 7px;
+
+    a {
+      padding: 12px;
+    }
   }
 
   .extra-info a {
