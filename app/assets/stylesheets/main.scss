@@ -69,6 +69,23 @@ html, body {
   color: black;
 }
 
+a.navbar-brand.d-md-none {
+  padding: 9px 0px;
+}
+
+
+.navbar-toggler {
+  padding: 8px 12px;
+}
+
+.navbar-toggler:hover {
+  background-color: rgba(0,0,0,.1);
+}
+
+.navbar-toggler:focus {
+  outline: none;
+}
+
 .navbar-light .navbar-nav .dropdown-menu {
   background-color: #f8f9fa;
   border: none;
@@ -93,6 +110,7 @@ html, body {
 .navbarDropdown i {
   display: none;
   float: right;
+  padding-top: 4px;
   -webkit-transition-duration: 1s;
   -moz-transition-duration: 1s;
   -o-transition-duration: 1s;
@@ -162,6 +180,10 @@ footer {
     text-decoration: none;
   }
 
+  .instagram-link {
+    padding: 15px;
+  }
+  
   .instagram-photos {
     width: 80%;
     margin: 10px auto;
@@ -190,9 +212,16 @@ footer {
     padding-top: 20px;
     border-top: 1px solid rgba(153,149,127,0.15);
 
-    .social-media a {
-      color:  #777;
-      margin: 0 8px;
+    .social-media {
+      margin-top: -5px;
+      a {
+        color:  #777;
+        margin: 0 8px;
+
+        i {
+          font-size: 25px;
+        }
+      }
     }
 
    .copyright p {
@@ -266,8 +295,24 @@ footer {
     display: inline-block;
   }
 
+  .navbar-collapse {
+    margin-top: 8px;
+    border-top: thin solid rgba(0, 0, 0, 0.1);
+  }
+  .navbar-light .navbar-nav .nav-link {
+    padding-top: 13px;
+    padding-bottom: 13px;
+  }
+
+  .dropdown-menu {
+    padding: 0px;
+    margin: 0px;
+  }
+
   .dropdown-item {
     padding-left: 32px;
+    padding-top: 13px !important;
+    padding-bottom: 13px !important;
   }
 
 

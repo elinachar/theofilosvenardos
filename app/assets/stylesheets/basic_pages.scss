@@ -118,6 +118,10 @@
   img {
     margin-bottom: 16px;
   }
+
+  .about-btn a {
+    padding: 12px;
+  }
 }
 
 .index-testimonials {
@@ -133,6 +137,7 @@
   width: 100%;
   margin-top: -20px;
   margin-bottom: 15px;
+  height: 48px;
 }
 
   .pagination {
@@ -266,6 +271,9 @@ address {
     margin-bottom: 16px;
   }
 
+  .index-about .extra-info {
+    line-height: 200%;
+  }
 
   .about img {
     width: 50%;
