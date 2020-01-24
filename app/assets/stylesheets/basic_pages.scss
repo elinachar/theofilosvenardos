@@ -122,6 +122,11 @@
   .about-btn a {
     padding: 12px;
   }
+
+  .extra-info a {
+    padding-top: 17px;
+    padding-bottom: 17px;
+  }
 }
 
 .index-testimonials {
@@ -250,8 +255,13 @@ address {
 
 // Media Queries
 
-// Extra small devices (portrait phones, less than 576px)
-// @media (max-width: 575px) { ... }
+//Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575px) {
+  .index-about .extra-info {
+    line-height: 70px;
+  }
+
+}
 
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767px) {
@@ -270,10 +280,6 @@ address {
 
   .index-about img {
     margin-bottom: 16px;
-  }
-
-  .index-about .extra-info {
-    line-height: 400%;
   }
 
   .about img {
