@@ -45,8 +45,17 @@
       cursor: default;
     }
 
+    img.hovered {
+      filter: alpha(opacity=30);
+      opacity: 0.2;
+    }
+
     img:hover {
       cursor: pointer;
+    }
+
+    .hover-text.hovered {
+      opacity: 1;
     }
   }
 
@@ -83,6 +92,41 @@
   .card.interior-design .link-interior-design {
     float: left;
   }
+
+  /* Fade to right and left */
+  .fade-right {
+    position: relative;
+    animation: faderight;
+    animation-duration: 4s;
+    animation-fill-mode: both;
+  }
+
+  @keyframes faderight {
+    0% {left: -60vw;}
+    100% {left: 0px;}
+  }
+
+  .fade-left-1 {
+    position: relative;
+    animation: fadeleft;
+    animation-duration: 4s;
+    animation-delay: 1s;
+    animation-fill-mode: both;
+  }
+
+  .fade-left-2 {
+    position: relative;
+    animation: fadeleft;
+    animation-duration: 4s;
+    animation-delay: 2s;
+    animation-fill-mode: both;
+  }
+
+  @keyframes fadeleft {
+    from {right: -60vw;}
+    to {right: 0px;}
+  }
+
 }
 
 .index-portfolio.touch-screen {

@@ -15,9 +15,11 @@ $(document).on('turbolinks:load', function() {
     try {
       document.createEvent("TouchEvent");
       $(".index-portfolio").addClass("touch-screen");
+      $(".index-portfolio .card img, .index-portfolio .card .hover-text").removeClass("hovered");
       $(".albums.wedding").addClass("touch-screen");
     } catch (e) {
       $(".index-portfolio").removeClass("touch-screen");
+      $(".index-portfolio .card img, .index-portfolio .card .hover-text").addClass("hovered");
       $(".albums.wedding").removeClass("touch-screen");
     }
   }
