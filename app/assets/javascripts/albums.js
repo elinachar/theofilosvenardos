@@ -4,9 +4,9 @@
 $(document).on('turbolinks:load', function() {
   // Go to top btn
   $(window).scroll(function(){
-    if ((window.location.href.indexOf("wedding-albums") > -1 ) ||
-    (window.location.href.indexOf("baptism-albums") > -1 ) ||
-    (window.location.href.indexOf("interior-albums") > -1 ) ){
+    if ((window.location.href.indexOf("wedding-albums/") > -1 ) ||
+    (window.location.href.indexOf("baptism-albums/") > -1 ) ||
+    (window.location.href.indexOf("interior-albums/") > -1 ) ){
       // Show the #go-top when scrolling from top is more than 100px
       if ($(window).scrollTop() > 100) {
         $("#go-top").show();

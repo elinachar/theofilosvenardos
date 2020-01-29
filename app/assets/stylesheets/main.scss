@@ -56,6 +56,18 @@ html, body {
 
 
 // Navbar
+.navbar-shrink {
+  // position: relative;
+  animation: navbarshrink;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes navbarshrink {
+  0% {height: 96px;}
+  100% {height: 56px;}
+}
+
 .navbar-light .navbar-nav .nav-link {
   font-size: 15px;
   font-weight: 300;
@@ -124,15 +136,11 @@ a.navbar-brand.d-md-none {
 // Main body
 
 .container.flash-messages {
-  margin-top: 0;
-
-  .alert {
-    margin-top: 20px;
-  }
+  margin-top: 20px;
 }
 
 .container {
-  margin-top: 20px;
+  // margin-top: 20px;
 }
 
 .anchor {
@@ -145,6 +153,9 @@ a.navbar-brand.d-md-none {
  display: block; /* for the sticky footer */
 }
 
+.main-body {
+  padding-top: 14px;
+}
 
 /* Footer **/
 
@@ -183,7 +194,7 @@ footer {
   .instagram-link {
     padding: 15px;
   }
-  
+
   .instagram-photos {
     width: 80%;
     margin: 10px auto;

@@ -4,16 +4,14 @@
 
 // FAQ Page
 .faq h1 {
-  padding: 20px 0;
+  padding-bottom: 20px;
 }
 
 .faq,
 #accordion .card,
 #accordion .card-header,
 #accordion .card-body {
-  background-color: rgba(237,232,228, 1);
-  background-color: rgba(244,241,238, 1);
-  background-color: #eae9e5;;
+  background-color: white;
 }
 
 .faq-intro {
@@ -62,7 +60,11 @@
 
 #flash {
   color: #d1b419;
-  font-size:13px;
+  color: yellow;
+  color: #e5e500;
+  color: #f2f27f;
+  color: #efef66;
+  font-size: 15px;
   display: none;
 }
 

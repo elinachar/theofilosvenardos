@@ -1,14 +1,4 @@
 $(document).on('turbolinks:load', function() {
-  //Navbar
-  // Fixed on top Navbar only for Index Page
-  if (location.origin + "/"== location.href || location.origin == location.href) {
-    $(".navbar").addClass("fixed-top");
-    $(".alert").css("margin-top", "110px");
-  } else {
-    $(".navbar").removeClass("fixed-top");
-    $(".alert").css("margin-top", "20px");
-  }
-
   // Check if touch screen
   // Modify links in index for touch devices
   function is_touch_device() {

@@ -13,10 +13,6 @@
   width: 85%;
 }
 
-.carousel {
-  margin-top: 110px;
-}
-
 .index h1 {
   border-bottom: 1px solid rgba(153, 149, 127, 0.3);
   padding-bottom: 5px;
@@ -110,7 +106,7 @@
     position: relative;
     animation: fadeleft;
     animation-duration: 4s;
-    animation-delay: 1s;
+    animation-delay: .5s;
     animation-fill-mode: both;
   }
 
@@ -118,7 +114,7 @@
     position: relative;
     animation: fadeleft;
     animation-duration: 4s;
-    animation-delay: 2s;
+    animation-delay: 1s;
     animation-fill-mode: both;
   }
 
@@ -239,6 +235,10 @@
 }
 
 // Contact Page
+.contact h1 {
+  margin-bottom: 20px;
+}
+
 .contact-img {
   opacity: 0.9;
   filter: alpha(opacity=90); /* For IE8 and earlier */
@@ -310,9 +310,6 @@ address {
 @media (max-width: 767px) {
   .index {
     width: 100%;
-  }
-  .carousel {
-    margin-top: 70px;
   }
 
   .card.wedding .link-wedding,
