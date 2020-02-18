@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :get_instagram_photos
+  # before_action :get_instagram_photos
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to main_app.root_url, alert: exception.message

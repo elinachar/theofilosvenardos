@@ -45,4 +45,23 @@ $(document).on('turbolinks:load', function() {
     toggleNavbarShrink();
   });
 
+  //Toggle dropdown arrow when navbar collapsed
+  $(".navbarDropdown").click(function(){
+    var collapsedNavbar = $(".navbar-toggler").is(":visible");
+    var icon = $(this).find("i");
+    if (collapsedNavbar) {
+      if (  $(icon).css( "transform" ) == 'none' ){
+        $(icon).css("transform","rotate(-180deg)");
+      } else {
+        $(icon).css("transform","" );
+      };
+    };
+  });
+
+  // Shift user dropdown based on length of user link
+  function shift_user_dropdown() {
+    var shift = 195 - $(".user-link .dropdown").width();
+    $(".user-link .dropdown-menu").css("margin-left", "-" + shift.toString() + "px");
+  }
+  shift_user_dropdown();
 });
