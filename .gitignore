@@ -41,3 +41,7 @@ help_file.html.erb
 
 # Ignore error docs
 /public/404.html
+
+# Ignore config/local_env.yml
+# Real enviroment variables in production
+/config/local_env.yml
