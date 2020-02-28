@@ -7,11 +7,11 @@ Rails.application.initialize!
 
 # Connect to SendGrid email provider
 ActionMailer::Base.smtp_settings = {
-  address: 'webmail.theofilosvenardos.com',
-  port: '465',
-  authentication: :plain,
+  address: 'localhost',
+	enable_starttls_auto: true,
+ 	port: 587,
+	authentication: :plain,
   user_name: ENV['ROUNDCUBE_USERNAME'],
   password: ENV['ROUNDCUBE_PASSWORD'],
-  domain: 'theofilosvenardos.com',
-  enable_starttls_auto: true
+	openssl_verify_mode: 'none'
 }
