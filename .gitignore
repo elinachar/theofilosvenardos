@@ -38,3 +38,6 @@
 
 # Ignore help file
 help_file.html.erb
+
+# Ignore error docs
+/public/404.html
