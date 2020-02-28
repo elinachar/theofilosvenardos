@@ -23,8 +23,8 @@ test:
 production:
   adapter:  postgresql
   encoding: unicode
-  database: 'elinacha271677_theofilosvenardos'
+  database: <%= ENV['DATABASE_NAME'] %>
   pool:     <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout:  5000
-  username: ENV["DB_USERNAME"]
-  password: ENV["DB_PASSWORD"]
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
