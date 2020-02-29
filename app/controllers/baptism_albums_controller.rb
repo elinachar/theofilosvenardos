@@ -1,6 +1,7 @@
 class BaptismAlbumsController < ApplicationController
   before_action :set_baptism_album, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show]
+  skip_before_action :verify_authenticity_token
   load_and_authorize_resource
 
 
