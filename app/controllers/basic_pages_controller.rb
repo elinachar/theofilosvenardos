@@ -1,7 +1,7 @@
 class BasicPagesController < ApplicationController
 
   def index
-    @testimonials = Testimonial.all.paginate(:page => params[:page], :per_page => 1).order("created_at DESC")
+    @testimonials = Testimonial.all.paginate(:page => params[:page], :per_page => 1)#.order("created_at DESC")
   end
 
   def faq
