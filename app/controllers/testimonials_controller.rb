@@ -1,7 +1,6 @@
 class TestimonialsController < ApplicationController
   before_action :set_testimonial, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  skip_before_action :verify_authenticity_token
   load_and_authorize_resource
 
   # GET /testimonials
