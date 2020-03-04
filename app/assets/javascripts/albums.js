@@ -48,23 +48,34 @@ $(document).on('turbolinks:load', function() {
   // MODAL
 
   // Open the Modal
+  // Hide goTop btn if visible
   $(".open-modal-image").on("click", function(){
     $('#modal').css("display","flex").hide().fadeIn(1000);
+    $("#go-top").hide();
     slideIndex = parseInt($(this).attr("data-slide"));
     showSlides(slideIndex);
   });
 
   // Close the Modal
   $(".close.cursor").on("click", function(){
-      $('#modal').fadeOut(500);
+    closeModal();
   })
 
   // Close Modal with Esc key
   $(document).keydown(function(event){
     if (event.keyCode == 27){
-      $('#modal').fadeOut(500);
+      closeModal();
     };
   });
+
+  // Function that closes Modal
+  // Show goTop btn if needed
+  function closeModal() {
+    $('#modal').fadeOut(500);
+    if ($(window).scrollTop() > 100) {
+      $("#go-top").show();
+    }
+  }
 
   var slideIndex = 0;
 
