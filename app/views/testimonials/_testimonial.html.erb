@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-3">
       <% if testimonial.photo? %>
-        <%= image_tag(testimonial.photo.url.to_s , class: "img-fluid", alt: testimonial.signature) %>
+        <%= image_tag(testimonial.photo.url.to_s , class: "img-fluid", alt: "Theofilos Venardos Photography: #{testimonial.signature} photo") %>
       <% end %>
       <p class="signature"><%= testimonial.signature %></p>
       <p class="date"><%= testimonial.testimonial_on.strftime("%d/%m/%Y")  %></p>
