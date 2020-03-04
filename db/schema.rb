@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_25_074433) do
+ActiveRecord::Schema.define(version: 2020_03_04_110011) do
 
   create_table "baptism_album_translations", force: :cascade do |t|
     t.integer "baptism_album_id"
@@ -105,6 +105,38 @@ ActiveRecord::Schema.define(version: 2019_03_25_074433) do
     t.integer "language_id"
     t.string "title"
     t.text "description"
+    t.string "text_title"
+    t.string "text_description"
+    t.string "photography"
+    t.string "photography_href"
+    t.string "assistant_photographer"
+    t.string "assistant_photographer_href"
+    t.string "videographer"
+    t.string "videographer_href"
+    t.string "bridal_dress_veil"
+    t.string "bridal_dress_veil_href"
+    t.string "bridal_shoes"
+    t.string "bridal_shoes_href"
+    t.string "grooms_suit"
+    t.string "grooms_suit_href"
+    t.string "grooms_shoes"
+    t.string "grooms_shoes_href"
+    t.string "wedding_rings"
+    t.string "wedding_rings_href"
+    t.string "jewellery"
+    t.string "jewellery_href"
+    t.string "wedding_planner"
+    t.string "wedding_planner_href"
+    t.string "wedding_florist"
+    t.string "wedding_florist_href"
+    t.string "makeup_artist"
+    t.string "makeup_artist_href"
+    t.string "hairstylist"
+    t.string "hairstylist_href"
+    t.string "church"
+    t.string "church_href"
+    t.string "venue"
+    t.string "venue_href"
     t.index ["language_id"], name: "index_wedding_album_translations_on_language_id"
     t.index ["wedding_album_id"], name: "index_wedding_album_translations_on_wedding_album_id"
   end
