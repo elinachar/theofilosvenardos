@@ -61,12 +61,29 @@ $(document).on('turbolinks:load', function() {
     closeModal();
   })
 
-  // Close Modal with Esc key
+  // Key events: Close Modal, Next/Previous Slide
   $(document).keydown(function(event){
-    if (event.keyCode == 27){
-      closeModal();
+    if ($('#modal').is(":visible")) {
+      // ESC: Closes Modal
+      if (event.keyCode == 27){
+        closeModal();
+      // Right arrow: next slide
+      } else if (event.keyCode == 39) {
+          plusSlides(1);
+      // Left arrow: previous slide
+      } else if (event.keyCode == 37) {
+          plusSlides(-1);
+      }
     };
   });
+
+  $(".mdl .prev").on("click", function(){
+    plusSlides(-1);
+  })
+
+  $(".mdl .next").on("click", function(){
+    plusSlides(1);
+  })
 
   // Function that closes Modal
   // Show goTop btn if needed
@@ -77,20 +94,13 @@ $(document).on('turbolinks:load', function() {
     }
   }
 
+  // Function for Next/previous controls of slides
   var slideIndex = 0;
-
-  // Next/previous controls
   function plusSlides(n) {
     showSlides(slideIndex += n);
   }
-  $(".mdl .prev").on("click", function(){
-    plusSlides(-1);
-  })
 
-  $(".mdl .next").on("click", function(){
-    plusSlides(1);
-  })
-
+  // Function that shows the slides
   function showSlides(n) {
     var i;
     var slides = $(".slides");
