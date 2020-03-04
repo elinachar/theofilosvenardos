@@ -8,7 +8,7 @@ $(document).on('turbolinks:load', function() {
     (window.location.href.indexOf("baptism-albums/") > -1 ) ||
     (window.location.href.indexOf("interior-albums/") > -1 ) ){
       // Show the #go-top when scrolling from top is more than 100px
-      if ($(window).scrollTop() > 100) {
+      if ($(window).scrollTop() > 100 && $("#modal").is(":hidden")) {
         $("#go-top").show();
       } else {
         $("#go-top").hide();
