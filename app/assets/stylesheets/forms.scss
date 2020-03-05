@@ -69,7 +69,22 @@
   .delete-x:hover{
     color: #b20000;
   }
+}
 
+// Only for wedding albums
+.container.form .nested-fields.wedding_info {
+  .name,
+  .title .href {
+    padding-left: 0px;
+  }
+
+  .href {
+    margin-left: 10px;
+  }
+
+  .info {
+    margin-bottom: 8px;
+  }
 }
 
 // Testimonials forms

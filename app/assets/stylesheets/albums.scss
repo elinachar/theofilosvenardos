@@ -103,8 +103,17 @@
     }
   }
 
+  // Only for Wedding Albums
   .description {
-    text-align: left;
+    padding-top: 35px;
+
+    h5 {
+      text-align: left;
+    }
+
+    p {
+      text-align: justify;
+    }
   }
 
   .description-points {

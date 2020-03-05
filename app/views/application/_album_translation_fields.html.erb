@@ -14,10 +14,144 @@
 
     <% if f.object.language_id == 1 %>
       <%= f.label :description %>
-      <%= f.text_area :description,  class: 'form-control' %>
+      <%= f.text_area :description,  class: 'form-control' %><br \>
     <% else %>
       <%= f.label :description, "Περιγραφή", class: "font-gr"  %>
-      <%= f.text_area :description,  class: 'form-control font-gr' %>
+      <%= f.text_area :description,  class: 'form-control font-gr' %><br \>
+    <% end %>
+
+    <% if request.url.include? "wedding" %>
+      <% if f.object.language_id == 1 %>
+        <%= f.label :text_title , "Text title about the wedding album" %>
+        <%= f.text_field :text_title,  class: 'form-control' %><br \>
+      <% else %>
+        <%= f.label :text_title, "Τίτλος κειμένου για το άλμπουμ γάμου", class: "font-gr"  %>
+        <%= f.text_field :text_title,  class: 'form-control font-gr' %><br \>
+      <% end %>
+
+      <% if f.object.language_id == 1 %>
+        <%= f.label :text_description , "Text about the wedding album" %>
+        <%= f.text_area :text_description,  class: 'form-control' %><br \>
+      <% else %>
+        <%= f.label :text_description, "Κείμενο για το άλμπουμ του γάμου", class: "font-gr"  %>
+        <%= f.text_area :text_description,  class: 'form-control font-gr' %><br \>
+      <% end %>
     <% end %>
 
 </div>
+
+<% if (request.url.include? "wedding") &&  (f.object.language_id == 1) %>
+  <div class="nested-fields with-border wedding_info">
+    <p> Wedding Information </p>
+    <div class="row title">
+      <p class="col-3"><strong>Kind of Information</strong></p>
+      <p class="col-4 name"><strong>Name</strong></p>
+      <p class="col-4 href"><strong>URL</strong></p>
+    </div>
+    <div class="row info">
+      <p class="col-3">Photography</p>
+      <%= f.label :photography, class: 'sr-only' %>
+      <%= f.text_field :photography,  class: 'form-control col-4' %>
+      <%= f.label :photography_href, class: 'sr-only' %>
+      <%= f.text_field :photography_href,  class: 'form-control col-4 href' %>
+    </div>
+    <div class="row info">
+      <p class="col-3">Assistant Photographer</p>
+      <%= f.label :assistant_photographer, class: 'sr-only' %>
+      <%= f.text_field :assistant_photographer,  class: 'form-control col-4' %>
+      <%= f.label :assistant_photographer_href, class: 'sr-only' %>
+      <%= f.text_field :assistant_photographer_href,  class: 'form-control col-4 href' %>
+    </div>
+    <div class="row info">
+      <p class="col-3">Videographer</p>
+      <%= f.label :videographer, class: 'sr-only' %>
+      <%= f.text_field :videographer,  class: 'form-control col-4' %>
+      <%= f.label :videographer_href, class: 'sr-only' %>
+      <%= f.text_field :videographer_href,  class: 'form-control col-4 href' %>
+    </div>
+    <div class="row info">
+      <p class="col-3">Bridal Dress & Veil</p>
+      <%= f.label :bridal_dress_veil, class: 'sr-only' %>
+      <%= f.text_field :bridal_dress_veil,  class: 'form-control col-4' %>
+      <%= f.label :bridal_dress_veil_href, class: 'sr-only' %>
+      <%= f.text_field :bridal_dress_veil_href,  class: 'form-control col-4 href' %>
+    </div>
+    <div class="row info">
+      <p class="col-3">Bridal Shoes</p>
+      <%= f.label :bridal_shoes, class: 'sr-only' %>
+      <%= f.text_field :bridal_shoes,  class: 'form-control col-4' %>
+      <%= f.label :bridal_shoes_href, class: 'sr-only' %>
+      <%= f.text_field :bridal_shoes_href,  class: 'form-control col-4 href' %>
+    </div>
+    <div class="row info">
+      <p class="col-3">Groom's Suit</p>
+      <%= f.label :grooms_suit, class: 'sr-only' %>
+      <%= f.text_field :grooms_suit,  class: 'form-control col-4' %>
+      <%= f.label :grooms_suit_href, class: 'sr-only' %>
+      <%= f.text_field :grooms_suit_href,  class: 'form-control col-4 href' %>
+    </div>
+    <div class="row info">
+      <p class="col-3">Groom's Shoes</p>
+      <%= f.label :grooms_shoes, class: 'sr-only' %>
+      <%= f.text_field :grooms_shoes,  class: 'form-control col-4' %>
+      <%= f.label :grooms_shoes_href, class: 'sr-only' %>
+      <%= f.text_field :grooms_shoes_href,  class: 'form-control col-4 href' %>
+    </div>
+    <div class="row info">
+      <p class="col-3">Wedding Rings</p>
+      <%= f.label :wedding_rings, class: 'sr-only' %>
+      <%= f.text_field :wedding_rings,  class: 'form-control col-4' %>
+      <%= f.label :wedding_rings_href, class: 'sr-only' %>
+      <%= f.text_field :wedding_rings_href,  class: 'form-control col-4 href' %>
+    </div>
+    <div class="row info">
+      <p class="col-3">Jewellery</p>
+      <%= f.label :jewellery, class: 'sr-only' %>
+      <%= f.text_field :jewellery,  class: 'form-control col-4' %>
+      <%= f.label :jewellery_href, class: 'sr-only' %>
+      <%= f.text_field :jewellery_href,  class: 'form-control col-4 href' %>
+    </div>
+    <div class="row info">
+      <p class="col-3">Wedding Planner</p>
+      <%= f.label :wedding_planner, class: 'sr-only' %>
+      <%= f.text_field :wedding_planner,  class: 'form-control col-4' %>
+      <%= f.label :wedding_planner_href, class: 'sr-only' %>
+      <%= f.text_field :wedding_planner_href,  class: 'form-control col-4 href' %>
+    </div>
+    <div class="row info">
+      <p class="col-3">Wedding Florist</p>
+      <%= f.label :wedding_florist, class: 'sr-only' %>
+      <%= f.text_field :wedding_florist,  class: 'form-control col-4' %>
+      <%= f.label :wedding_florist_href, class: 'sr-only' %>
+      <%= f.text_field :wedding_florist_href,  class: 'form-control col-4 href' %>
+    </div>
+    <div class="row info">
+      <p class="col-3">Makeup Artist</p>
+      <%= f.label :makeup_artist, class: 'sr-only' %>
+      <%= f.text_field :makeup_artist,  class: 'form-control col-4' %>
+      <%= f.label :makeup_artist_href, class: 'sr-only' %>
+      <%= f.text_field :makeup_artist_href,  class: 'form-control col-4 href' %>
+    </div>
+    <div class="row info">
+      <p class="col-3">Hairstylist</p>
+      <%= f.label :hairstylist, class: 'sr-only' %>
+      <%= f.text_field :hairstylist,  class: 'form-control col-4' %>
+      <%= f.label :hairstylist_href, class: 'sr-only' %>
+      <%= f.text_field :hairstylist_href,  class: 'form-control col-4 href' %>
+    </div>
+    <div class="row info">
+      <p class="col-3">Church</p>
+      <%= f.label :church, class: 'sr-only' %>
+      <%= f.text_field :church,  class: 'form-control col-4' %>
+      <%= f.label :church_href, class: 'sr-only' %>
+      <%= f.text_field :church_href,  class: 'form-control col-4 href' %>
+    </div>
+    <div class="row info">
+      <p class="col-3">Venue</p>
+      <%= f.label :venue, class: 'sr-only' %>
+      <%= f.text_field :venue,  class: 'form-control col-4' %>
+      <%= f.label :venue_href, class: 'sr-only' %>
+      <%= f.text_field :venue_href,  class: 'form-control col-4 href' %>
+    </div>
+  </div>
+<% end %>
