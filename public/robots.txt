@@ -6,3 +6,4 @@ Disallow: /password/
 Disallow: /users/
 Disallow: /edit
 Disallow: /new
+Sitemap: https://theofilosvenardos.com/sitemap.xml.gz

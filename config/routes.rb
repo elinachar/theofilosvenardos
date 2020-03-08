@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :faqs
-  resources :testimonials
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout'}, :skip => [:registrations]
   resources :users
 
@@ -13,10 +11,12 @@ Rails.application.routes.draw do
   resources "baptism-albums", :controller => :baptism_albums, :as => :baptism_albums
   resources "interior-albums", :controller => :interior_albums, :as => :interior_albums
 
+  resources :faqs, path: 'frequently-asked-questions'
+  resources :testimonials
+
   root 'basic_pages#index'
   get 'basic_pages/index'
   get 'about', to: 'basic_pages#about'
-  get 'frequently-asked-questions', to: 'basic_pages#faq'
   get 'contact', to: 'basic_pages#contact'
   post 'thank-you', to: 'basic_pages#thank_you'
 
