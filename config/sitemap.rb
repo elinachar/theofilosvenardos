@@ -28,7 +28,7 @@ SitemapGenerator::Sitemap.create do
   #   end
   add about_path
   add contact_path
-  add "/frequently-asked-questons"
+  add "/frequently-asked-questions"
 
 
   add wedding_albums_path, changefreq: 'weekly'
