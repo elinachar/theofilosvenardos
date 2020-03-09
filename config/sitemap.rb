@@ -1,5 +1,5 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "http://www.theofilosvenardos.com"
+SitemapGenerator::Sitemap.default_host = "https://www.theofilosvenardos.com"
 
 SitemapGenerator::Sitemap.compress = false
 
@@ -28,7 +28,7 @@ SitemapGenerator::Sitemap.create do
   #   end
   add about_path
   add contact_path
-  add faqs_path
+  add "/frequently-asked-questons"
 
 
   add wedding_albums_path, changefreq: 'weekly'
