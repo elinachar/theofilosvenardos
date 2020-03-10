@@ -1,7 +1,13 @@
 class BasicPagesController < ApplicationController
+  require 'will_paginate/array'
 
   def index
-    @testimonials = Testimonial.all.paginate(:page => params[:page], :per_page => 1)#.order("created_at DESC")
+    testimonials_en = Testimonial.english_testimonials.order("created_at DESC")
+    testimonials_gr = Testimonial.greek_testimonials.order("created_at DESC")
+    @testimonials = testimonials_en + testimonials_gr
+    @testimonials = @testimonials.paginate(:page => params[:page], :per_page => 1)
+    # byebug
+    # @testimonials = Testimonial.all.paginate(:page => params[:page], :per_page => 1)#.order("created_at DESC")
   end
 
   def faq
