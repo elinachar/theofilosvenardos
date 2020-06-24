@@ -5,5 +5,5 @@ $(document).on('turbolinks:load', function() {
       alert("Sorry. This photo is copyrighted. Contact Theofilos Venardos if you want to download it.");
       return false;
     }
-});
+  });
 })
