@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   end
 
   def get_instagram_photos
-    if true
+    if false
     # Get first 20 instagram photos
     @instagram_photos = []
     @instagram_links = []
