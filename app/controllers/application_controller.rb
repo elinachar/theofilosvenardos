@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::Base
-  before_action :get_instagram_media_url
+  before_action :get_instagram_media
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to main_app.root_url, alert: exception.message
   end
 
-  def get_instagram_media_url
+  def get_instagram_media
 
     # Check if long-lived access token needs to be refreshed
     expiration_date =  InstagramAccessToken.first.expires_at
@@ -15,7 +15,8 @@ class ApplicationController < ActionController::Base
 
       if refresh_request.success?
         InstagramAccessToken.first.update_attribute(:access_token, refresh_request.payload.access_token)
-        InstagramAccessToken.first.update_attribute(:expires_at, Date.today.strftime("%a, %d %b %Y"))
+        new_expiration_date = Date.today + 55.days
+        InstagramAccessToken.first.update_attribute(:expires_at, new_expiration_date.strftime("%a, %d %b %Y"))
       else
         render json: refresh_request.error, status: 400
       end
