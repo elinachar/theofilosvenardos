@@ -49,7 +49,8 @@ gem 'carrierwave'
 gem 'will_paginate', '~> 3.1.0'
 
 # Instagram
-gem 'instagram'
+# gem 'instagram'
+gem 'instagram_basic_display'
 
 # MiniMagick
 gem "mini_magick"
@@ -59,6 +60,8 @@ gem 'therubyracer', :platforms => :ruby
 
 # Sitemap XML
 gem 'sitemap_generator'
+
+gem "attr_encrypted", "~> 3.1.0"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

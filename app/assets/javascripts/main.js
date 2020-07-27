@@ -15,6 +15,28 @@ $(document).on('turbolinks:load', function() {
   }
   is_touch_device();
 
+  // INDEX Page
+  // Set thumbnail size of instagram photos
+  function instagram_thumbnail_size() {
+    // Set the size for the thumbnail images
+    var thumbnail_dimension = $(".instagram-photo:first-child").width();
+    $(".instagram-photo a").css({"height": thumbnail_dimension, "width": thumbnail_dimension });
+
+    // Zoom the image if its height is smaller than the anchor
+    var ratio
+    $(".instagram-photo img").each(function(index, value) {
+      if ( this.height < thumbnail_dimension ) {
+        ratio = this.width / this.height;
+        $(this).css("transform", "scale(" + ratio + ")");
+      }
+    })
+  }
+
+  instagram_thumbnail_size()
+  $(window).on('resize', function() {
+    instagram_thumbnail_size()
+  })
+
   // FAQ Page
   // Show/Hide flash on camera in accordion
   $(".card-header").click(function(){

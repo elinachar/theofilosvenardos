@@ -201,22 +201,29 @@ footer {
 
     .instagram-photo {
       padding: 0 5px;
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+
+        img {
+          margin: 4px auto;
+          height: auto;
+          width: auto;
+          cursor: pointer;
+        }
+
+        img:hover {
+          opacity: 0.6;
+        }
+      }
     }
 
-    img {
-      margin: 4px auto;
-      height: auto;
-      width: auto;
-      cursor: pointer;
-    }
 
-    img:hover {
-      opacity: 0.6;
-    }
   }
 }
-
-
 
 footer {
   .content {
@@ -333,6 +340,10 @@ footer {
 
   footer {
    // height: 130px;
+  }
+
+  footer .instagram-photo {
+    margin-bottom: 10px;
   }
 
   footer .social-media {
