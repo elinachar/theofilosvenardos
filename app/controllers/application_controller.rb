@@ -6,7 +6,13 @@ class ApplicationController < ActionController::Base
   end
 
   def get_instagram_media
+          byebug
+    if InstagramAccessToken.second.nil?
 
+      entry = InstagramAccessToken.create(access_token: "123456", expires_at: "Mon, 01 01 2020")
+      entry.save
+
+    end
     # Check if long-lived access token needs to be refreshed
     expiration_date =  InstagramAccessToken.first.expires_at
     if Date.strptime(expiration_date, "%a, %d %b %Y") <=  Date.today
