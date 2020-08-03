@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   end
 
   def get_instagram_media
-          byebug
     if InstagramAccessToken.second.nil?
 
       entry = InstagramAccessToken.create(access_token: "123456", expires_at: "Mon, 01 01 2020")
