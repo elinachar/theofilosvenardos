@@ -1,3 +1,4 @@
+<% content_for :title,  @wedding_album.wedding_album_translations.first.title + " | Wedding Portfolio | Theofilos Venardos Photography" %>
 <div class="container album wedding text-center">
 
   <%= render 'album_show',  locals: {album: @wedding_album, wedding_information: @wedding_inforomation} %>
