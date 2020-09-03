@@ -117,7 +117,11 @@ class WeddingAlbumsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_wedding_album
-      wedding_album_id = WeddingAlbumTranslation.where("title like ?",  params[:title].gsub("-and-"," & ").tr("-"," ")).first.wedding_album_id #Replace first the "-and-" in case there is also "%and%" in the title names (f.e. Andy) and then replace the "-" to spaces in case there were no "-and-" in the string
+      if Rails.env.production?
+        wedding_album_id = WeddingAlbumTranslation.where("title ilike ?",  params[:title].gsub("-and-"," & ").tr("-"," ")).first.wedding_album_id #Replace first the "-and-" in case there is also "%and%" in the title names (f.e. Andy) and then replace the "-" to spaces in case there were no "-and-" in the string
+      else
+        wedding_album_id = WeddingAlbumTranslation.where("title like ?",  params[:title].gsub("-and-"," & ").tr("-"," ")).first.wedding_album_id #Replace first the "-and-" in case there is also "%and%" in the title names (f.e. Andy) and then replace the "-" to spaces in case there were no "-and-" in the string
+      end
       @wedding_album = WeddingAlbum.find(wedding_album_id)
     end
 

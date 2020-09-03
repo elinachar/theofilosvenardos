@@ -93,7 +93,11 @@ class BaptismAlbumsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_baptism_album
-      baptism_album_id = BaptismAlbumTranslation.where("title like ?",  params[:title].gsub("-and-"," & ").tr("-"," ")).first.baptism_album_id #Replace first the "-and-" in case there is also "%and%" in the title names (f.e. Andy) and then replace the "-" to spaces in case there were no "-and-" in the string
+      if Rails.env.production?
+        baptism_album_id = BaptismAlbumTranslation.where("title ilike ?",  params[:title].gsub("-and-"," & ").tr("-"," ")).first.baptism_album_id #Replace first the "-and-" in case there is also "%and%" in the title names (f.e. Andy) and then replace the "-" to spaces in case there were no "-and-" in the string
+      else
+        baptism_album_id = BaptismAlbumTranslation.where("title like ?",  params[:title].gsub("-and-"," & ").tr("-"," ")).first.baptism_album_id #Replace first the "-and-" in case there is also "%and%" in the title names (f.e. Andy) and then replace the "-" to spaces in case there were no "-and-" in the string
+      end
       @baptism_album = BaptismAlbum.find(baptism_album_id)
     end
 
