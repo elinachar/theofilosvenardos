@@ -8,9 +8,11 @@ Rails.application.routes.draw do
     put 'users' => 'devise/registrations#update', :as => 'user_registration'
   end
 
-  resources "wedding-albums", :controller => :wedding_albums, :as => :wedding_albums
-  resources "baptism-albums", :controller => :baptism_albums, :as => :baptism_albums
-  resources "interior-albums", :controller => :interior_albums, :as => :interior_albums
+
+  resources "wedding-albums", :controller => :wedding_albums, :as => :wedding_albums, param: :title
+  resources "baptism-albums", :controller => :baptism_albums, :as => :baptism_albums, param: :title
+  resources "interior-albums", :controller => :interior_albums, :as => :interior_albums, param: :title
+
 
   resources :faqs
   resources :testimonials

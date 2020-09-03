@@ -92,7 +92,8 @@ class InteriorAlbumsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_interior_album
-      @interior_album = InteriorAlbum.find(params[:id])
+      interior_album_id = InteriorAlbumTranslation.where("title like ?",  params[:title].gsub("-and-"," & ").tr("-"," ")).first.interior_album_id #Replace first the "-and-" in case there is also "%and%" in the title names (f.e. Andy) and then replace the "-" to spaces in case there were no "-and-" in the string
+      @interior_album = InteriorAlbum.find(interior_album_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -117,7 +117,8 @@ class WeddingAlbumsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_wedding_album
-      @wedding_album = WeddingAlbum.find(params[:id])
+      wedding_album_id = WeddingAlbumTranslation.where("title like ?",  params[:title].gsub("-and-"," & ").tr("-"," ")).first.wedding_album_id #Replace first the "-and-" in case there is also "%and%" in the title names (f.e. Andy) and then replace the "-" to spaces in case there were no "-and-" in the string
+      @wedding_album = WeddingAlbum.find(wedding_album_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

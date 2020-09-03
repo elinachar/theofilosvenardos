@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_27_144859) do
+ActiveRecord::Schema.define(version: 2020_09_03_100141) do
 
   create_table "baptism_album_translations", force: :cascade do |t|
     t.integer "baptism_album_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_07_27_144859) do
     t.text "description"
     t.index ["baptism_album_id"], name: "index_baptism_album_translations_on_baptism_album_id"
     t.index ["language_id"], name: "index_baptism_album_translations_on_language_id"
+    t.index ["title"], name: "index_baptism_album_translations_on_title"
   end
 
   create_table "baptism_albums", force: :cascade do |t|
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(version: 2020_07_27_144859) do
     t.integer "interior_album_id"
     t.index ["interior_album_id"], name: "index_interior_album_translations_on_interior_album_id"
     t.index ["language_id"], name: "index_interior_album_translations_on_language_id"
+    t.index ["title"], name: "index_interior_album_translations_on_title"
   end
 
   create_table "interior_albums", force: :cascade do |t|
@@ -149,6 +151,7 @@ ActiveRecord::Schema.define(version: 2020_07_27_144859) do
     t.string "venue"
     t.string "venue_href"
     t.index ["language_id"], name: "index_wedding_album_translations_on_language_id"
+    t.index ["title"], name: "index_wedding_album_translations_on_title"
     t.index ["wedding_album_id"], name: "index_wedding_album_translations_on_wedding_album_id"
   end
 

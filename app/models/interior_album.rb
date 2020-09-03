@@ -7,4 +7,9 @@ class InteriorAlbum < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
   mount_uploader :photo_square, PhotoUploader
+
+  def to_param
+    self.interior_album_translations.first.title.downcase.tr(" ","-").gsub("&","and")
+  end
+
 end

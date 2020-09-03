@@ -93,7 +93,8 @@ class BaptismAlbumsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_baptism_album
-      @baptism_album = BaptismAlbum.find(params[:id])
+      baptism_album_id = BaptismAlbumTranslation.where("title like ?",  params[:title].gsub("-and-"," & ").tr("-"," ")).first.baptism_album_id #Replace first the "-and-" in case there is also "%and%" in the title names (f.e. Andy) and then replace the "-" to spaces in case there were no "-and-" in the string
+      @baptism_album = BaptismAlbum.find(baptism_album_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
