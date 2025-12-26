@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.3'
+ruby '2.6.10'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
@@ -53,10 +53,12 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'instagram_basic_display'
 
 # MiniMagick
-gem "mini_magick"
+gem 'mimemagic', '~> 0.3.10'
 
 gem 'execjs'
-gem 'therubyracer', :platforms => :ruby
+gem 'libv8', '~> 3.16.14.19', :platforms => :ruby
+gem 'therubyracer', '~> 0.12.3'
+
 
 # Sitemap XML
 gem 'sitemap_generator'
@@ -82,7 +84,7 @@ group :development do
 end
 
 group :production do
-  gem 'pg', '~> 0.20'
+  gem 'mysql2', '~> 0.5'
 
   #Concurrent ruby (for cpanel)
   # gem 'concurrent-ruby', require: 'concurrent'
